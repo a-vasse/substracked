@@ -4,5 +4,5 @@ class Resource < ApplicationRecord
   has_many :plans
 
   validates :name, presence: true, length: { minimum: 2 }
-  validates :url, presence: true,
+  validates :url, presence: true, format: { with: URI.regexp }
 end
