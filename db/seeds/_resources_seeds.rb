@@ -1,5 +1,5 @@
 # Resource.create(name: '', url: '')
-puts "Creating the rersources..."
+puts "Creating predefiened resources..."
 Resource.create!(name: "Netflix", url: "https://www.netflix.com/")
 Resource.create!(
   name: "Amazon Prime",
@@ -28,6 +28,19 @@ Resource.create!(name: "Youtube Premium", url: "https://www.youtube.com")
 Resource.create!(name: "Radish Boya", url: "https://www.radishbo-ya.co.jp/")
 Resource.create!(name: "Nosh", url: "https://nosh.jp/")
 Resource.create!(name: "HelloFresh", url: "https://www.hellofresh.jp/")
+puts "Added predefiened resources succesfully!"
 
-Resource.all.update(user: User.first)
-puts "Added rersources succesfully."
+puts "Create custom resources..."
+Resource.create!(name: "Clement's Super Gym", user: User.first)
+Resource.create!(
+  name: "Alex's Monthly Bunny Food",
+  url: "https://www.petsmart.com",
+  user: User.first,
+)
+Resource.create!(name: "3D Art supply by Kaho", user: User.first)
+Resource.create!(
+  name: "Patrick's Jokes about Ireland",
+  url: "https://www.google.de",
+  user: User.first,
+)
+puts "Create custom resources succesfully!"
