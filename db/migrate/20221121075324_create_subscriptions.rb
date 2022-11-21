@@ -1,7 +1,6 @@
 class CreateSubscriptions < ActiveRecord::Migration[7.0]
   def change
     create_table :subscriptions do |t|
-      t.string :display_name
       t.boolean :status, default: true
       t.string :region
       t.text :notes
