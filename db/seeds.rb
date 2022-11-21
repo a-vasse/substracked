@@ -9,4 +9,4 @@ require_relative "seeds/plans_seeds"
 require_relative "seeds/resources_seeds"
 require_relative "seeds/subscriptions_seeds"
 
-User.create(id: 1, name: "Winston", email: "user@me.com", password: "test")
+User.create(name: "Winston", email: "user@me.com", password: "test")
