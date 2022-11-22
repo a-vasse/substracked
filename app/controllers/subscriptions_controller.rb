@@ -12,7 +12,6 @@ class SubscriptionsController < ApplicationController
   end
 
   def create
-    @user = current_user
     @subscription = Subscription.new(subscription_params)
     @subscription.user = current_user
     if @subscription.save
