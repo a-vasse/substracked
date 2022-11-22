@@ -21,6 +21,10 @@
     height: 20px;
   }
 
+  .dropdown {
+    cursor: pointer;
+  }
+
   &-welcome {
     &:hover {
       .waving-hand-icon {
