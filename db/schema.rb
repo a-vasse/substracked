@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_22_020012) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_22_032858) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -56,9 +56,9 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_020012) do
   create_table "resources", force: :cascade do |t|
     t.string "name"
     t.string "url"
-    t.bigint "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "user_id"
     t.index ["user_id"], name: "index_resources_on_user_id"
   end
 
@@ -70,10 +70,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_020012) do
     t.date "start_date"
     t.integer "notification_frequency"
     t.bigint "user_id", null: false
-    t.bigint "resource_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["resource_id"], name: "index_subscriptions_on_resource_id"
+    t.bigint "plan_id", null: false
+    t.index ["plan_id"], name: "index_subscriptions_on_plan_id"
     t.index ["user_id"], name: "index_subscriptions_on_user_id"
   end
 
@@ -83,6 +83,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_020012) do
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
+    t.string "name", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["email"], name: "index_users_on_email", unique: true
@@ -93,6 +94,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_020012) do
   add_foreign_key "active_storage_variant_records", "active_storage_blobs", column: "blob_id"
   add_foreign_key "plans", "resources"
   add_foreign_key "resources", "users"
-  add_foreign_key "subscriptions", "resources"
+  add_foreign_key "subscriptions", "plans"
   add_foreign_key "subscriptions", "users"
 end
