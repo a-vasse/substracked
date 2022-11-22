@@ -12,18 +12,37 @@ class SubscriptionsController < ApplicationController
   end
 
   def create
-    raise
+    @user = current_user
+    @subscription = Subscription.new(subscription_params)
+    @subscription.user = current_user
+    if @subscription.save
+      redirect_to user_path(current_user)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit
-    raise
+    @subscription = Subscription.find(params[:id])
   end
 
   def update
-    raise
+    @subscription = subscription.find(params[:id])
+    if @subscription.update(subscription_params)
+      redirect_to subscriptions_path(@subscription)
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def destroy
-    raise
+    @subscription = Subscription.find(params[:id])
+    @subscription.destroy
+    redirect_to user_path(current_user)
+  end
+
+  private
+  def subscription_params
+    params.require(:subscription).permit(:region, :renewal_date, :start_date, :notification_frequency, :user_id, :resource_id)
   end
 end
