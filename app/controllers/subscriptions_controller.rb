@@ -1,6 +1,6 @@
 class SubscriptionsController < ApplicationController
   def index
-    raise
+    @subscriptions = Subscription.all
   end
 
   def show
