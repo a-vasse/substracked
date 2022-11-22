@@ -12,7 +12,7 @@
     <%# Total Amount Display %>
     <div class="col-md-6 col-12"></div>
   </section>
-  <%= @subscriptions.each do |subscription| %>
+  <% @subscriptions.each do |subscription| %>
     <%= subscription.region %>
   <% end %>
 </div>
