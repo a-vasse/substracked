@@ -1,7 +1,7 @@
 puts "seeding plans..."
 
 Plan.create!(
-  plan: "Basic with ads",
+  name: "Basic with ads",
   price: 790, billing_cycle: 1,
   Cancellation_notice: "> 1 hour ",
   url: "https://www.netflix.com/",
@@ -9,7 +9,7 @@ Plan.create!(
 )
 
 Plan.create!(
-  plan: "Basic",
+  name: "Basic",
   price: 990, billing_cycle: 1,
   Cancellation_notice: "> 1 hour ",
   url: "https://www.netflix.com/",
@@ -17,7 +17,7 @@ Plan.create!(
 )
 
 Plan.create!(
-  plan: "Standard",
+  name: "Standard",
   price: 1490, billing_cycle: 1,
   Cancellation_notice: "> 1 hour ",
   url: "https://www.netflix.com/",
@@ -25,7 +25,7 @@ Plan.create!(
 )
 
 Plan.create!(
-  plan: "Premium",
+  name: "Premium",
   price: 1980, billing_cycle: 1,
   Cancellation_notice: "> 1 hour ",
   url: "https://www.netflix.com/",
@@ -33,7 +33,7 @@ Plan.create!(
 )
 
 Plan.create!(
-  plan: "Monthly",
+  name: "Monthly",
   price: 1980, billing_cycle: 1,
   Cancellation_notice: "> 1 hour ",
   url: "https://www.netflix.com/",
@@ -41,7 +41,7 @@ Plan.create!(
 )
 
 Plan.create!(
-  plan: "Annual",
+  name: "Annual",
   price: 1980, billing_cycle: 1,
   Cancellation_notice: "> 1 hour ",
   url: "https://www.netflix.com/",
@@ -49,7 +49,7 @@ Plan.create!(
 )
 
   Plan.create!(
-  plan: "",
+  name: "",
   price: 900, billing_cycle: 1,
   Cancellation_notice: "",
   url: "https://tv.apple.com/jp?l=en",
@@ -57,7 +57,7 @@ Plan.create!(
 )
 
   Plan.create!(
-  plan: "monthly",
+  name: "monthly",
   price: 990 , billing_cycle: 1,
   Cancellation_notice: "",
   url: "https://www.disneyplus.com/en-jp",
@@ -65,7 +65,7 @@ Plan.create!(
 )
 
   Plan.create!(
-  plan: "annual",
+  name: "annual",
   price: 9900, billing_cycle: 12,
   Cancellation_notice: "",
   url: "https://www.disneyplus.com/en-jp",
@@ -73,7 +73,7 @@ Plan.create!(
 )
 
   Plan.create!(
-  plan: "individual",
+  name: "individual",
   price: 20400, billing_cycle: 12,
   Cancellation_notice: "",
   url: "https://www.masterclass.com/",
@@ -81,7 +81,7 @@ Plan.create!(
 )
 
   Plan.create!(
-  plan: "Duo",
+  name: "Duo",
   price: 27600, billing_cycle: 12,
   Cancellation_notice: "",
   url: "https://www.masterclass.com/",
@@ -89,7 +89,7 @@ Plan.create!(
 )
 
   Plan.create!(
-  plan: "Family",
+  name: "Family",
   price: 31200, billing_cycle: 12,
   Cancellation_notice: "",
   url: "https://www.masterclass.com/",
@@ -97,7 +97,7 @@ Plan.create!(
 )
 
   Plan.create!(
-  plan: "",
+  name: "",
   price: 1026, billing_cycle: 1,
   Cancellation_notice: "",
   url: "https://www.hulu.jp/",
@@ -105,7 +105,7 @@ Plan.create!(
 )
 
   Plan.create!(
-  plan: "PC/Console",
+  name: "PC/Console",
   price: 850, billing_cycle: 1,
   Cancellation_notice: "",
   url: "https://www.xbox.com/ja-JP/xbox-game-pass",
@@ -113,7 +113,7 @@ Plan.create!(
 )
 
   Plan.create!(
-  plan: "Ultimate",
+  name: "Ultimate",
   price: 1100, billing_cycle: 1,
   Cancellation_notice: "",
   url: "https://www.xbox.com/ja-JP/xbox-game-pass",
@@ -121,7 +121,7 @@ Plan.create!(
 )
 
   Plan.create!(
-  plan: "Essential",
+  name: "Essential",
   price: 850, billing_cycle: 1,
   Cancellation_notice: "",
   url: "https://www.playstation.com/ja-jp/ps-plus/",
@@ -129,7 +129,7 @@ Plan.create!(
 )
 
   Plan.create!(
-  plan: "Extra",
+  name: "Extra",
   price: 1300, billing_cycle: 1,
   Cancellation_notice: "",
   url: "https://www.playstation.com/ja-jp/ps-plus/",
@@ -137,7 +137,7 @@ Plan.create!(
 )
 
   Plan.create!(
-  plan: "Premium",
+  name: "Premium",
   price: 1550, billing_cycle: 1,
   Cancellation_notice: "",
   url: "https://www.playstation.com/ja-jp/ps-plus/",
@@ -145,7 +145,7 @@ Plan.create!(
 )
 
   Plan.create!(
-  plan: "individual",
+  name: "individual",
   price: 306, billing_cycle: 1,
   Cancellation_notice: "",
   url: "https://www.nintendo.co.jp/hardware/switch/onlineservice/",
@@ -153,7 +153,7 @@ Plan.create!(
 )
 
   Plan.create!(
-  plan: "individual plus",
+  name: "individual plus",
   price: 4900, billing_cycle: 12,
   Cancellation_notice: "",
   url: "https://www.nintendo.co.jp/hardware/switch/onlineservice/",
@@ -161,7 +161,7 @@ Plan.create!(
 )
 
   Plan.create!(
-  plan: "family",
+  name: "family",
   price: 4500, billing_cycle: 12,
   Cancellation_notice: "",
   url: "https://www.nintendo.co.jp/hardware/switch/onlineservice/",
@@ -169,7 +169,7 @@ Plan.create!(
 )
 
   Plan.create!(
-  plan: "family plus",
+  name: "family plus",
   price: 8900, billing_cycle: 12,
   Cancellation_notice: "",
   url: "https://www.nintendo.co.jp/hardware/switch/onlineservice/",
@@ -177,7 +177,7 @@ Plan.create!(
 )
 
   Plan.create!(
-  plan: "Premium",
+  name: "Premium",
   price: 563, billing_cycle: 1,
   Cancellation_notice: "",
   url: "https://github.com/",
@@ -185,7 +185,7 @@ Plan.create!(
 )
 
   Plan.create!(
-  plan: "paper",
+  name: "paper",
   price: 4900, billing_cycle: 1,
   Cancellation_notice: "",
   url: "https://www.nikkei.com/",
@@ -193,7 +193,7 @@ Plan.create!(
 )
 
   Plan.create!(
-  plan: "Electronic",
+  name: "Electronic",
   price: 4277, billing_cycle: 1,
   Cancellation_notice: "",
   url: "https://www.nikkei.com/",
@@ -201,7 +201,7 @@ Plan.create!(
 )
 
   Plan.create!(
-  plan: "Year-plan",
+  name: "Year-name",
   price: 2815, billing_cycle: 12,
   Cancellation_notice: "",
   url: "",
@@ -209,7 +209,7 @@ Plan.create!(
 )
 
   Plan.create!(
-  plan: "individual",
+  name: "individual",
   price: 1180, billing_cycle: 1,
   Cancellation_notice: "",
   url: "",
@@ -217,7 +217,7 @@ Plan.create!(
 )
 
   Plan.create!(
-  plan: "individual annual",
+  name: "individual annual",
   price: 11800, billing_cycle: 12,
   Cancellation_notice: "",
   url: "",
@@ -225,7 +225,7 @@ Plan.create!(
 )
 
   Plan.create!(
-  plan: "family",
+  name: "family",
   price: 2280, billing_cycle: 1,
   Cancellation_notice: "",
   url: "",
@@ -233,7 +233,7 @@ Plan.create!(
 )
 
   Plan.create!(
-  plan: "student",
+  name: "student",
   price: 680, billing_cycle: 1,
   Cancellation_notice: "",
   url: "",
@@ -241,7 +241,7 @@ Plan.create!(
 )
 
   Plan.create!(
-  plan: "S",
+  name: "S",
   price: 3800, billing_cycle: 0.25,
   Cancellation_notice: "",
   url: "https://www.radishbo-ya.co.jp/",
@@ -249,7 +249,7 @@ Plan.create!(
 )
 
   Plan.create!(
-  plan: "M",
+  name: "M",
   price: 4200, billing_cycle: 0.25,
   Cancellation_notice: "",
   url: "https://www.radishbo-ya.co.jp/",
@@ -257,7 +257,7 @@ Plan.create!(
 )
 
   Plan.create!(
-  plan: "6 meal",
+  name: "6 meal",
   price: 3888, billing_cycle: 0.25,
   Cancellation_notice: "",
   url: "https://nosh.jp/influencer-promotion?key=retargeting1000off&utm_source=google&utm_medium=cpc&utm_campaign=nosh&utm_content=nosh&utm_term=%E5%BC%81%E5%BD%93%20nosh&gclid=Cj0KCQiAveebBhD_ARIsAFaAvrG1c1B8STzIfkOf98h-Zn4L4Hs7AN5oxs0LMtQlJ_ZwtzMNsvBmjjIaAtn1EALw_wcB",
@@ -265,7 +265,7 @@ Plan.create!(
 )
 
   Plan.create!(
-  plan: "2 people 3 recipes",
+  name: "2 people 3 recipes",
   price: 4860, billing_cycle: 0.25,
   Cancellation_notice: "",
   url: "https://www.hellofresh.jp/",
@@ -273,7 +273,7 @@ Plan.create!(
 )
 
   Plan.create!(
-  plan: "2 people 4 recipes",
+  name: "2 people 4 recipes",
   price: 6060, billing_cycle: 0.25,
   Cancellation_notice: "",
   url: "https://www.hellofresh.jp/",
@@ -281,7 +281,7 @@ Plan.create!(
 )
 
   Plan.create!(
-  plan: "4 people 3 recipes",
+  name: "4 people 3 recipes",
   price: 9060, billing_cycle: 0.25,
   Cancellation_notice: "",
   url: "https://www.hellofresh.jp/",
