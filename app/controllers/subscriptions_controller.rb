@@ -8,7 +8,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def new
-    raise
+    @subscription = Subscription.new
   end
 
   def create
