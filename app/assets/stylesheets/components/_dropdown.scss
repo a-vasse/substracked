@@ -1,0 +1,17 @@
+.dropdown {
+  &-menu {
+    margin-top: .5rem !important;
+    padding: 0;
+    border: none;
+  }
+
+  &-item {
+    text-align: right;
+    padding: .5rem .75rem;
+
+    &:hover {
+      background-color: $primary;
+      color: white;
+    }
+  }
+}
