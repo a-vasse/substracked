@@ -15,7 +15,7 @@ class SubscriptionsController < ApplicationController
     @subscription = Subscription.new(subscription_params)
     @subscription.user = current_user
     if @subscription.save
-      redirect_to user_path(current_user)
+      redirect_to subscriptions_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -42,6 +42,6 @@ class SubscriptionsController < ApplicationController
 
   private
   def subscription_params
-    params.require(:subscription).permit(:region, :renewal_date, :start_date, :notification_frequency, :user_id, :resource_id)
+    params.require(:subscription).permit(:region, :renewal_date, :start_date, :notification_frequency, :user_id, :resource_id, :notes)
   end
 end
