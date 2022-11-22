@@ -5,7 +5,6 @@ Plan.create!(
   price: 790,
   billing_cycle: 1,
   cancellation_notice: "> 1 hour ",
-  url: "https://www.netflix.com/",
   resource: Resource.find_by(name: "Netflix"),
 )
 
@@ -14,7 +13,6 @@ Plan.create!(
   price: 990,
   billing_cycle: 1,
   cancellation_notice: "> 1 hour ",
-  url: "https://www.netflix.com/",
   resource: Resource.find_by(name: "Netflix"),
 )
 
@@ -23,7 +21,6 @@ Plan.create!(
   price: 1490,
   billing_cycle: 1,
   cancellation_notice: "> 1 hour ",
-  url: "https://www.netflix.com/",
   resource: Resource.find_by(name: "Netflix"),
 )
 
@@ -32,7 +29,6 @@ Plan.create!(
   price: 1980,
   billing_cycle: 1,
   cancellation_notice: "> 1 hour ",
-  url: "https://www.netflix.com/",
   resource: Resource.find_by(name: "Netflix"),
 )
 
@@ -41,7 +37,6 @@ Plan.create!(
   price: 1980,
   billing_cycle: 1,
   cancellation_notice: "> 1 hour ",
-  url: "https://www.netflix.com/",
   resource: Resource.find_by(name: "Amazon Prime"),
 )
 
@@ -50,7 +45,6 @@ Plan.create!(
   price: 1980,
   billing_cycle: 1,
   cancellation_notice: "> 1 hour ",
-  url: "https://www.netflix.com/",
   resource: Resource.find_by(name: "Amazon Prime"),
 )
 
@@ -59,7 +53,6 @@ Plan.create!(
   price: 900,
   billing_cycle: 1,
   cancellation_notice: "",
-  url: "https://tv.apple.com/jp?l=en",
   resource: Resource.find_by(name: "Apple TV"),
 )
 
@@ -68,7 +61,6 @@ Plan.create!(
   price: 990,
   billing_cycle: 1,
   cancellation_notice: "",
-  url: "https://www.disneyplus.com/en-jp",
   resource: Resource.find_by(name: "Disney +"),
 )
 
@@ -77,7 +69,6 @@ Plan.create!(
   price: 9900,
   billing_cycle: 12,
   cancellation_notice: "",
-  url: "https://www.disneyplus.com/en-jp",
   resource: Resource.find_by(name: "Disney +"),
 )
 
@@ -86,7 +77,6 @@ Plan.create!(
   price: 20_400,
   billing_cycle: 12,
   cancellation_notice: "",
-  url: "https://www.masterclass.com/",
   resource: Resource.find_by(name: "Masterclass"),
 )
 
@@ -95,7 +85,6 @@ Plan.create!(
   price: 27_600,
   billing_cycle: 12,
   cancellation_notice: "",
-  url: "https://www.masterclass.com/",
   resource: Resource.find_by(name: "Masterclass"),
 )
 
@@ -104,7 +93,6 @@ Plan.create!(
   price: 31_200,
   billing_cycle: 12,
   cancellation_notice: "",
-  url: "https://www.masterclass.com/",
   resource: Resource.find_by(name: "Masterclass"),
 )
 
@@ -113,7 +101,6 @@ Plan.create!(
   price: 1026,
   billing_cycle: 1,
   cancellation_notice: "",
-  url: "https://www.hulu.jp/",
   resource: Resource.find_by(name: "Hulu"),
 )
 
@@ -122,8 +109,7 @@ Plan.create!(
   price: 850,
   billing_cycle: 1,
   cancellation_notice: "",
-  url: "https://www.xbox.com/ja-JP/xbox-game-pass",
-  resource: Resource.find_by(name: "Xbox game pass"),
+  resource: Resource.find_by(name: "Xbox Game Pass"),
 )
 
 Plan.create!(
@@ -131,8 +117,7 @@ Plan.create!(
   price: 1100,
   billing_cycle: 1,
   cancellation_notice: "",
-  url: "https://www.xbox.com/ja-JP/xbox-game-pass",
-  resource: Resource.find_by(name: "Xbox game pass"),
+  resource: Resource.find_by(name: "Xbox Game Pass"),
 )
 
 Plan.create!(
@@ -140,8 +125,7 @@ Plan.create!(
   price: 850,
   billing_cycle: 1,
   cancellation_notice: "",
-  url: "https://www.playstation.com/ja-jp/ps-plus/",
-  resource: Resource.find_by(name: "Playstation plus"),
+  resource: Resource.find_by(name: "Playstation Plus"),
 )
 
 Plan.create!(
@@ -149,8 +133,7 @@ Plan.create!(
   price: 1300,
   billing_cycle: 1,
   cancellation_notice: "",
-  url: "https://www.playstation.com/ja-jp/ps-plus/",
-  resource: Resource.find_by(name: "Playstation plus"),
+  resource: Resource.find_by(name: "Playstation Plus"),
 )
 
 Plan.create!(
@@ -158,8 +141,7 @@ Plan.create!(
   price: 1550,
   billing_cycle: 1,
   cancellation_notice: "",
-  url: "https://www.playstation.com/ja-jp/ps-plus/",
-  resource: Resource.find_by(name: "Playstation plus"),
+  resource: Resource.find_by(name: "Playstation Plus"),
 )
 
 Plan.create!(
@@ -167,8 +149,7 @@ Plan.create!(
   price: 306,
   billing_cycle: 1,
   cancellation_notice: "",
-  url: "https://www.nintendo.co.jp/hardware/switch/onlineservice/",
-  resource: Resource.find_by(name: "Nintendo online"),
+  resource: Resource.find_by(name: "Nintendo Online"),
 )
 
 Plan.create!(
@@ -176,8 +157,7 @@ Plan.create!(
   price: 4900,
   billing_cycle: 12,
   cancellation_notice: "",
-  url: "https://www.nintendo.co.jp/hardware/switch/onlineservice/",
-  resource: Resource.find_by(name: "Nintendo online"),
+  resource: Resource.find_by(name: "Nintendo Online"),
 )
 
 Plan.create!(
@@ -185,8 +165,7 @@ Plan.create!(
   price: 4500,
   billing_cycle: 12,
   cancellation_notice: "",
-  url: "https://www.nintendo.co.jp/hardware/switch/onlineservice/",
-  resource: Resource.find_by(name: "Nintendo online"),
+  resource: Resource.find_by(name: "Nintendo Online"),
 )
 
 Plan.create!(
@@ -194,8 +173,7 @@ Plan.create!(
   price: 8900,
   billing_cycle: 12,
   cancellation_notice: "",
-  url: "https://www.nintendo.co.jp/hardware/switch/onlineservice/",
-  resource: Resource.find_by(name: "Nintendo online"),
+  resource: Resource.find_by(name: "Nintendo Online"),
 )
 
 Plan.create!(
@@ -203,7 +181,6 @@ Plan.create!(
   price: 563,
   billing_cycle: 1,
   cancellation_notice: "",
-  url: "https://github.com/",
   resource: Resource.find_by(name: "Github"),
 )
 
@@ -212,7 +189,6 @@ Plan.create!(
   price: 4900,
   billing_cycle: 1,
   cancellation_notice: "",
-  url: "https://www.nikkei.com/",
   resource: Resource.find_by(name: "Nikkei"),
 )
 
@@ -221,7 +197,6 @@ Plan.create!(
   price: 4277,
   billing_cycle: 1,
   cancellation_notice: "",
-  url: "https://www.nikkei.com/",
   resource: Resource.find_by(name: "Nikkei"),
 )
 
@@ -230,7 +205,6 @@ Plan.create!(
   price: 2815,
   billing_cycle: 12,
   cancellation_notice: "",
-  url: "https://www.nytimes.com/",
   resource: Resource.find_by(name: "The New York Times"),
 )
 
@@ -239,8 +213,7 @@ Plan.create!(
   price: 1180,
   billing_cycle: 1,
   cancellation_notice: "",
-  url: "https://www.youtube.com/",
-  resource: Resource.find_by(name: "Youtube premium"),
+  resource: Resource.find_by(name: "Youtube Premium"),
 )
 
 Plan.create!(
@@ -248,8 +221,7 @@ Plan.create!(
   price: 11_800,
   billing_cycle: 12,
   cancellation_notice: "",
-  url: "https://www.youtube.com/",
-  resource: Resource.find_by(name: "Youtube premium"),
+  resource: Resource.find_by(name: "Youtube Premium"),
 )
 
 Plan.create!(
@@ -257,8 +229,7 @@ Plan.create!(
   price: 2280,
   billing_cycle: 1,
   cancellation_notice: "",
-  url: "https://www.youtube.com/",
-  resource: Resource.find_by(name: "Youtube premium"),
+  resource: Resource.find_by(name: "Youtube Premium"),
 )
 
 Plan.create!(
@@ -266,8 +237,7 @@ Plan.create!(
   price: 680,
   billing_cycle: 1,
   cancellation_notice: "",
-  url: "https://www.youtube.com/",
-  resource: Resource.find_by(name: "Youtube premium"),
+  resource: Resource.find_by(name: "Youtube Premium"),
 )
 
 Plan.create!(
@@ -275,7 +245,6 @@ Plan.create!(
   price: 3800,
   billing_cycle: 0.25,
   cancellation_notice: "",
-  url: "https://www.radishbo-ya.co.jp/",
   resource: Resource.find_by(name: "Radish Boya"),
 )
 
@@ -284,7 +253,6 @@ Plan.create!(
   price: 4200,
   billing_cycle: 0.25,
   cancellation_notice: "",
-  url: "https://www.radishbo-ya.co.jp/",
   resource: Resource.find_by(name: "Radish Boya"),
 )
 
@@ -293,7 +261,6 @@ Plan.create!(
   price: 3888,
   billing_cycle: 0.25,
   cancellation_notice: "",
-  url: "https://nosh.jp/",
   resource: Resource.find_by(name: "Nosh"),
 )
 
@@ -302,7 +269,6 @@ Plan.create!(
   price: 4860,
   billing_cycle: 0.25,
   cancellation_notice: "",
-  url: "https://www.hellofresh.jp/",
   resource: Resource.find_by(name: "HelloFresh"),
 )
 
@@ -311,7 +277,6 @@ Plan.create!(
   price: 6060,
   billing_cycle: 0.25,
   cancellation_notice: "",
-  url: "https://www.hellofresh.jp/",
   resource: Resource.find_by(name: "HelloFresh"),
 )
 
@@ -320,7 +285,6 @@ Plan.create!(
   price: 9060,
   billing_cycle: 0.25,
   cancellation_notice: "",
-  url: "https://www.hellofresh.jp/",
   resource: Resource.find_by(name: "HelloFresh"),
 )
 puts "Finished seeding plans!"

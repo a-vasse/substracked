@@ -21,7 +21,7 @@ Resource.create!(
   name: "Nintendo Online",
   url: "https://www.nintendo.co.jp/hardware/switch/onlineservice/",
 )
-Resource.create!(name: "Github ", url: "https://github.com/")
+Resource.create!(name: "Github", url: "https://github.com/")
 Resource.create!(name: "Nikkei", url: "https://www.nikkei.com/")
 Resource.create!(name: "The New York Times", url: "https://www.nytimes.com/")
 Resource.create!(name: "Youtube Premium", url: "https://www.youtube.com")
