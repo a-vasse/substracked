@@ -1,6 +1,7 @@
 class Subscription < ApplicationRecord
   belongs_to :user
   belongs_to :resource
+  belongs_to :plan
 
   validates :region, presence: true
   validates :renewal_date, presence: true
