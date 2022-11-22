@@ -33,6 +33,7 @@
       <p>These are your currently active subscriptions.</p>
       <div class="subscriptions">
         <%= link_to 'add a new sub', '', class: 'btn btn-primary mb-3', data: { :bs_target => '#addSubscriptionModal', :bs_toggle => 'modal' } %>
+        <%= render "new", subscription: @subscription %>
         <% @active_subscriptions.each do |subscription| %>
           <%= render 'shared/card', subscription: subscription %>
         <% end %>
