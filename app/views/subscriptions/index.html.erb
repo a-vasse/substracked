@@ -32,7 +32,8 @@
       <h2>Active</h2>
       <p>These are your currently active subscriptions.</p>
       <div class="subscriptions">
-        <%= link_to 'add a new sub', class: 'btn btn-primary', data: { :bs_target => '#addSubscriptionModal', :bs_toggle => 'modal' } %>
+        <%= link_to 'add a new sub', '', class: 'btn btn-primary', data: { :bs_target => '#addSubscriptionModal', :bs_toggle => 'modal' } %>
+        <%= render "new", subscription: @subscription %>
       </div>
     </div>
     <%# inactive subscriptions %>

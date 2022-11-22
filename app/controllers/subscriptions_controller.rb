@@ -1,6 +1,9 @@
 class SubscriptionsController < ApplicationController
   def index
     @subscriptions = policy_scope(Subscription.all)
+    @subscription = Subscription.new
+    @resources = Resource.where(user: nil)
+    @plans = Plan.all
   end
 
   def show
@@ -9,15 +12,17 @@ class SubscriptionsController < ApplicationController
 
   def new
     @subscription = Subscription.new
+    authorize @subscription
   end
 
   def create
     @subscription = Subscription.new(subscription_params)
     @subscription.user = current_user
+    authorize @subscription
     if @subscription.save
       redirect_to subscriptions_path
     else
-      render :new, status: :unprocessable_entity
+      render :index, status: :unprocessable_entity
     end
   end
 
@@ -43,6 +48,6 @@ class SubscriptionsController < ApplicationController
   private
 
   def subscription_params
-    params.require(:subscription).permit(:region, :renewal_date, :start_date, :notification_frequency, :user_id, :resource_id, :notes)
+    params.require(:subscription).permit(:region, :renewal_date, :start_date, :notification_frequency, :user_id, :plan_id, :notes)
   end
 end
