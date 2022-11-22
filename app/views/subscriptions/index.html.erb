@@ -1,18 +1,44 @@
-<div class="container">
+<section class="container">
   <%# Intro Section %>
-  <section class="row">
+  <div class="row">
     <%# Text Intro %>
     <div class="col-md-6 col-12">
-      <h1></h1>
-      <p>This is your total amount spent in October 2022, based on the monthly average of all active subscriptions.
-        <br>
-        From this page you can manage your active subscriptions, as well as add new subscriptions and renew inactive subscriptions.
-      </p>
+      <h1>< <%= Time.new.strftime("%B") %> ></h1>
+        <p>This is your total amount spent in October 2022, based on the monthly average of all active subscriptions.
+          <br>
+          From this page you can manage your active subscriptions, as well as add new subscriptions and renew inactive subscriptions.
+        </p>
+      </div>
+      <%# Total Amount Display %>
+      <div class="col-md-6 col-12"></div>
     </div>
-    <%# Total Amount Display %>
-    <div class="col-md-6 col-12"></div>
-  </section>
-  <% @subscriptions.each do |subscription| %>
-    <%= subscription.region %>
-  <% end %>
-</div>
+  </div>
+</section>
+<%# Subscription Section %>
+<section class="container">
+  <div class="row">
+    <%# Soon to be renewed subscriptions %>
+    <div class="col-md-6 col-12">
+      <h2>Soon to be renewed</h2>
+      <p>These subscriptions will auto-renew within this month.</p>
+      <% @subscriptions.each do |subscription| %>
+        <div class="card">
+          <%= subscription.region %>
+        </div>
+      <% end %>
+    </div>
+    <%# Active subscriptions %>
+    <div class="col-md-6 col-12">
+      <h2>Active</h2>
+      <p>These are your currently active subscriptions.</p>
+      <div class="subscriptions">
+        <%= link_to 'add a new sub', class: 'btn btn-primary', data: { :bs_target => '#addSubscriptionModal', :bs_toggle => 'modal' } %>
+      </div>
+    </div>
+    <%# inactive subscriptions %>
+    <div class="col-md-6 col-12">
+      <h2>Inactive</h2>
+      <p>These are registered subscriptions that are currently inactive.</p>
+    </div>
+  </div>
+</section>
