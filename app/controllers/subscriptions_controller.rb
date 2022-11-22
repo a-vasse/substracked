@@ -1,6 +1,6 @@
 class SubscriptionsController < ApplicationController
   def index
-    @subscriptions = Subscription.all
+    @subscriptions = policy_scope(Subscription.all)
   end
 
   def show
