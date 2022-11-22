@@ -5,6 +5,7 @@ class SubscriptionsController < ApplicationController
 
   def show
     @subscription = Subscription.find(params[:id])
+    authorize @subscription
   end
 
   def new
@@ -36,6 +37,7 @@ class SubscriptionsController < ApplicationController
 
   def destroy
     @subscription = Subscription.find(params[:id])
+    authorize @subscription
     @subscription.destroy
     redirect_to user_path(current_user)
   end
