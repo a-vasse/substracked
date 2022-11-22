@@ -70,12 +70,10 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_22_032858) do
     t.date "start_date"
     t.integer "notification_frequency"
     t.bigint "user_id", null: false
-    t.bigint "resource_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "plan_id", null: false
     t.index ["plan_id"], name: "index_subscriptions_on_plan_id"
-    t.index ["resource_id"], name: "index_subscriptions_on_resource_id"
     t.index ["user_id"], name: "index_subscriptions_on_user_id"
   end
 
