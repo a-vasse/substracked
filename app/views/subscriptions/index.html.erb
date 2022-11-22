@@ -23,7 +23,7 @@
       <p>These subscriptions will auto-renew within this month.</p>
       <% @subscriptions.each do |subscription| %>
         <div class="card">
-          <%= subscription.region %>
+          <%= subscription.display_name %>
         </div>
       <% end %>
     </div>

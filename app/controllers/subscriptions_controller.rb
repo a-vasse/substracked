@@ -41,6 +41,7 @@ class SubscriptionsController < ApplicationController
   end
 
   private
+
   def subscription_params
     params.require(:subscription).permit(:region, :renewal_date, :start_date, :notification_frequency, :user_id, :resource_id, :notes)
   end
