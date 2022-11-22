@@ -1,6 +1,14 @@
 class SubscriptionsController < ApplicationController
   def index
     @subscriptions = policy_scope(Subscription.all)
+    @active_subscriptions = @subscriptions.where(status: true)
+    @inactive_subscriptions = @subscriptions.where(status: false)
+    @upcoming_subscriptions =
+      @subscriptions.where(
+        "renewal_date >= ? AND renewal_date <= ?",
+        Date.today,
+        1.week.from_now,
+      )
   end
 
   def show
@@ -43,6 +51,14 @@ class SubscriptionsController < ApplicationController
   private
 
   def subscription_params
-    params.require(:subscription).permit(:region, :renewal_date, :start_date, :notification_frequency, :user_id, :resource_id, :notes)
+    params.require(:subscription).permit(
+      :region,
+      :renewal_date,
+      :start_date,
+      :notification_frequency,
+      :user_id,
+      :resource_id,
+      :notes,
+    )
   end
 end
