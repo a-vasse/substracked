@@ -36,6 +36,8 @@
         <%= render "new", subscription: @subscription %>
         <% @active_subscriptions.each do |subscription| %>
           <%= render 'shared/card', subscription: subscription %>
+          <%= link_to 'Edit your sub', '', class: 'btn btn-primary mb-3', data: { :bs_target => "#editSubscriptionModal#{subscription.id}", :bs_toggle => 'modal' } %>
+          <%= render "update", subscription: subscription %>
         <% end %>
       </div>
     </div>

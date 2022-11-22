@@ -1,0 +1,21 @@
+<div id="editSubscriptionModal<%= subscription.id %>" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header mb-4 border-0 align-items-start">
+        <h2 class="mb-0">Edit your Subscription</h2>
+        <button type="button" class="btn-close mt-1" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <%= simple_form_for(subscription) do |f| %>
+        <div class="card">
+          <%= f.input :region, label: 'Region' %>
+          <%= f.input :renewal_date, label: 'Renewal Date' %>
+          <%= f.association :plan, collection: @plans %>
+        </div>
+        <div class="card">
+          <%= f.input :notes, label: 'Notes' %>
+        </div>
+        <%= f.button :submit, label: 'Save Changes' %>
+      <% end %>
+    </div>
+  </div>
+</div>
