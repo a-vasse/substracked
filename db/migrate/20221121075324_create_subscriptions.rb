@@ -8,7 +8,6 @@ class CreateSubscriptions < ActiveRecord::Migration[7.0]
       t.date :start_date
       t.integer :notification_frequency
       t.references :user, null: false, foreign_key: true
-      t.references :resource, null: false, foreign_key: true
 
       t.timestamps
     end
