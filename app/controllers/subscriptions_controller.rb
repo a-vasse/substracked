@@ -4,7 +4,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def show
-    raise
+    @subscription = Subscription.find(params[:id])
   end
 
   def new
