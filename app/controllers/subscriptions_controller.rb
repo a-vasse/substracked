@@ -1,6 +1,6 @@
 class SubscriptionsController < ApplicationController
   def index
-    raise
+    @subscriptions = Subscription.all
   end
 
   def show
@@ -8,7 +8,7 @@ class SubscriptionsController < ApplicationController
   end
 
   def new
-    raise
+    @subscription = Subscription.new
   end
 
   def create
