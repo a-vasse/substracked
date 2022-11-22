@@ -21,25 +21,33 @@
     <div class="col-md-6 col-12">
       <h2>Soon to be renewed</h2>
       <p>These subscriptions will auto-renew within this month.</p>
-      <% @subscriptions.each do |subscription| %>
-        <div class="card">
-          <%= subscription.display_name %>
-        </div>
-      <% end %>
+      <div class="subscriptions">
+        <% @upcoming_subscriptions.each do |subscription| %>
+          <%= render 'shared/card', subscription: subscription %>
+        <% end %>
+      </div>
     </div>
     <%# Active subscriptions %>
     <div class="col-md-6 col-12">
       <h2>Active</h2>
       <p>These are your currently active subscriptions.</p>
       <div class="subscriptions">
-        <%= link_to 'add a new sub', '', class: 'btn btn-primary', data: { :bs_target => '#addSubscriptionModal', :bs_toggle => 'modal' } %>
+        <%= link_to 'add a new sub', '', class: 'btn btn-primary mb-3', data: { :bs_target => '#addSubscriptionModal', :bs_toggle => 'modal' } %>
         <%= render "new", subscription: @subscription %>
+        <% @active_subscriptions.each do |subscription| %>
+          <%= render 'shared/card', subscription: subscription %>
+        <% end %>
       </div>
     </div>
     <%# inactive subscriptions %>
     <div class="col-md-6 col-12">
       <h2>Inactive</h2>
       <p>These are registered subscriptions that are currently inactive.</p>
+      <div class="subscriptions">
+        <% @inactive_subscriptions.each do |subscription| %>
+          <%= render 'shared/card', subscription: subscription %>
+        <% end %>
+      </div>
     </div>
   </div>
 </section>
