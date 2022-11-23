@@ -8,6 +8,7 @@ class User < ApplicationRecord
 
   has_many :subscriptions, dependent: :destroy
   has_many :resources, through: :subscriptions
+  has_many :created_resources, foreign_key: 'user_id', class_name: 'Resource'
   has_many :subscriptions
 
   has_one_attached :photo
