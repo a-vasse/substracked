@@ -1,0 +1,43 @@
+.card {
+
+  .dropdown-toggle::after {
+    display: none;
+  }
+
+  &-image {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+    &-container {
+      width: 160px;
+      background: $dark;
+    }
+  }
+
+  &-content {
+
+    h4 {
+      font-weight: 700;
+    }
+
+    small {
+      font-weight: 400;
+    }
+
+    p {
+      font-weight: 700;
+    }
+
+    &-container {
+      flex-grow: 1;
+    }
+  }
+
+  &.inactive {
+    h4, small, p {
+      color: #9F9F9F !important;
+    }
+  }
+}
