@@ -1,12 +1,48 @@
-.navbar-lewagon {
+.navbar {
   justify-content: space-between;
+  background: none;
   background: white;
+
+  &-collapse {
+    flex-grow: 0;
+  }
+
+  &-brand {
+    text-transform: uppercase;
+    font-size: 1.5rem;
+    font-weight: 800;
+  }
+
+  .dropdown-toggle::after {
+    display: none;
+  }
+
+  .waving-hand-icon {
+    height: 20px;
+  }
+
+  .dropdown {
+    cursor: pointer;
+  }
+
+  &-welcome {
+    &:hover {
+      .waving-hand-icon {
+        animation: wave ease-in-out 2s;
+        transform-origin: 70% 70%;
+      }
+    }
+  }
 }
 
-.navbar-lewagon .navbar-collapse {
-  flex-grow: 0;
-}
 
-.navbar-lewagon .navbar-brand img {
-  width: 40px;
+@keyframes wave {
+  0% { transform: rotate( 0.0deg) }
+  10% { transform: rotate(14.0deg) }  /* The following five values can be played with to make the waving more or less extreme */
+  20% { transform: rotate(-8.0deg) }
+  30% { transform: rotate(14.0deg) }
+  40% { transform: rotate(-4.0deg) }
+  50% { transform: rotate(10.0deg) }
+  60% { transform: rotate( 0.0deg) }  /* Reset for the last half to pause */
+  100% { transform: rotate( 0.0deg) }
 }
