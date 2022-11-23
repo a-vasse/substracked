@@ -9,7 +9,7 @@
         <div class="m-3">
           <%= f.input :region, label: 'Region' %>
           <%= f.input :renewal_date, label: 'Renewal Date' %>
-          <%= f.association :plan, collection: @plans %>
+          <%= f.association :plan, collection: Plan.where(resource: subscription.plan.resource) %>
         </div>
         <div class="m-3">
         <% if subscription.status == true %>
