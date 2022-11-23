@@ -30,4 +30,10 @@
       flex-grow: 1;
     }
   }
+
+  &.inactive {
+    h4, small, p {
+      color: #9F9F9F !important;
+    }
+  }
 }
