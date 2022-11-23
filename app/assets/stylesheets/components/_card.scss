@@ -1,0 +1,33 @@
+.card {
+
+  &-image {
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+
+
+    &-container {
+      width: 160px;
+      background: $dark;
+    }
+  }
+
+  &-content {
+
+    h4 {
+      font-weight: 700;
+    }
+
+    small {
+      font-weight: 400;
+    }
+
+    p {
+      font-weight: 700;
+    }
+
+    &-container {
+      flex-grow: 1;
+    }
+  }
+}

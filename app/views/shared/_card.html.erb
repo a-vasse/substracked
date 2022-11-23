@@ -1,4 +1,19 @@
-<div class="card mb-3 p-3">
-  <%= subscription.display_name %>
-  <%= subscription.renewal_date %>
+<div class="card flex-row mb-3 ">
+  <div class="card-image-container">
+    <div class="card-image bg-dark h-100"></div>
+  </div>
+  <div class="card-content-container">
+    <div class="card-content p-3">
+      <div class="d-flex justify-content-between align-items-center">
+        <h4 class="mb-0 me-2"><%= subscription.plan.resource.name %></h4>
+        <i class="fa-solid fa-ellipsis-vertical fa-fw fa-lg text-secondary"></i>
+      </div>
+      <p><small class="mb-0 text-secondary"><%= subscription.region %></small></p>
+      <small>Renewal on</small>
+      <div class="d-flex justify-content-between align-items-end">
+        <p class="mb-0"><%= subscription.renewal_date %></p>
+        <p class="text-danger mb-0 me-2">-<%= subscription.plan.price %>¥</p>
+      </div>
+    </div>
+  </div>
 </div>
