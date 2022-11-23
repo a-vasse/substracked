@@ -11,7 +11,7 @@ class SubscriptionPolicy < ApplicationPolicy
   end
 
   def create?
-    true
+    record.user == user
   end
 
   def new?
@@ -19,7 +19,7 @@ class SubscriptionPolicy < ApplicationPolicy
   end
 
   def update?
-    true
+    record.user == user
   end
 
   def edit?
@@ -27,13 +27,6 @@ class SubscriptionPolicy < ApplicationPolicy
   end
 
   def destroy?
-    true
-  end
-  def create?
-    true
-  end
-
-  def show?
-    true
+    record.user == user
   end
 end

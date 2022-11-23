@@ -40,7 +40,8 @@ class SubscriptionsController < ApplicationController
   end
 
   def update
-    @subscription = subscription.find(params[:id])
+    @subscription = Subscription.find(params[:id])
+    authorize @subscription
     if @subscription.update(subscription_params)
       redirect_to subscriptions_path
     else

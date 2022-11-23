@@ -6,11 +6,12 @@
     </div>
     <div id="nav-user-container" class="btn-group">
       <button class="nav-user btn dropdown-toggle" data-bs-toggle="dropdown" aria-expanded="false">
-        <ul id="nav-dropdown-menu" class="dropdown-menu dropdown-menu-end shadow mt-3">
-          <li><%= link_to 'EDIT', '', class: 'btn btn-primary d-grid gap-2 m-1', data: { :bs_target => "#editSubscriptionModal#{subscription.id}", :bs_toggle => 'modal' } %></li>
-          <li><%= link_to "DELETE", '', data: { turbo_method: 'delete', turbo_confirm: "Delete this subscription?" }, class: 'btn btn-primary d-grid gap-2 m-1' %></li>
-        </ul>
-      </div>
+      </button>
+      <ul id="nav-dropdown-menu" class="dropdown-menu dropdown-menu-end shadow mt-3">
+        <li><%= link_to 'EDIT', '', class: 'btn btn-primary d-grid gap-2 m-1', data: { :bs_target => "#editSubscriptionModal#{subscription.id}", :bs_toggle => 'modal' } %></li>
+        <li><%= link_to "DELETE", subscription_path(subscription), class: 'btn btn-primary d-grid gap-2 m-1', data: { turbo_method: :delete, turbo_confirm: "Delete this subscription?" } %></li>
+      </ul>
     </div>
   </div>
+</div>
 <%= render "shared/update", subscription: subscription %>
