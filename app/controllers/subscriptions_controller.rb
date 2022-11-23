@@ -16,6 +16,7 @@ class SubscriptionsController < ApplicationController
 
   def show
     @subscription = Subscription.find(params[:id])
+    authorize @subscription
   end
 
   def new
@@ -39,9 +40,10 @@ class SubscriptionsController < ApplicationController
   end
 
   def update
-    @subscription = subscription.find(params[:id])
+    @subscription = Subscription.find(params[:id])
+    authorize @subscription
     if @subscription.update(subscription_params)
-      redirect_to subscriptions_path(@subscription)
+      redirect_to subscriptions_path
     else
       render :new, status: :unprocessable_entity
     end
@@ -49,8 +51,9 @@ class SubscriptionsController < ApplicationController
 
   def destroy
     @subscription = Subscription.find(params[:id])
+    authorize @subscription
     @subscription.destroy
-    redirect_to user_path(current_user)
+    redirect_to subscriptions_path
   end
 
   private
