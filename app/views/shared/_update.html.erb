@@ -10,6 +10,7 @@
           <%= f.input :region, label: 'Region' %>
           <%= f.input :renewal_date, label: 'Renewal Date' %>
           <%= f.association :plan, collection: @plans %>
+          <%= f.input :status, as: :boolean, label: "Active" %>
         </div>
         <div class="card">
           <%= f.input :notes, label: 'Notes' %>
