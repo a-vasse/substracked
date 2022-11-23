@@ -1,5 +1,9 @@
 .card {
 
+  .dropdown-toggle::after {
+    display: none;
+  }
+
   &-image {
     background-position: center;
     background-repeat: no-repeat;
