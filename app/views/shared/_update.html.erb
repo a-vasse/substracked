@@ -6,13 +6,19 @@
         <button type="button" class="btn-close mt-1" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <%= simple_form_for(subscription) do |f| %>
-        <div class="card">
+        <div class="m-3">
           <%= f.input :region, label: 'Region' %>
           <%= f.input :renewal_date, label: 'Renewal Date' %>
           <%= f.association :plan, collection: @plans %>
-          <%= f.input :status, as: :boolean, label: "Active" %>
         </div>
-        <div class="card">
+        <div class="m-3">
+        <% if subscription.status == true %>
+          <%= f.input :status, as: :boolean, label: "Active - Click to deactivate." %>
+        <% else %>
+          <%= f.input :status, as: :boolean, label: "Inactive - Click to activate." %>
+        <% end %>
+        </div>
+        <div class="m-3">
           <%= f.input :notes, label: 'Notes' %>
         </div>
         <%= f.button :submit, label: 'Save Changes' %>
