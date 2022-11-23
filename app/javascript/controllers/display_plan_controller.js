@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="display-plan"
 export default class extends Controller {
-  static targets = ["resource", "plans", "form"]
+  static targets = ["resource", "plans", "form", "add"]
   connect() {
     console.log("connected")
     console.log(this.formTarget)
@@ -67,8 +67,10 @@ export default class extends Controller {
     if (options) {
       this.plansTarget.insertAdjacentHTML("afterbegin", options)
       this.formTarget.classList.remove("d-none")
+      this.addTarget.classList.remove("disabled")
     } else {
       this.formTarget.classList.add("d-none")
+      this.addTarget.classList.add("disabled")
     }
   }
 

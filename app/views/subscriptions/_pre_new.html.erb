@@ -25,7 +25,7 @@
         </div>
         <div class="modal-footer d-flex justify-content-between border-0">
           <%= link_to "Cancel", class: 'btn link-unstyled p-0 text-primary', data_bs_dismiss: 'modal' %>
-          <%= f.submit 'Add', class: 'btn btn-primary' %>
+          <%= f.submit 'Add', class: 'btn btn-primary disabled', data: {display_plan_target: "add"} %>
         </div>
       <% end %>
       <%= link_to "Add Custom Subscription", new_subscription_path, class: 'btn btn-primary', data_bs_dismiss: 'modal' %>
