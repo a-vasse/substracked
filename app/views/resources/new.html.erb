@@ -1,0 +1,13 @@
+<div class="container">
+  <div class="new-card card mt-3">
+    <div class="container form-card m-2">
+      <%= simple_form_for @resource do |f| %>
+        <%= f.input :name, label:"Enter the service name:" %>
+        <%= f.input :url, label: "Enter the website URL:" %>
+        <%= f.input :logo, as: :file, label: "Upload an avatar" %>
+        <%= f.submit class: 'btn btn-light m-2' %>
+        <%= link_to 'Cancel', subscriptions_path, class: 'btn btn-light m-2' %>
+      <% end %>
+    </div>
+  </div>
+</div>
