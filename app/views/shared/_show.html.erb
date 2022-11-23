@@ -7,19 +7,39 @@
       </div>
       <div class="m-3">
         <p>Name: <%= subscription.plan.name %></p>
-        <p>Price Plan: <%= subscription.plan.price %></p>
-        <p>Billing Cycle: <%= subscription.plan.billing_cycle %></p>
-        <p>Renewal Date: <%= subscription.renewal_date %></p>
+        <p>Price Plan: ¥<%= subscription.plan.price %></p>
+        <% case subscription.plan.billing_cycle %>
+        <% when 0.25 %>
+        <p>Billing Cycle: 1 Week</p>
+        <% when 12 %>
+        <p>Billing Cycle: 12 Months</p>
+        <% when 6 %>
+        <p>Billing Cycle: 6 Months</p>
+        <% when 3 %>
+        <p>Billing Cycle: 3 Months</p>
+      <% else %>
+        <p>Billing Cycle: 1 Month</p>
+      <% end %>
+      <p>Average Monthly Cost: ¥<%= (subscription.plan.price / subscription.plan.billing_cycle) %></p>
+      <p>Renewal Date: <%= subscription.renewal_date %></p>
+      <% if subscription.plan.cancellation_notice %>
         <p>Cancellation Notice: <%= subscription.plan.cancellation_notice %></p>
-        <p>Status: <%= subscription.status %></p>
-        <p>Region: <%= subscription.region %></p>
-        <p>Start Date: <%= subscription.start_date %></p>
-      </div>
-      <div class="m-3">
-        <%= subscription.notes %>
-      </div>
+      <% end %>
+      <% if subscription.status == true %>
+        <p>Status: Active</p>
+      <% else  %>
+        <p>Status: Inactive</p>
+      <% end %>
+      <p>Region: <%= subscription.region %></p>
+      <p>Start Date: <%= subscription.start_date %></p>
+    </div>
+    <div class="m-3">
+      <%= subscription.notes %>
+    </div>
+    <div>
       <%= link_to 'EDIT', '', class: 'btn btn-primary d-grid gap-2 m-1', data: { :bs_target => "#editSubscriptionModal#{subscription.id}", :bs_toggle => 'modal' } %>
     </div>
   </div>
+</div>
 </div>
 <%= render "shared/update", subscription: subscription %>
