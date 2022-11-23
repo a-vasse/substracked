@@ -21,11 +21,22 @@ class SubscriptionsController < ApplicationController
 
   def new
     @subscription = Subscription.new
+    @plan = Plan.new
     authorize @subscription
+    authorize @plan
   end
 
   def create
-    @subscription = Subscription.new(subscription_params)
+    # custom create
+    if params["plan"]
+      @plan = Plan.new(custom_plan_params)
+      @plan.resource = Resource.find_by(user: current_user)
+      @subscription = Subscription.new(custom_sub_params)
+      @subscription.plan = @plan
+    else
+      # prefill create
+      @subscription = Subscription.new(subscription_params)
+    end
     @subscription.user = current_user
     authorize @subscription
     if @subscription.save
@@ -60,5 +71,13 @@ class SubscriptionsController < ApplicationController
 
   def subscription_params
     params.require(:subscription).permit(:region, :renewal_date, :start_date, :notification_frequency, :user_id, :plan_id, :notes)
+  end
+
+  def custom_sub_params
+    params["subscription"].permit(:region, :renewal_date, :start_date, :notification_frequency, :user_id, :notes)
+  end
+
+  def custom_plan_params
+    params["plan"].permit(:name, :price, :billing_cycle, :cancellation_notice)
   end
 end
