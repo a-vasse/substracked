@@ -1,0 +1,25 @@
+<div id="showSubscriptionModal<%= subscription.id %>" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header mb-4 border-0 align-items-start">
+        <h2 class="mb-0">Subscription Details</h2>
+        <button type="button" class="btn-close mt-1" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="m-3">
+        <p>Name: <%= subscription.plan.name %></p>
+        <p>Price Plan: <%= subscription.plan.price %></p>
+        <p>Billing Cycle: <%= subscription.plan.billing_cycle %></p>
+        <p>Renewal Date: <%= subscription.renewal_date %></p>
+        <p>Cancellation Notice: <%= subscription.plan.cancellation_notice %></p>
+        <p>Status: <%= subscription.status %></p>
+        <p>Region: <%= subscription.region %></p>
+        <p>Start Date: <%= subscription.start_date %></p>
+      </div>
+      <div class="m-3">
+        <%= subscription.notes %>
+      </div>
+      <%= link_to 'EDIT', '', class: 'btn btn-primary d-grid gap-2 m-1', data: { :bs_target => "#editSubscriptionModal#{subscription.id}", :bs_toggle => 'modal' } %>
+    </div>
+  </div>
+</div>
+<%= render "shared/update", subscription: subscription %>
