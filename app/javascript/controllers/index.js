@@ -12,3 +12,6 @@ application.register("hello", HelloController)
 
 import DraggableController from "./draggable_controller"
 application.register("draggable", DraggableController)
+
+import CustomAnimatedNumberController from "./custom_animated_number_controller"
+application.register("custom-animated-number", CustomAnimatedNumberController)

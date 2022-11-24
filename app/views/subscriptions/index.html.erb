@@ -1,10 +1,13 @@
 <section class="container mb-5">
   <%# Intro Section %>
   <div class="row">
+    <div class="col-12 d-block d-md-none">
+      <h1><%= Time.new.strftime("%B") %></h1>
+    </div>
     <%# Text Intro %>
-    <div class="col-md-6 col-12 d-flex align-items-center">
+    <div class="col-md-6 col-12 d-flex align-items-center order-md-1 order-2">
       <div>
-        <h1><%= Time.new.strftime("%B") %></h1>
+        <h1 class="d-none d-md-block"><%= Time.new.strftime("%B") %></h1>
         <p>This is your total amount spent in October 2022, based on the monthly average of all active subscriptions.
           <br>
           <br>
@@ -13,16 +16,16 @@
       </div>
     </div>
     <%# Graph Display %>
-    <div class="col-md-6 col-12">
+    <div class="col-md-6 col-12 order-md-2 order-1 mb-md-0 mb-5">
       <%# Graph Content %>
       <div id="graphTabContent" class="tab-content mb-2">
-        <div id="currency-tab-pane" class="tab-pane fade show active" role="tabpanel" aria-labelledby="currency-tab" tabindex="0" style="height: 350px">
+        <div id="currency-tab-pane" class="tab-pane fade show active" role="tabpanel" aria-labelledby="currency-tab" tabindex="0">
           <%= render 'shared/currency-sum' %>
         </div>
-        <div id="monthly-tab-pane" class="tab-pane fade" role="tabpanel" aria-labelledby="monthly-tab" tabindex="0" style="height: 350px">
+        <div id="monthly-tab-pane" class="tab-pane fade" role="tabpanel" aria-labelledby="monthly-tab" tabindex="0">
           <%= render 'shared/pie-chart' %>
         </div>
-        <div id="annual-tab-pane" class="tab-pane fade" role="tabpanel" aria-labelledby="annual-tab" tabindex="0" style="height: 350px">
+        <div id="annual-tab-pane" class="tab-pane fade" role="tabpanel" aria-labelledby="annual-tab" tabindex="0">
           <%= render 'shared/annual-chart' %>
         </div>
       </div>
