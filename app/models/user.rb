@@ -10,4 +10,12 @@ class User < ApplicationRecord
   has_many :created_resources, foreign_key: 'user_id', class_name: 'Resource', dependent: :destroy
 
   has_one_attached :photo
+
+  after_create :create_resource
+
+  private
+
+  def create_resource
+    Resource.create(name: "#{name}'s list", user_id: id)
+  end
 end
