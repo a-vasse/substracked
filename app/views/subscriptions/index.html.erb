@@ -1,16 +1,20 @@
-<section class="container">
+<section class="container mb-5">
   <%# Intro Section %>
   <div class="row">
     <%# Text Intro %>
-    <div class="col-md-6 col-12">
-      <h1><%= Time.new.strftime("%B") %></h1>
-      <p>This is your total amount spent in October 2022, based on the monthly average of all active subscriptions.
-        <br>
-        From this page you can manage your active subscriptions, as well as add new subscriptions and renew inactive subscriptions.
-      </p>
+    <div class="col-md-6 col-12 d-flex align-items-center">
+      <div>
+        <h1><%= Time.new.strftime("%B") %></h1>
+        <p>This is your total amount spent in October 2022, based on the monthly average of all active subscriptions.
+          <br>
+          <br>
+          From this page you can manage your active subscriptions, as well as add new subscriptions and renew inactive subscriptions.
+        </p>
+      </div>
     </div>
     <%# Total Amount Display %>
     <div class="col-md-6 col-12">
+      <div class="bg-dark w-100" style="height: 350px;"></div>
     </div>
   </div>
 </section>
