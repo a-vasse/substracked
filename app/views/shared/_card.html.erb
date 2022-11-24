@@ -10,17 +10,17 @@
           <i class="fa-solid fa-ellipsis-vertical fa-fw fa-lg text-secondary"></i>
         </button>
         <ul id="nav-dropdown-menu" class="dropdown-menu dropdown-menu-end shadow mt-3">
-          <li><%= link_to 'EDIT', '', class: 'btn btn-primary d-grid gap-2 m-1', data: { :bs_target => "#editSubscriptionModal#{subscription.id}", :bs_toggle => 'modal' } %></li>
+          <li><%= link_to 'DETAILS', '', class: 'btn btn-primary d-grid gap-2 m-1', data: { :bs_target => "#showSubscriptionModal#{subscription.id}", :bs_toggle => 'modal' } %></li>
           <li><%= link_to "DELETE", subscription_path(subscription), class: 'btn btn-primary d-grid gap-2 m-1', data: { turbo_method: :delete, turbo_confirm: "Delete this subscription?" } %></li>
         </ul>
+        <%= render "shared/show", subscription: subscription %>
       </div>
       <p><small class="mb-0 text-secondary"><%= subscription.region %></small></p>
       <small><%= subscription.status ? 'Renewal on' : 'Cancelled on' %></small>
       <div class="d-flex justify-content-between align-items-end">
         <p class="mb-0"><%= subscription.renewal_date %></p>
-        <p class="text-danger mb-0 me-2">-<%= subscription.plan.price %>¥</p>
+        <p class="text-danger mb-0 me-2">- ¥<%= subscription.plan.price %></p>
       </div>
     </div>
   </div>
 </div>
-<%= render "shared/update", subscription: subscription %>

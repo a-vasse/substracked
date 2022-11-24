@@ -79,16 +79,5 @@ Resource.create!(
 puts "Added predefiened resources succesfully!"
 
 puts "Create custom resources..."
-Resource.create!(name: "Clement's Super Gym", user: User.first)
-Resource.create!(
-  name: "Alex's Monthly Bunny Food",
-  url: "https://www.petsmart.com",
-  user: User.first,
-)
-Resource.create!(name: "3D Art supply by Kaho", user: User.first)
-Resource.create!(
-  name: "Patrick's Jokes about Ireland",
-  url: "https://www.google.de",
-  user: User.first,
-)
+Resource.create!(name: "My list", user: User.first)
 puts "Create custom resources succesfully!"
