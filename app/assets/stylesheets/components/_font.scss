@@ -1,0 +1,47 @@
+h1 {
+  font-weight: 700;
+  margin-bottom: 2rem;
+  position: relative;
+  width: fit-content;
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 25%;
+    width: 2rem;
+    bottom: 5%;
+    background: $primary;
+    z-index: -1;
+    transition: ease-in-out width 1s;
+  }
+
+  &:hover {
+    &::before {
+      width: calc(100% + 1rem);
+    }
+  }
+}
+
+h2 {
+  font-weight: 700;
+  margin-bottom: 1rem;
+  position: relative;
+  width: fit-content;
+
+  &::before {
+    content: '';
+    position: absolute;
+    height: 15%;
+    width: 1.5rem;
+    bottom: 10%;
+    background: $primary;
+    z-index: -1;
+    transition: ease-in-out width 1s;
+  }
+
+  &:hover {
+    &::before {
+      width: calc(100% + 1rem);
+    }
+  }
+}

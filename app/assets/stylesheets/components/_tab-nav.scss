@@ -1,0 +1,11 @@
+.nav-pills {
+  .nav-link {
+    color: $black;
+    font-weight: 500;
+
+    &.active {
+      background: none;
+      color: $primary;
+    }
+  }
+}
