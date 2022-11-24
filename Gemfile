@@ -77,3 +77,7 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+
+# linebot gem
+
+gem 'line-bot-api'
