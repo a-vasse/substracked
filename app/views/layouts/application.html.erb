@@ -12,7 +12,9 @@
     <div>
       <%= render "shared/navbar" %>
       <%= render "shared/flashes" %>
-      <%= yield %>
+      <div class="py-5">
+        <%= yield %>
+      </div>
     </div>
     <%= render "shared/footer" %>
   </body>
