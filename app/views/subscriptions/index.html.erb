@@ -66,10 +66,6 @@
           <% end %>
           <%# Modal for new Subscriptions %>
           <%= render "pre_new", subscription: @subscription %>
-          <%= link_to new_resource_path, class: 'add-new-button mb-3' do %>
-            <i class="fa-solid fa-circle-plus text-primary bg-white fa-lg me-3"></i>
-            <span>Add service</span>
-          <% end %>
         </div>
         <div class="draggable-container">
           <% @active_subscriptions.each do |subscription| %>
