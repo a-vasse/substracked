@@ -9,3 +9,6 @@ application.register("display-plan", DisplayPlanController)
 
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
+
+import DraggableController from "./draggable_controller"
+application.register("draggable", DraggableController)
