@@ -15,12 +15,12 @@
           <% if subscription.status == true %>
             <%= simple_form_for(subscription) do |f| %>
               <%= f.input :status, as: :hidden, input_html: { value: :false} %>
-              <li><%= f.submit 'DEACTIVATE', class: 'btn btn-warning d-grid gap-2 m-1' %></li>
+              <li><%= f.submit 'DEACTIVATE', class: 'btn btn-warning d-grid gap-2 m-1', data: {turbo_confirm: "Deactivate this subscription?"} %></li>
             <% end %>
           <% else %>
             <%= simple_form_for(subscription) do |f| %>
               <%= f.input :status, as: :hidden, input_html: { value: :true} %>
-              <li><%= f.submit 'ACTIVATE', class: 'btn btn-success d-grid gap-2 m-1' %></li>
+              <li><%= f.submit 'ACTIVATE', class: 'btn btn-success d-grid gap-2 m-1', data: {turbo_confirm: "Activate this subscription?"} %></li>
             <% end %>
           <% end %>
         </ul>
