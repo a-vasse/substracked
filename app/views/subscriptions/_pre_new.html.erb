@@ -9,7 +9,7 @@
       <label for="resources">Service:</label>
       <select class="form-select select required" name="resources" id="resources" data-display-plan-target="resource" data-action="change->display-plan#display">
         <option value="" label=" "></option>
-        <% @resources.each do |resource| %>
+        <% @pre_resources.each do |resource| %>
           <option value="<%= resource.name %>"><%= resource.name %></option>
         <% end %>
       </select>
