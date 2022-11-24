@@ -10,12 +10,12 @@ class SubscriptionPolicy < ApplicationPolicy
     true
   end
 
-  def create?
-    record.user == user
+  def new?
+    true
   end
 
-  def new?
-    create?
+  def create?
+    record.user == user
   end
 
   def update?

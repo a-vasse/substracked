@@ -1,21 +1,48 @@
-<section class="container">
+<section class="container mb-5">
   <%# Intro Section %>
   <div class="row">
     <%# Text Intro %>
-    <div class="col-md-6 col-12">
-      <h1>< <%= Time.new.strftime("%B") %> ></h1>
+    <div class="col-md-6 col-12 d-flex align-items-center">
+      <div>
+        <h1><%= Time.new.strftime("%B") %></h1>
         <p>This is your total amount spent in October 2022, based on the monthly average of all active subscriptions.
+          <br>
           <br>
           From this page you can manage your active subscriptions, as well as add new subscriptions and renew inactive subscriptions.
         </p>
       </div>
-      <%# Total Amount Display %>
-      <div class="col-md-6 col-12"></div>
+    </div>
+    <%# Graph Display %>
+    <div class="col-md-6 col-12">
+      <%# Graph Content %>
+      <div id="graphTabContent" class="tab-content mb-2">
+        <div id="currency-tab-pane" class="tab-pane fade show active" role="tabpanel" aria-labelledby="currency-tab" tabindex="0" style="height: 350px">
+          <%= render 'shared/currency-sum' %>
+        </div>
+        <div id="monthly-tab-pane" class="tab-pane fade" role="tabpanel" aria-labelledby="monthly-tab" tabindex="0" style="height: 350px">
+          <%= render 'shared/pie-chart' %>
+        </div>
+        <div id="annual-tab-pane" class="tab-pane fade" role="tabpanel" aria-labelledby="annual-tab" tabindex="0" style="height: 350px">
+          <%= render 'shared/annual-chart' %>
+        </div>
+      </div>
+      <%# Graph Nav %>
+      <ul id="graph-tab" class="nav nav-pills justify-content-center" role="tablist">
+        <li class="nav-item" role="presentation">
+          <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#currency-tab-pane" type="button" role="tab" aria-controls="graph-currency" aria-selected="true">Currency</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" data-bs-toggle="pill" data-bs-target="#monthly-tab-pane" type="button" role="tab" aria-controls="graph-monthly" aria-selected="false">Monthly</button>
+        </li>
+        <li class="nav-item" role="presentation">
+          <button class="nav-link" data-bs-toggle="pill" data-bs-target="#annual-tab-pane" type="button" role="tab" aria-controls="graph-annual" aria-selected="false">Annual</button>
+        </li>
+      </ul>
     </div>
   </div>
 </section>
 <%# Subscription Section %>
-<section class="container">
+<section class="container" data-controller="draggable">
   <div class="row">
     <%# Soon to be renewed subscriptions %>
     <div class="col-md-6 col-12">
@@ -32,11 +59,23 @@
       <h2>Active</h2>
       <p>These are your currently active subscriptions.</p>
       <div class="subscriptions">
-        <%= link_to 'add a new sub', '', class: 'btn btn-primary mb-3', data: { :bs_target => '#addSubscriptionModal', :bs_toggle => 'modal' } %>
-        <%= render "new", subscription: @subscription %>
-        <% @active_subscriptions.each do |subscription| %>
-          <%= render 'shared/card', subscription: subscription %>
-        <% end %>
+        <div class="d-flex gap-3">
+          <%= link_to '', class: 'add-new-button', data: { :bs_target => '#addSubscriptionModal', :bs_toggle => 'modal' } do %>
+            <i class="fa-solid fa-circle-plus text-primary bg-white fa-lg me-3"></i>
+            <span>Add subscription</span>
+          <% end %>
+          <%# Modal for new Subscriptions %>
+          <%= render "pre_new", subscription: @subscription %>
+          <%= link_to new_resource_path, class: 'add-new-button mb-3' do %>
+            <i class="fa-solid fa-circle-plus text-primary bg-white fa-lg me-3"></i>
+            <span>Add service</span>
+          <% end %>
+        </div>
+        <div class="draggable-container">
+          <% @active_subscriptions.each do |subscription| %>
+            <%= render 'shared/card', subscription: subscription %>
+          <% end %>
+        </div>
       </div>
     </div>
     <%# inactive subscriptions %>
@@ -44,9 +83,11 @@
       <h2>Inactive</h2>
       <p>These are registered subscriptions that are currently inactive.</p>
       <div class="subscriptions">
-        <% @inactive_subscriptions.each do |subscription| %>
-          <%= render 'shared/card', subscription: subscription %>
-        <% end %>
+        <div class="draggable-container">
+          <% @inactive_subscriptions.each do |subscription| %>
+            <%= render 'shared/card', subscription: subscription %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>

@@ -1,7 +1,15 @@
 // Import your components CSS files here.
 @import "alert";
-@import "dropdown";
-@import "avatar";
-@import "card";
 @import "form_legend_clear";
+@import "font";
+
+// Components
+@import "card";
+@import "avatar";
+@import "dropdown";
+@import "button";
+@import "tab-nav";
+
+// Modules
 @import "navbar";
+@import "footer";
