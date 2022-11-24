@@ -5,9 +5,17 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
+puts "Destroying everything..."
+Subscription.destroy_all
+Plan.destroy_all
+User.destroy_all
+Resource.destroy_all
+
+puts "Creating a user..."
+
 user = User.find_by(email: "user@me.com")
 if user
-  user.line_id="kazuhide89"
+  user.line_id = "kazuhide89"
   user.save
 else
   User.create(name: "Winston", email: "user@me.com", password: "test123", line_id: "kazuhide89")
