@@ -3,14 +3,14 @@
   <div class="row">
     <%# Text Intro %>
     <div class="col-md-6 col-12">
-      <h1>< <%= Time.new.strftime("%B") %> ></h1>
-        <p>This is your total amount spent in October 2022, based on the monthly average of all active subscriptions.
-          <br>
-          From this page you can manage your active subscriptions, as well as add new subscriptions and renew inactive subscriptions.
-        </p>
-      </div>
-      <%# Total Amount Display %>
-      <div class="col-md-6 col-12"></div>
+      <h1><%= Time.new.strftime("%B") %></h1>
+      <p>This is your total amount spent in October 2022, based on the monthly average of all active subscriptions.
+        <br>
+        From this page you can manage your active subscriptions, as well as add new subscriptions and renew inactive subscriptions.
+      </p>
+    </div>
+    <%# Total Amount Display %>
+    <div class="col-md-6 col-12">
     </div>
   </div>
 </section>
@@ -32,9 +32,18 @@
       <h2>Active</h2>
       <p>These are your currently active subscriptions.</p>
       <div class="subscriptions">
-        <%= link_to 'Add New Sub', '', class: 'btn btn-primary mb-3', data: { :bs_target => '#addSubscriptionModal', :bs_toggle => 'modal' } %>
-        <%= render "pre_new", subscription: @subscription %>
-        <%= link_to "Add New Service", new_resource_path, class: 'btn btn-primary mb-3' %>
+        <div class="d-flex gap-3">
+          <%= link_to '', class: 'add-new-button', data: { :bs_target => '#addSubscriptionModal', :bs_toggle => 'modal' } do %>
+            <i class="fa-solid fa-circle-plus text-primary bg-white fa-lg me-3"></i>
+            <span>Add subscription</span>
+          <% end %>
+          <%# Modal for new Subscriptions %>
+          <%= render "pre_new", subscription: @subscription %>
+          <%= link_to new_resource_path, class: 'add-new-button mb-3' do %>
+            <i class="fa-solid fa-circle-plus text-primary bg-white fa-lg me-3"></i>
+            <span>Add service</span>
+          <% end %>
+        </div>
         <div class="draggable-container">
           <% @active_subscriptions.each do |subscription| %>
             <%= render 'shared/card', subscription: subscription %>
