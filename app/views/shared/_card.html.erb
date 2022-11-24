@@ -5,13 +5,28 @@
   <div class="card-content-container">
     <div class="card-content p-3">
       <div class="d-flex justify-content-between align-items-center">
-        <h4 class="mb-0 me-2"><%= subscription.plan.resource.name %></h4>
+        <% if subscription.plan.resource.user %>
+          <h4 class="mb-0 me-2"><%= subscription.plan.name %></h4>
+        <% else %>
+          <h4 class="mb-0 me-2"><%= subscription.plan.resource.name %></h4>
+        <% end %>
         <button class="nav-user btn dropdown-toggle p-0" data-bs-toggle="dropdown" aria-expanded="false">
           <i class="fa-solid fa-ellipsis-vertical fa-fw fa-lg text-secondary"></i>
         </button>
         <ul id="nav-dropdown-menu" class="dropdown-menu dropdown-menu-end shadow mt-3">
           <li><%= link_to 'DETAILS', '', class: 'btn btn-primary d-grid gap-2 m-1', data: { :bs_target => "#showSubscriptionModal#{subscription.id}", :bs_toggle => 'modal' } %></li>
           <li><%= link_to "DELETE", subscription_path(subscription), class: 'btn btn-primary d-grid gap-2 m-1', data: { turbo_method: :delete, turbo_confirm: "Delete this subscription?" } %></li>
+          <% if subscription.status == true %>
+            <%= simple_form_for(subscription) do |f| %>
+              <%= f.input :status, as: :hidden, input_html: { value: :false} %>
+              <li><%= f.submit 'DEACTIVATE', class: 'btn btn-warning d-grid gap-2 m-1', data: {turbo_confirm: "Deactivate this subscription?"} %></li>
+            <% end %>
+          <% else %>
+            <%= simple_form_for(subscription) do |f| %>
+              <%= f.input :status, as: :hidden, input_html: { value: :true} %>
+              <li><%= f.submit 'ACTIVATE', class: 'btn btn-success d-grid gap-2 m-1', data: {turbo_confirm: "Activate this subscription?"} %></li>
+            <% end %>
+          <% end %>
         </ul>
         <%= render "shared/show", subscription: subscription %>
       </div>
