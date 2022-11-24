@@ -17,13 +17,13 @@
       <%# Graph Content %>
       <div id="graphTabContent" class="tab-content mb-2">
         <div id="currency-tab-pane" class="tab-pane fade show active" role="tabpanel" aria-labelledby="currency-tab" tabindex="0" style="height: 350px">
-          <div class="bg-dark h-100"></div>
+          <%= render 'shared/currency-sum' %>
         </div>
         <div id="monthly-tab-pane" class="tab-pane fade" role="tabpanel" aria-labelledby="monthly-tab" tabindex="0" style="height: 350px">
-          <div class="bg-danger h-100"></div>
+          <%= render 'shared/pie-chart' %>
         </div>
         <div id="annual-tab-pane" class="tab-pane fade" role="tabpanel" aria-labelledby="annual-tab" tabindex="0" style="height: 350px">
-          <div class="bg-warning h-100"></div>
+          <%= render 'shared/annual-chart' %>
         </div>
       </div>
       <%# Graph Nav %>
