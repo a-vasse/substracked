@@ -3,6 +3,7 @@ class SubscriptionsController < ApplicationController
     @subscriptions = policy_scope(Subscription.all)
     @subscription = Subscription.new
     @resources = Resource.where(user: nil).or(current_user.created_resources)
+    @pre_resources = Resource.where(user: nil)
     @plans = Plan.all
     @active_subscriptions = @subscriptions.where(status: true)
     @inactive_subscriptions = @subscriptions.where(status: false)
