@@ -5,9 +5,13 @@
 #
 #   movies = Movie.create([{ name: "Star Wars" }, { name: "Lord of the Rings" }])
 #   Character.create(name: "Luke", movie: movies.first)
-
-User.create(name: "Winston", email: "user@me.com", password: "test123")
-
+user = User.find_by(email: "user@me.com")
+if user
+  user.line_id="kazuhide89"
+  user.save
+else
+  User.create(name: "Winston", email: "user@me.com", password: "test123", line_id: "kazuhide89")
+end
 require_relative "seeds/resources_seeds"
 require_relative "seeds/plans_seeds"
 require_relative "seeds/subscriptions_seeds"
