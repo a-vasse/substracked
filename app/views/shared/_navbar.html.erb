@@ -1,6 +1,6 @@
 <div class="navbar navbar-expand-sm navbar-light shadow-sm">
   <div class="container">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to subscriptions_path, class: "navbar-brand" do %>
       <span class="text-primary">subs</span>tracked
     <% end %>
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -19,7 +19,7 @@
               <i class="fa-solid fa-chevron-down fa-fw fa-sm"></i>
             </div>
             <div class="dropdown-menu dropdown-menu-end shadow-sm" aria-labelledby="navbarDropdown">
-              <%= link_to link_to "Subscriptions", subscriptions_path(current_user), class: "dropdown-item" %>
+              <%= link_to "Subscriptions", subscriptions_path(current_user), class: "dropdown-item" %>
               <%= link_to "Settings", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
