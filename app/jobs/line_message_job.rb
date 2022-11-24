@@ -11,9 +11,12 @@ class LineMessageJob < ApplicationJob
 
     message = {
       type: 'text',
-      text: 'hello world!'
+      text: "Hello #{User.first.name}!, your subscription to #resource , #plan plan is about to renew!"
     }
-    p subscription.user.line_id
+    p subscription.user.name
     p @client.push_message(subscription.user.line_id, message)
   end
+
+  # run this line in Rails console to test it
+  # LineMessageJob.perform_now(Subscription.first)
 end
