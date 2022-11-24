@@ -35,9 +35,11 @@
         <%= link_to 'Add New Sub', '', class: 'btn btn-primary mb-3', data: { :bs_target => '#addSubscriptionModal', :bs_toggle => 'modal' } %>
         <%= render "new", subscription: @subscription %>
         <%= link_to "Add New Service", new_resource_path, class: 'btn btn-primary mb-3' %>
-        <% @active_subscriptions.each do |subscription| %>
-          <%= render 'shared/card', subscription: subscription %>
-        <% end %>
+        <div class="draggable-container" data-controller="draggable">
+          <% @active_subscriptions.each do |subscription| %>
+            <%= render 'shared/card', subscription: subscription %>
+          <% end %>
+        </div>
       </div>
     </div>
     <%# inactive subscriptions %>
@@ -45,9 +47,11 @@
       <h2>Inactive</h2>
       <p>These are registered subscriptions that are currently inactive.</p>
       <div class="subscriptions">
-        <% @inactive_subscriptions.each do |subscription| %>
-          <%= render 'shared/card', subscription: subscription %>
-        <% end %>
+        <div class="draggable-container">
+          <% @inactive_subscriptions.each do |subscription| %>
+            <%= render 'shared/card', subscription: subscription %>
+          <% end %>
+        </div>
       </div>
     </div>
   </div>
