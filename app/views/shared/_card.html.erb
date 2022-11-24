@@ -5,7 +5,11 @@
   <div class="card-content-container">
     <div class="card-content p-3">
       <div class="d-flex justify-content-between align-items-center">
-        <h4 class="mb-0 me-2"><%= subscription.plan.resource.name %></h4>
+        <% if subscription.plan.resource.user %>
+          <h4 class="mb-0 me-2"><%= subscription.plan.name %></h4>
+        <% else %>
+          <h4 class="mb-0 me-2"><%= subscription.plan.resource.name %></h4>
+        <% end %>
         <button class="nav-user btn dropdown-toggle p-0" data-bs-toggle="dropdown" aria-expanded="false">
           <i class="fa-solid fa-ellipsis-vertical fa-fw fa-lg text-secondary"></i>
         </button>
