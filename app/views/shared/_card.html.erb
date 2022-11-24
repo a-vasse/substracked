@@ -1,6 +1,6 @@
 <div class="card border-0 shadow flex-row mb-3 <%= subscription.status ? 'active' : 'inactive' %>">
-  <div class="card-image-container">
-    <%= image_path(subscription.plan.resource.logo) %>>
+  <div class="card-image-container p-3">
+    <%= image_tag subscription.plan.resource.logo, class:"img-fluid" %>
   </div>
   <div class="card-content-container">
     <div class="card-content p-3">

@@ -3,8 +3,8 @@ puts "Creating predefiened resources..."
 Resource.create!(
   name: "Netflix",
   url: "https://www.netflix.com/",
-  logo: ActionController::Base.helpers.image_path("resource icons/Netflix.jpg"
-  )
+  logo: ActionController::Base.helpers.image_path("resource icons/Netflix.jpg")
+)
 Resource.create!(
   name: "Amazon Prime",
   url: "https://www.amazon.co.jp/amazonprime?language=jp",
