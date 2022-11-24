@@ -15,7 +15,7 @@
   </div>
 </section>
 <%# Subscription Section %>
-<section class="container">
+<section class="container" data-controller="draggable">
   <div class="row">
     <%# Soon to be renewed subscriptions %>
     <div class="col-md-6 col-12">
@@ -35,7 +35,7 @@
         <%= link_to 'Add New Sub', '', class: 'btn btn-primary mb-3', data: { :bs_target => '#addSubscriptionModal', :bs_toggle => 'modal' } %>
         <%= render "pre_new", subscription: @subscription %>
         <%= link_to "Add New Service", new_resource_path, class: 'btn btn-primary mb-3' %>
-        <div class="draggable-container" data-controller="draggable">
+        <div class="draggable-container">
           <% @active_subscriptions.each do |subscription| %>
             <%= render 'shared/card', subscription: subscription %>
           <% end %>
