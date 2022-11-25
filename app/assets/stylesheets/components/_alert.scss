@@ -3,4 +3,10 @@
   bottom: 16px;
   right: 16px;
   z-index: 1000;
+
+  border: $primary solid 4px;
+  background: white;
+  color: $black;
+  font-weight: 500;
+  box-shadow: 0 .5rem 1rem rgba($black, .15);
 }

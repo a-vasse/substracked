@@ -71,11 +71,27 @@ class SubscriptionsController < ApplicationController
   private
 
   def subscription_params
-    params.require(:subscription).permit(:status, :region, :renewal_date, :start_date, :notification_frequency, :user_id, :plan_id, :notes)
+    params.require(:subscription).permit(
+      :status,
+      :region,
+      :renewal_date,
+      :start_date,
+      :notification_frequency,
+      :user_id,
+      :plan_id,
+      :notes,
+    )
   end
 
   def custom_sub_params
-    params["subscription"].permit(:region, :renewal_date, :start_date, :notification_frequency, :user_id, :notes)
+    params["subscription"].permit(
+      :region,
+      :renewal_date,
+      :start_date,
+      :notification_frequency,
+      :user_id,
+      :notes,
+    )
   end
 
   def custom_plan_params

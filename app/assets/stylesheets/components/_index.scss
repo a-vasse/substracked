@@ -2,6 +2,7 @@
 @import "alert";
 @import "form_legend_clear";
 @import "font";
+@import "mixins";
 
 // Components
 @import "card";
@@ -10,6 +11,9 @@
 @import "button";
 @import "tab-nav";
 @import "form";
+@import "tab";
+@import "charts";
+@import "animated-background";
 
 // Modules
 @import "navbar";
