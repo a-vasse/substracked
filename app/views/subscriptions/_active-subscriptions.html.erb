@@ -1,11 +1,11 @@
 <div id="activeSubscriptions" style="margin-bottom: 6rem;">
   <h2>Active</h2>
-  <p>These are your currently active subscriptions.</p>
+  <p>These are your currently active <span class="text-primary">subs</span>criptions.</p>
   <div class="subscriptions">
     <div class="d-flex gap-3">
       <%= link_to '', class: 'add-new-button', data: { :bs_target => '#addSubscriptionModal', :bs_toggle => 'modal' } do %>
         <i class="fa-solid fa-circle-plus text-primary bg-white fa-lg me-3"></i>
-        <span>Add subscription</span>
+        <span>Add <span class="text-primary">subs</span>cription</span>
       <% end %>
       <%# Modal for new Subscriptions %>
       <%= render "pre_new", subscription: @subscription %>
