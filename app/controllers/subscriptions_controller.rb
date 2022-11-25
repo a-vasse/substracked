@@ -47,6 +47,18 @@ class SubscriptionsController < ApplicationController
     if @subscription.save
       redirect_to subscriptions_path
     else
+      @subscriptions = policy_scope(Subscription.all)
+      @resources = Resource.where(user: nil).or(current_user.created_resources)
+      @pre_resources = Resource.where(user: nil)
+      @plans = Plan.all
+      @active_subscriptions = @subscriptions.where(status: true)
+      @inactive_subscriptions = @subscriptions.where(status: false)
+      @upcoming_subscriptions =
+        @subscriptions.where(
+          "renewal_date >= ? AND renewal_date <= ?",
+          Date.today,
+          1.week.from_now,
+        )
       render :index, status: :unprocessable_entity
     end
   end
