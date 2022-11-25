@@ -304,3 +304,31 @@
     }
   }
 }
+
+#logged-in-bg {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  left: 0;
+  width: 100%;
+  z-index: -100;
+
+  .welcome-area {
+    background-color: $white;
+
+    .circle {
+      background: rgba($primary, .1);
+    }
+  }
+
+  .star-ani::after,
+  .cloud-ani::after {
+    color:  rgba($primary, .75);
+  }
+
+  .circle-ani::after,
+  .triangel-ani::after,
+  .box-ani::after {
+    border-color: rgba($primary, .75);
+  }
+}
