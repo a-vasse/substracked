@@ -47,7 +47,7 @@
 
   &-draggable-on {
     border: none!important;
-    background: $light !important;
+    background: rgba($light, .75) !important;
     box-shadow: none !important;
     border-radius: 0 !important;
     position: relative;
@@ -65,5 +65,11 @@
         opacity: 0 !important;
       }
     }
+  }
+}
+
+.simple_form {
+  .hidden.subscription_status {
+    margin: 0 !important;
   }
 }

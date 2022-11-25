@@ -10,15 +10,13 @@
     padding: .5rem .75rem;
 
     &:hover {
-      background-color: $primary;
-      color: white;
+      background: $primary;
+      color: white !important;
     }
 
-    &:last-child {
-      color: $danger;
-
+    &.text-danger {
       &:hover {
-        color: white;
+        background: $danger;
       }
     }
   }
