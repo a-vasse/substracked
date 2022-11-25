@@ -47,44 +47,21 @@
 <%# Subscription Section %>
 <section class="container" data-controller="draggable">
   <div class="row row-cols-md-2 row-cols-1">
-    <%# Soon to be renewed subscriptions %>
     <div class="col">
-      <h2>Soon to be renewed</h2>
-      <p>These subscriptions will auto-renew within this month.</p>
-      <div class="subscriptions">
-        <% @upcoming_subscriptions.each do |subscription| %>
-          <%= render 'shared/card', subscription: subscription %>
-        <% end %>
+      <%# Soon to be renewed subscriptions %>
+      <%= render 'upcoming-subscriptions' %>
+      <%# inactive subscriptions %>
+      <div class="d-md-block d-none">
+        <%= render 'inactive-subscriptions' %>
       </div>
     </div>
     <%# Active subscriptions %>
-    <div class="col">
-      <h2>Active</h2>
-      <p>These are your currently active subscriptions.</p>
-      <div class="subscriptions">
-        <div class="d-flex gap-3">
-          <%= link_to '', class: 'add-new-button', data: { :bs_target => '#addSubscriptionModal', :bs_toggle => 'modal' } do %>
-            <i class="fa-solid fa-circle-plus text-primary bg-white fa-lg me-3"></i>
-            <span>Add subscription</span>
-          <% end %>
-          <%# Modal for new Subscriptions %>
-          <%= render "pre_new", subscription: @subscription %>
-        </div>
-        <div class="draggable-container">
-          <% @active_subscriptions.each do |subscription| %>
-            <%= render 'shared/card', subscription: subscription %>
-          <% end %>
-        </div>
-      </div>
+    <div class="col" >
+      <%= render 'active-subscriptions' %>
     </div>
-    <%# inactive subscriptions %>
     <div class="col">
-      <h2>Inactive</h2>
-      <p>These are registered subscriptions that are currently inactive.</p>
-      <div class="subscriptions">
-        <% @inactive_subscriptions.each do |subscription| %>
-          <%= render 'shared/card', subscription: subscription %>
-        <% end %>
+      <div class="d-md-none d-block">
+        <%= render 'inactive-subscriptions' %>
       </div>
     </div>
   </div>
