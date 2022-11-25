@@ -25,6 +25,10 @@
   border-radius: 0;
 
   &-primary {
-    color: white;
+    color: white !important;
+
+    &:hover {
+      background: darken($primary, 10%);
+    }
   }
 }
