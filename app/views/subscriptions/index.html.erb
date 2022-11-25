@@ -46,9 +46,9 @@
 </section>
 <%# Subscription Section %>
 <section class="container" data-controller="draggable">
-  <div class="row">
+  <div class="row row-cols-md-2 row-cols-1">
     <%# Soon to be renewed subscriptions %>
-    <div class="col-md-6 col-12">
+    <div class="col">
       <h2>Soon to be renewed</h2>
       <p>These subscriptions will auto-renew within this month.</p>
       <div class="subscriptions">
@@ -58,7 +58,7 @@
       </div>
     </div>
     <%# Active subscriptions %>
-    <div class="col-md-6 col-12">
+    <div class="col">
       <h2>Active</h2>
       <p>These are your currently active subscriptions.</p>
       <div class="subscriptions">
@@ -78,15 +78,13 @@
       </div>
     </div>
     <%# inactive subscriptions %>
-    <div class="col-md-6 col-12">
+    <div class="col">
       <h2>Inactive</h2>
       <p>These are registered subscriptions that are currently inactive.</p>
       <div class="subscriptions">
-        <div class="draggable-container">
-          <% @inactive_subscriptions.each do |subscription| %>
-            <%= render 'shared/card', subscription: subscription %>
-          <% end %>
-        </div>
+        <% @inactive_subscriptions.each do |subscription| %>
+          <%= render 'shared/card', subscription: subscription %>
+        <% end %>
       </div>
     </div>
   </div>
