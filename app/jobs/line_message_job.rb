@@ -8,10 +8,14 @@ class LineMessageJob < ApplicationJob
       config.channel_token = ENV["LINE_CHANNEL_TOKEN"]
     }
 
+    greeting = %w(Ahoy Howdy Gday Yo Hey)
 
     message = {
       type: 'text',
-      text: "Hello #{User.first.name}!, your subscription to #resource , #plan plan is about to renew!"
+      text: "#{greeting.sample} Alex! Your subscription to
+      'Netflix , Basic plan'
+is about to renew!
+Go to http://www.substracked.com/ to manage your subs now."
     }
     p subscription.user.name
     p @client.push_message(subscription.user.line_id, message)
