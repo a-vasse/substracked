@@ -1,6 +1,6 @@
 <div class="d-flex justify-content-center align-items-center h-100">
   <% sum = 0 %>
-  <% @active_subscriptions.each do |subscription| %>
+  <% @subscriptions.where(status: true).each do |subscription| %>
     <% sum += subscription.plan.price %>
   <% end %>
   <span class="monthly-sum" style="transform: translateY(10%);">
