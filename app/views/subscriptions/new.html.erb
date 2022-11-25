@@ -1,4 +1,5 @@
 <div class="container">
+  <h1>Add Custom Subscription</h1>
   <%= simple_form_for(@subscription) do |f| %>
     <div class="mb-3 string required">
       <label class="form-label string required" for="plan_name">Name of the plan<abbr title="required">*</abbr></label>
@@ -20,7 +21,9 @@
     <%= f.input :renewal_date, html5: true %>
     <%= f.input :region %>
     <%= f.input :notes %>
-    <%= f.submit 'Add', class: 'btn btn-primary' %>
+    <div class="d-flex justify-content-between border-0">
+      <%= link_to "Cancel", subscriptions_path %>
+      <%= f.submit 'Add Custom Subscription', class: 'btn btn-primary' %>
+    </div>
   <% end %>
-  <%= link_to "Cancel", subscriptions_path %>
 </div>
