@@ -323,12 +323,12 @@
 
   .star-ani::after,
   .cloud-ani::after {
-    color:  rgba($primary, .75);
+    color:  rgba($primary, .25);
   }
 
   .circle-ani::after,
   .triangel-ani::after,
   .box-ani::after {
-    border-color: rgba($primary, .75);
+    border-color: rgba($primary, .25);
   }
 }
