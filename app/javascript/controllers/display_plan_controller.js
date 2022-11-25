@@ -24,7 +24,7 @@ export default class extends Controller {
               selectOptions += `<option value="${targetPlans[0].id}">N/A</option>`
             } else {
               targetPlans.forEach((plan) => {
-                selectOptions += `<option value="${plan.id}">${plan.name}</option>`;
+                selectOptions += `<option value="${plan.id}">${plan.name} - ¥ ${plan.price}</option>`;
               });
             }
             selectOptions += "</div>"
