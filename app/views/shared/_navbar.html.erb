@@ -19,7 +19,7 @@
               <i class="fa-solid fa-chevron-down fa-fw fa-sm"></i>
             </div>
             <div id="navbarDropdown" class="dropdown-menu dropdown-menu-end shadow-sm" aria-labelledby="navbarDropdown">
-              <%= link_to "Subscriptions", subscriptions_path(current_user), class: "dropdown-item" %>
+              <%= link_to "Subscriptions", subscriptions_path, class: "dropdown-item" %>
               <%= link_to "Settings", "#", class: "dropdown-item" %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item text-danger" %>
             </div>
