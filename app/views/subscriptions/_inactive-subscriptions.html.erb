@@ -1,6 +1,6 @@
 <div id="inactiveSubscriptions" style="margin-bottom: 6rem;">
   <h2>Inactive</h2>
-  <p>These are registered <span class="text-primary">subs</span>criptions that are currently inactive.</p>
+  <p>These are registered subscriptions that are currently inactive.</p>
   <div class="subscriptions">
     <% @inactive_subscriptions.each do |subscription| %>
       <%= render 'shared/card', subscription: subscription %>
