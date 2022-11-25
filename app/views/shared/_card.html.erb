@@ -3,38 +3,42 @@
     <%= image_tag subscription.plan.resource.logo, class:"img-fluid" %>
   </div>
   <div class="card-content-container">
-    <div class="card-content p-3">
-      <div class="d-flex justify-content-between align-items-center">
-        <% if subscription.plan.resource.user %>
-          <h4 class="mb-0 me-2"><%= subscription.plan.name %></h4>
-        <% else %>
-          <h4 class="mb-0 me-2"><%= subscription.plan.resource.name %></h4>
-        <% end %>
-        <button class="nav-user btn dropdown-toggle p-0" data-bs-toggle="dropdown" aria-expanded="false">
-          <i class="fa-solid fa-ellipsis-vertical fa-fw fa-lg text-secondary"></i>
-        </button>
-        <ul id="nav-dropdown-menu" class="dropdown-menu dropdown-menu-end shadow mt-3">
-          <li><%= link_to 'DETAILS', '', class: 'dropdown-item', data: { :bs_target => "#showSubscriptionModal#{subscription.id}", :bs_toggle => 'modal' } %></li>
-          <% if subscription.status == true %>
-            <%= simple_form_for(subscription) do |f| %>
-              <%= f.input :status, as: :hidden, input_html: { value: :false} %>
-              <li><%= f.submit 'DEACTIVATE', class: 'dropdown-item text-warning', data: {turbo_confirm: "Deactivate this subscription?"} %></li>
-            <% end %>
+    <div class="card-content h-100 d-flex flex-column justify-content-between p-3">
+      <div>
+        <div class="d-flex justify-content-between align-items-center">
+          <% if subscription.plan.resource.user %>
+            <h4 class="mb-0 me-2"><%= subscription.plan.name %></h4>
           <% else %>
-            <%= simple_form_for(subscription) do |f| %>
-              <%= f.input :status, as: :hidden, input_html: { value: :true} %>
-              <li><%= f.submit 'ACTIVATE', class: 'dropdown-item text-success', data: {turbo_confirm: "Activate this subscription?"} %></li>
-            <% end %>
+            <h4 class="mb-0 me-2"><%= subscription.plan.resource.name %></h4>
           <% end %>
-          <li><%= link_to "DELETE", subscription_path(subscription), class: 'dropdown-item text-danger', data: { turbo_method: :delete, turbo_confirm: "Delete this subscription?" } %></li>
-        </ul>
-        <%= render "shared/show", subscription: subscription %>
+          <button class="nav-user btn dropdown-toggle p-0" data-bs-toggle="dropdown" aria-expanded="false">
+            <i class="fa-solid fa-ellipsis-vertical fa-fw fa-lg text-secondary"></i>
+          </button>
+          <ul id="nav-dropdown-menu" class="dropdown-menu dropdown-menu-end shadow mt-3">
+            <li><%= link_to 'DETAILS', '', class: 'dropdown-item', data: { :bs_target => "#showSubscriptionModal#{subscription.id}", :bs_toggle => 'modal' } %></li>
+            <% if subscription.status == true %>
+              <%= simple_form_for(subscription) do |f| %>
+                <%= f.input :status, as: :hidden, input_html: { value: :false} %>
+                <li><%= f.submit 'DEACTIVATE', class: 'dropdown-item text-warning', data: {turbo_confirm: "Deactivate this subscription?"} %></li>
+              <% end %>
+            <% else %>
+              <%= simple_form_for(subscription) do |f| %>
+                <%= f.input :status, as: :hidden, input_html: { value: :true} %>
+                <li><%= f.submit 'ACTIVATE', class: 'dropdown-item text-success', data: {turbo_confirm: "Activate this subscription?"} %></li>
+              <% end %>
+            <% end %>
+            <li><%= link_to "DELETE", subscription_path(subscription), class: 'dropdown-item text-danger', data: { turbo_method: :delete, turbo_confirm: "Delete this subscription?" } %></li>
+          </ul>
+          <%= render "shared/show", subscription: subscription %>
+        </div>
+        <p><small class="mb-0 text-secondary"><%= subscription.region %></small></p>
       </div>
-      <p><small class="mb-0 text-secondary"><%= subscription.region %></small></p>
-      <small><%= subscription.status ? 'Renewal on' : 'Cancelled on' %></small>
-      <div class="d-flex justify-content-between align-items-end">
-        <p class="mb-0"><%= subscription.renewal_date %></p>
-        <p class="text-danger mb-0 me-2">-<%= format_price(subscription.plan.price) %></p>
+      <div>
+        <small><%= subscription.status ? 'Renewal on' : 'Cancelled on' %></small>
+        <div class="d-flex justify-content-between align-items-end">
+          <p class="mb-0"><%= subscription.renewal_date %></p>
+          <p class="text-danger mb-0 me-2">-<%= format_price(subscription.plan.price) %></p>
+        </div>
       </div>
     </div>
   </div>
