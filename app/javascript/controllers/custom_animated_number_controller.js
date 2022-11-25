@@ -18,7 +18,6 @@ export default class extends Controller {
       this.currentTime += 10;
 
        if (this.currentTime < this.endValue) {
-        console.log(this.currentTime);
         this.element.innerHTML = this.commatize(this.currentTime);
         this.animate();
       } else {

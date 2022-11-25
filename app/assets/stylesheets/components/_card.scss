@@ -47,10 +47,27 @@
 
   &-draggable-on {
     border: $primary 5px solid !important;
-    background: $primary !important;
+    background: white !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+    position: relative;
+
+    &::after {
+      @include draggable-background;
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      overflow: hidden;
+    }
 
     .card-image {
-      background: $primary !important;
+      background: white !important;
+
+      img {
+        opacity: 0 !important;
+      }
     }
 
     .card-content {
