@@ -20,7 +20,8 @@ export default class extends Controller {
       },
       classes: {
         'source:dragging': ['card-draggable-on'],
-      }
+      },
+      delay: 200
     });
 
     return sortable;
