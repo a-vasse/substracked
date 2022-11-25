@@ -29,7 +29,6 @@
             <% end %>
             <li><%= link_to "DELETE", subscription_path(subscription), class: 'dropdown-item text-danger', data: { turbo_method: :delete, turbo_confirm: "Delete this subscription?" } %></li>
           </ul>
-          <%= render "shared/show", subscription: subscription %>
         </div>
         <p><small class="mb-0 text-secondary"><%= subscription.region %></small></p>
       </div>
@@ -43,3 +42,4 @@
     </div>
   </div>
 </div>
+<%= render "shared/show", subscription: subscription %>
