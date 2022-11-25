@@ -20,6 +20,12 @@ h1 {
       width: calc(100% + 1rem);
     }
   }
+
+  &.no-effect {
+    &::before {
+      display: none !important;
+    }
+  }
 }
 
 h2 {

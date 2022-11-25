@@ -1,0 +1,306 @@
+.background-animation {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+  width: 70%;
+  height: 100%;
+
+  .star-ani {
+    position: absolute;
+    border-radius: 50%;
+    width: 300px;
+    height: 300px;
+    top: 15%;
+    left: 45%;
+    z-index: -1;
+    -webkit-animation: rotateAnimation linear 39s infinite;
+    animation: rotateAnimation linear 39s infinite;
+
+    &::after {
+      position: absolute;
+      content: "\e950";
+      top: 10%;
+      left: 10%;
+      z-index: -1;
+      border-radius: 50%;
+      font-family: "LineIcons";
+      color: rgba(255, 255, 255, 0.26);
+      font-size: 22px;
+    }
+  }
+
+  .cloud-ani {
+    position: absolute;
+    border-radius: 50%;
+    width: 240px;
+    height: 240px;
+    top: 50%;
+    left: 60%;
+    z-index: -1;
+    -webkit-animation: rotateAnimation linear 46s infinite;
+    animation: rotateAnimation linear 46s infinite;
+
+    &::after {
+      position: absolute;
+      content: "\e950";
+      top: 10%;
+      left: 10%;
+      z-index: -1;
+      border-radius: 50%;
+      font-family: "LineIcons";
+      color: rgba(255, 255, 255, 0.26);
+      font-size: 2.5rem;
+    }
+  }
+
+  .circle-ani {
+    position: absolute;
+    border-radius: 50%;
+    -webkit-animation: rotateAnimation linear 34s infinite;
+    animation: rotateAnimation linear 34s infinite;
+    width: 180px;
+    height: 180px;
+    left: 10%;
+    top: 10%;
+    z-index: -1;
+
+    &::after {
+      width: 20px;
+      height: 20px;
+      position: absolute;
+      content: "";
+      top: 10%;
+      left: 10%;
+      border: 3px solid rgba(255, 255, 255, 0.2);
+      z-index: -1;
+      border-radius: 50%;
+    }
+  }
+
+  .triangle-ani {
+    position: absolute;
+    border-radius: 50%;
+    -webkit-animation: rotateAnimation linear 40s infinite;
+    animation: rotateAnimation linear 40s infinite;
+    width: 20%;
+    height: 20%;
+    left: 30%;
+    top: 50%;
+    z-index: -1;
+
+    &::after {
+      width: 0;
+      height: 0;
+      position: absolute;
+      content: "";
+      border-top: 14px solid rgba(255, 255, 255, 0.16);
+      border-bottom: 14px solid transparent;
+      border-left: 14px solid transparent;
+      border-right: 14px solid transparent;
+      z-index: -1;
+    }
+  }
+
+  .box-ani {
+    position: absolute;
+    border-radius: 50%;
+    -webkit-animation: rotateAnimation linear 37s infinite;
+    animation: rotateAnimation linear 37s infinite;
+    width: 15%;
+    height: 18%;
+    left: 7%;
+    top: 70%;
+    z-index: -1;
+
+    &::after {
+      width: 26px;
+      height: 26px;
+      position: absolute;
+      content: "";
+      z-index: -1;
+      background-color: transparent;
+      border-radius: 4px;
+      border: 3px solid rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+
+@-webkit-keyframes rotateAnimation {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes rotateAnimation {
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.welcome-area {
+  position: relative;
+  z-index: 2;
+  height: 100vh;
+  background-color: darken($primary, 10%);
+  overflow: hidden;
+
+  @media only screen and (min-width: 992px) and (max-width: 1199px) {
+    height: 750px;
+  }
+
+  @media only screen and (min-width: 768px) and (max-width: 991px) {
+    height: 650px;
+  }
+
+  @media only screen and (max-width: 767px) {
+    height: 100vh;
+  }
+
+  .background-shape {
+    .circle{
+      border-radius: 50%;
+      background: rgba(255, 255, 255, .1);
+      position: absolute;
+
+      &-one {
+        width: 2200px;
+        height: 2200px;
+        background: rgba(255, 255, 255, 0);
+        z-index: -30;
+        top: -1100px;
+        right: -1100px;
+
+        @media only screen and (min-width: 992px) and (max-width: 1199px) {
+          width: 1700px;
+          height: 1700px;
+          top: -850px;
+          right: -850px;
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+          width: 1700px;
+          height: 1700px;
+          top: -850px;
+          right: -850px;
+        }
+
+        @media only screen and (max-width: 767px) {
+          background: rgba(255, 255, 255, .1);
+          width: 1700px;
+          height: 1700px;
+          top: -850px;
+          right: -850px;
+        }
+      }
+
+      &-two {
+        width: 1700px;
+        height: 1700px;
+        z-index: -20;
+        top: -850px;
+        right: -850px;
+
+        @media only screen and (min-width: 992px) and (max-width: 1199px) {
+          width: 1200px;
+          height: 1200px;
+          top: -600px;
+          right: -600px;
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+          width: 1200px;
+          height: 1200px;
+          top: -600px;
+          right: -600px;
+        }
+
+        @media only screen and (max-width: 767px) {
+          width: 1200px;
+          height: 1200px;
+          top: -600px;
+          right: -600px;
+        }
+      }
+
+      &-three {
+        width: 1200px;
+        height: 1200px;
+        z-index: -10;
+        top: -600px;
+        right: -600px;
+
+        @media only screen and (min-width: 992px) and (max-width: 1199px) {
+          width: 700px;
+          height: 700px;
+          top: -350px;
+          right: -350px;
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+          width: 700px;
+          height: 700px;
+          top: -350px;
+          right: -350px;
+        }
+
+        @media only screen and (max-width: 767px) {
+          width: 700px;
+          height: 700px;
+          top: -350px;
+          right: -350px;
+        }
+      }
+
+      &-four {
+        width: 700px;
+        height: 700px;
+        z-index: -10;
+        top: -350px;
+        right: -350px;
+
+        @media only screen and (min-width: 992px) and (max-width: 1199px) {
+          width: 200px;
+          height: 200px;
+          top: -100px;
+          right: -100px;
+        }
+
+        @media only screen and (min-width: 768px) and (max-width: 991px) {
+          width: 200px;
+          height: 200px;
+          top: -100px;
+          right: -100px;
+        }
+
+        @media only screen and (max-width: 767px) {
+          width: 200px;
+          height: 200px;
+          top: -100px;
+          right: -100px;
+        }
+      }
+    }
+  }
+}
+
+.welcome-area {
+  .welcome-content {
+    position: relative;
+    z-index: 1;
+
+    h3 {
+      font-size: 2rem;
+      margin-bottom: 1.5rem;
+      font-weight: 600;
+      color: #ffffff;
+    }
+
+    p {
+      font-size: 1.125rem;
+      color: #ffffff;
+    }
+  }
+}
