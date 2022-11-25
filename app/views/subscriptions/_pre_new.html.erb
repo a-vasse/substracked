@@ -2,13 +2,13 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header mb-4 border-0 align-items-start">
-        <h2 class="mb-0">Add a new Subscription</h2>
+        <h2 class="mb-0">Add subscription</h2>
         <button type="button" class="btn-close mt-1" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <%# Form Content %>
-      <div class="service-select text-center">
+      <div class="service-select mx-auto">
         <label for="resources">Service:</label>
-        <select name="resources" id="resources" data-display-plan-target="resource" data-action="change->display-plan#display">
+        <select name="resources" id="resources" data-display-plan-target="resource" data-action="change->display-plan#display" class="form-select">
           <option value="" label=" "></option>
           <% @pre_resources.each do |resource| %>
             <option value="<%= resource.name %>"><%= resource.name %></option>
