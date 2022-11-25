@@ -2,17 +2,19 @@
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
       <div class="modal-header mb-4 border-0 align-items-start">
-        <h2 class="mb-0">Add a new Subscription</h2>
+        <h2 class="mb-0">Add subscription</h2>
         <button type="button" class="btn-close mt-1" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <%# Form Content %>
-      <label for="resources">Service:</label>
-      <select class="form-select select required" name="resources" id="resources" data-display-plan-target="resource" data-action="change->display-plan#display">
-        <option value="" label=" "></option>
-        <% @pre_resources.each do |resource| %>
-          <option value="<%= resource.name %>"><%= resource.name %></option>
-        <% end %>
-      </select>
+      <div class="service-select mx-auto">
+        <label for="resources">Service:</label>
+        <select name="resources" id="resources" data-display-plan-target="resource" data-action="change->display-plan#display" class="form-select">
+          <option value="" label=" "></option>
+          <% @pre_resources.each do |resource| %>
+            <option value="<%= resource.name %>"><%= resource.name %></option>
+          <% end %>
+        </select>
+      </div>
       <%= simple_form_for(subscription)  do |f| %>
         <div class="modal-body mb-4 border-0 d-none", data-display-plan-target="form">
           <div class="plans", data-display-plan-target="plans">
@@ -24,11 +26,14 @@
           <%= f.input :notes %>
         </div>
         <div class="modal-footer d-flex justify-content-between border-0">
+          <div data-display-plan-target="custom">
+            Can't find your subscription above?
+            <%= link_to "Add Custom Subscription", new_subscription_path, class: 'btn btn-primary', data_bs_dismiss: 'modal' %>
+          </div>
+          <%= f.submit 'Add', class: 'btn btn-primary d-none', data: {display_plan_target: "add"} %>
           <%= link_to "Cancel", class: 'btn link-unstyled p-0 text-primary', data_bs_dismiss: 'modal' %>
-          <%= f.submit 'Add', class: 'btn btn-primary' %>
         </div>
       <% end %>
-      <%= link_to "Add Custom Subscription", new_subscription_path, class: 'btn btn-primary', data_bs_dismiss: 'modal' %>
     </div>
   </div>
 </div>

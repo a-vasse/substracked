@@ -2,7 +2,7 @@ import { Controller } from "@hotwired/stimulus"
 
 // Connects to data-controller="display-plan"
 export default class extends Controller {
-  static targets = ["resource", "plans", "form"]
+  static targets = ["resource", "plans", "form", "custom", "add"]
   connect() {
     console.log("connected")
   }
@@ -30,10 +30,14 @@ export default class extends Controller {
             selectOptions += "</div>"
             this.plansTarget.insertAdjacentHTML("afterbegin", selectOptions);
             this.formTarget.classList.remove("d-none");
+            this.addTarget.classList.remove("d-none");
+            this.customTarget.classList.add("d-none");
           })
       })
     } else {
       this.formTarget.classList.add("d-none");
+      this.addTarget.classList.add("d-none");
+      this.customTarget.classList.remove("d-none");
     }
   }
 }
