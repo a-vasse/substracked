@@ -7,7 +7,7 @@
       </div>
       <%# Form Content %>
       <div class="service-select mx-auto">
-        <label for="resources">Service</label>
+        <label for="resources" class="mb-2">Service</label>
         <select name="resources" id="resources" data-display-plan-target="resource" data-action="change->display-plan#display" class="form-select">
           <option value="" label=" "></option>
           <% @pre_resources.each do |resource| %>
@@ -16,7 +16,7 @@
         </select>
       </div>
       <%= simple_form_for(subscription)  do |f| %>
-        <div class="modal-body border-0 d-none", data-display-plan-target="form">
+        <div class="modal-body pb-0 border-0 d-none", data-display-plan-target="form">
           <div class="plans", data-display-plan-target="plans">
             <%# <%= f.association :plan, collection: @plans %>
           </div>
@@ -28,14 +28,14 @@
           <%= f.input :notes %>
         </div>
         <div class="modal-footer d-flex justify-content-between border-0">
-          <div data-display-plan-target="custom" class="mt-3">
-            <span style="font-size: small">Can't find your subscription above?</span>
-            <%= link_to new_subscription_path, class: 'btn btn-primary', data_bs_dismiss: 'modal' do %>
-              <%= "Add Custom Subscription" %>
-              <i class="fa-solid fa-arrow-right"></i>
+          <div data-display-plan-target="custom" class="text-center mx-auto mt-3">
+            <p class="m-0"><small>Can't find your subscription above?</small></p>
+            <%= link_to new_subscription_path, class: 'btn text-primary', data_bs_dismiss: 'modal' do %>
+              <%= "Add custom subscription" %>
+              <%# <i class="fa-solid fa-arrow-right"></i> %>
             <% end %>
           </div>
-          <%= f.submit 'Add Subscription', class: 'btn btn-primary d-none mx-auto', data: {display_plan_target: "add"} %>
+          <%= f.submit 'Add subscription', class: 'btn btn-primary d-none mx-auto', data: {display_plan_target: "add"} %>
         </div>
       <% end %>
     </div>
