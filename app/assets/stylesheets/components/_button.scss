@@ -20,15 +20,24 @@
 }
 
 .btn {
-  text-decoration: none;
+  text-decoration: underline;
   padding: .75rem 1rem;
   border-radius: 0;
 
+  &:hover {
+    color: $primary;
+  }
+
   &-primary {
+    text-decoration: none;
     color: white !important;
 
     &:hover {
-      background: darken($primary, 10%);
+      background: darken($primary, 10%) !important;
     }
+  }
+
+  &-clean {
+    text-decoration: none;
   }
 }
