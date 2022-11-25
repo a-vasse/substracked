@@ -24,7 +24,7 @@
     margin-left: 0rem !important;" } %>
           <%= f.input :renewal_date, html5: true, input_html: { style: "margin-right: 0rem !important;
     margin-left: 0rem !important;" } %>
-          <%= f.input :region %>
+          <%= f.input :region, collection: ["Australia", "Brazil", "France", "Germany", "Hong Kong", "Italy", "Japan", "Singapore", "United States of America", "United Kingdom"] %>
           <%= f.input :notes %>
         </div>
         <div class="modal-footer d-flex justify-content-between border-0">
