@@ -1,16 +1,20 @@
-.form-select {
+.form-select, .form-control {
   padding: 12px;
   border: none;
   font-size: 16px;
-  box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-  outline: none;
+  outline: 0.5px solid $gray;
 }
 
 .service-select select {
-  width: 400px;
+  width: 466px;
 }
 
-.form-select:hover {
+.form-select:hover, .form-control:focus, .form-control:hover {
   transition: 0.1s;
   outline: 2px solid $blue;
+}
+
+abbr {
+  text-decoration: none !important;
+  color: $primary;
 }
