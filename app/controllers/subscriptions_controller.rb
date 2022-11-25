@@ -5,14 +5,18 @@ class SubscriptionsController < ApplicationController
     @resources = Resource.where(user: nil).or(current_user.created_resources)
     @pre_resources = Resource.where(user: nil)
     @plans = Plan.all
-    @active_subscriptions = @subscriptions.where(status: true)
+    @active_subscriptions =
+      @subscriptions.where(status: true).where(
+        "renewal_date > ?",
+        1.week.from_now,
+      )
     @inactive_subscriptions = @subscriptions.where(status: false)
     @upcoming_subscriptions =
       @subscriptions.where(
         "renewal_date >= ? AND renewal_date <= ?",
         Date.today,
         1.week.from_now,
-      )
+      ).where(status: true)
   end
 
   def show
