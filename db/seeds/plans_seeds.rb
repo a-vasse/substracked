@@ -57,7 +57,7 @@ Plan.create!(
 )
 
 Plan.create!(
-  name: "monthly",
+  name: "Monthly",
   price: 990,
   billing_cycle: 1,
   cancellation_notice: "",
@@ -65,7 +65,7 @@ Plan.create!(
 )
 
 Plan.create!(
-  name: "annual",
+  name: "Annual",
   price: 9900,
   billing_cycle: 12,
   cancellation_notice: "",
@@ -73,7 +73,7 @@ Plan.create!(
 )
 
 Plan.create!(
-  name: "individual",
+  name: "Individual",
   price: 20_400,
   billing_cycle: 12,
   cancellation_notice: "",
@@ -145,7 +145,7 @@ Plan.create!(
 )
 
 Plan.create!(
-  name: "individual",
+  name: "Individual",
   price: 306,
   billing_cycle: 1,
   cancellation_notice: "",
@@ -153,7 +153,7 @@ Plan.create!(
 )
 
 Plan.create!(
-  name: "individual plus",
+  name: "Individual plus",
   price: 4900,
   billing_cycle: 12,
   cancellation_notice: "",
@@ -161,7 +161,7 @@ Plan.create!(
 )
 
 Plan.create!(
-  name: "family",
+  name: "Family",
   price: 4500,
   billing_cycle: 12,
   cancellation_notice: "",
@@ -169,7 +169,7 @@ Plan.create!(
 )
 
 Plan.create!(
-  name: "family plus",
+  name: "Family Plus",
   price: 8900,
   billing_cycle: 12,
   cancellation_notice: "",
@@ -185,7 +185,7 @@ Plan.create!(
 )
 
 Plan.create!(
-  name: "paper",
+  name: "Paper",
   price: 4900,
   billing_cycle: 1,
   cancellation_notice: "",
@@ -209,7 +209,7 @@ Plan.create!(
 )
 
 Plan.create!(
-  name: "individual",
+  name: "Individual",
   price: 1180,
   billing_cycle: 1,
   cancellation_notice: "",
@@ -217,7 +217,7 @@ Plan.create!(
 )
 
 Plan.create!(
-  name: "individual annual",
+  name: "Individual Annual",
   price: 11_800,
   billing_cycle: 12,
   cancellation_notice: "",
@@ -225,7 +225,7 @@ Plan.create!(
 )
 
 Plan.create!(
-  name: "family",
+  name: "Family",
   price: 2280,
   billing_cycle: 1,
   cancellation_notice: "",
@@ -233,7 +233,7 @@ Plan.create!(
 )
 
 Plan.create!(
-  name: "student",
+  name: "Student",
   price: 680,
   billing_cycle: 1,
   cancellation_notice: "",
