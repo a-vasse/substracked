@@ -13,5 +13,13 @@
       background-color: $primary;
       color: white;
     }
+
+    &:last-child {
+      color: $danger;
+
+      &:hover {
+        color: white;
+      }
+    }
   }
 }
