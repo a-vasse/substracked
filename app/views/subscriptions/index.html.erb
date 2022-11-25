@@ -49,15 +49,7 @@
   <div class="row row-cols-md-2 row-cols-1">
     <div class="col">
       <%# Soon to be renewed subscriptions %>
-      <div id="upcomingSubscriptions" style="margin-bottom: 6rem;">
-        <h2>Soon to be renewed</h2>
-        <p>These subscriptions will auto-renew within this month.</p>
-        <div class="subscriptions">
-          <% @upcoming_subscriptions.each do |subscription| %>
-            <%= render 'shared/card', subscription: subscription %>
-          <% end %>
-        </div>
-      </div>
+      <%= render 'shared/upcoming-subscriptions' %>
       <%# inactive subscriptions %>
       <div class="d-md-block d-none">
         <%= render 'shared/inactive-subscriptions' %>
