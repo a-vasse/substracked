@@ -2,6 +2,7 @@ class ResourcesController < ApplicationController
 
   def new
     @resource = Resource.new
+    @category = %w(Entertainment Shopping Food Business Education Gaming Social Trvael Banking)
     authorize @resource
   end
 
