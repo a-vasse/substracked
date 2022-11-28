@@ -15,7 +15,11 @@ export default class extends Controller {
 
   animate() {
     setTimeout(() => {
-      this.currentTime += 10;
+      if (this.endValue > 5000) {
+        this.currentTime += 75;
+      } else {
+        this.currentTime += 25;
+      }
 
        if (this.currentTime < this.endValue) {
         this.element.innerHTML = this.commatize(this.currentTime);
