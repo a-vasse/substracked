@@ -1,6 +1,10 @@
 <div class="card border-0 shadow flex-row mb-3 <%= subscription.status ? 'active' : 'inactive' %>">
   <div class="card-image-container p-3">
-    <%= image_tag subscription.plan.resource.logo, class:"img-fluid" %>
+    <% if subscription.plan.resource.logo %>
+      <%= image_tag subscription.plan.resource.logo, class:"img-fluid" %>
+    <% else %>
+      <%= image_tag "custom", class:"img-fluid" %>
+    <% end %>
   </div>
   <div class="card-content-container">
     <div class="card-content h-100 d-flex flex-column justify-content-between p-3">

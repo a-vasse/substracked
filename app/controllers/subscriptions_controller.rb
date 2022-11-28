@@ -11,12 +11,7 @@ class SubscriptionsController < ApplicationController
         1.week.from_now,
       )
     @inactive_subscriptions = @subscriptions.where(status: false)
-    @upcoming_subscriptions =
-      @subscriptions.where(
-        "renewal_date >= ? AND renewal_date <= ?",
-        Date.today,
-        1.week.from_now,
-      ).where(status: true)
+    @upcoming_subscriptions = @subscriptions.upcoming
   end
 
   def show
