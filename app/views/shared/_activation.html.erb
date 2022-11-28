@@ -5,15 +5,20 @@
         <h2 class="mb-0">Manage your <span class="text-primary">Subs</span>cription</h2>
         <button type="button" class="btn-close mt-1" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div>
+      <div data-controller="sub-button">
         <% if subscription.status == true %>
           <p>Access your subscription on <%= subscription.plan.resource.name %> to cancel</p>
-          <%= link_to "#{subscription.plan.resource.name}" , "#{subscription.plan.resource.url}", class: 'btn btn-primary d-grid gap-2 m-1' %>
+          <button data-action="click->sub-button#subActions" class="btn btn-primary d-grid gap-2 m-1"><%= subscription.plan.resource.name %></button>
+          <%= hidden_field_tag(:url, subscription.plan.resource.url, data: { sub_button_target: "url"}) %>
+          <%= link_to " " , ' ',  data: { sub_button_target: "button", :bs_target => "#confirmSubscriptionModal#{subscription.id}", :bs_toggle => 'modal' } %>
         <% else %>
           <p>Access your subscription on <%= subscription.plan.resource.name %> to subscribe</p>
-          <%= link_to "#{subscription.plan.resource.name}" , "#{subscription.plan.resource.url}", class: 'btn btn-primary d-grid gap-2 m-1' %>
+          <button data-action="click->sub-button#subActions" class="btn btn-primary d-grid gap-2 m-1"><%= subscription.plan.resource.name %></button>
+          <%= hidden_field_tag(:url, subscription.plan.resource.url, data: { sub_button_target: "url"}) %>
+          <%= link_to " " , ' ', data: { sub_button_target: "button", :bs_target => "#confirmSubscriptionModal#{subscription.id}", :bs_toggle => 'modal' } %>
         <% end %>
       </div>
     </div>
   </div>
 </div>
+<%= render "shared/confirm", subscription: subscription %>

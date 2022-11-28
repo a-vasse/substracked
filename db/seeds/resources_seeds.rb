@@ -2,14 +2,14 @@
 puts "Creating predefiened resources..."
 Resource.create!(
   name: "Netflix",
-  url: "https://www.netflix.com/",
+  url: "https://www.netflix.com/YourAccount",
   logo: ActionController::Base.helpers.image_path("resource icons/Netflix.jpg"),
   category: "Entertainment"
 
 )
 Resource.create!(
   name: "Amazon Prime",
-  url: "https://www.amazon.co.jp/amazonprime?language=jp",
+  url: "https://www.amazon.co.jp/-/en/mc/pipelines/cancellation",
   logo: ActionController::Base.helpers.image_path("resource icons/amazon_prime.jpg"),
   category: "Shopping"
 )
