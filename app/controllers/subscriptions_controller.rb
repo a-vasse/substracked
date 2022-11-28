@@ -2,8 +2,8 @@ class SubscriptionsController < ApplicationController
   def index
     @subscriptions = policy_scope(Subscription.all)
     @subscription = Subscription.new
-    @resources = Resource.where(user: nil).or(current_user.created_resources)
-    @pre_resources = Resource.where(user: nil)
+    @resources = Resource.where(user: nil).or(current_user.created_resources).order(name: :asc)
+    @pre_resources = Resource.where(user: nil).order(name: :asc)
     @plans = Plan.all
     @active_subscriptions =
       @subscriptions.where(status: true).where(
