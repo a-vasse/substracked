@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_11_24_032618) do
+ActiveRecord::Schema[7.0].define(version: 2022_11_28_014008) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -44,7 +44,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_032618) do
 
   create_table "plans", force: :cascade do |t|
     t.integer "price"
-    t.integer "billing_cycle"
+    t.float "billing_cycle"
     t.string "name"
     t.integer "cancellation_notice"
     t.bigint "resource_id", null: false
@@ -60,6 +60,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_11_24_032618) do
     t.datetime "updated_at", null: false
     t.bigint "user_id"
     t.string "logo"
+    t.text "category"
     t.index ["user_id"], name: "index_resources_on_user_id"
   end
 
