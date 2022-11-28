@@ -1,14 +1,10 @@
 <div class="d-flex justify-content-center align-items-center h-100">
-  <% sum = 0 %>
-  <% @subscriptions.where(status: true).each do |subscription| %>
-    <% sum += subscription.plan.price %>
-  <% end %>
   <span class="monthly-sum" style="transform: translateY(10%);">
     <span class="text-primary">¥</span>
     <span
     data-controller="custom-animated-number"
     data-custom-animated-number-start-value="0"
-    data-custom-animated-number-end-value="<%= sum %>"
+    data-custom-animated-number-end-value="<%= @monthly_sum %>"
     data-custom-animated-number-duration-value="2500">
       0
     </span>

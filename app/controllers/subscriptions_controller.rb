@@ -1,4 +1,6 @@
 class SubscriptionsController < ApplicationController
+  # after_action :monthly_costs, only: :index
+
   def index
     @subscriptions = policy_scope(Subscription.all)
     @subscription = Subscription.new
@@ -14,6 +16,10 @@ class SubscriptionsController < ApplicationController
       @active_subscriptions.where("renewal_date > ?", 1.week.from_now)
     @inactive_subscriptions = @subscriptions.where(status: false)
     @upcoming_subscriptions = @subscriptions.upcoming
+    @monthly_sum =
+      @active_subscriptions.sum do |sub|
+        p (sub.plan.price / sub.plan.billing_cycle)
+      end
   end
 
   def show
@@ -79,13 +85,6 @@ class SubscriptionsController < ApplicationController
     authorize @subscription
     @subscription.destroy
     redirect_to subscriptions_path
-  end
-
-  def monthly_costs
-    active_subs = @subscription.where(status: true)
-    @monthly_sum = 0
-    active_subs.each { |sub| @monthly_sum *= sub.plan.price }
-    @monthly_sum
   end
 
   private
