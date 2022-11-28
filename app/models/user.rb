@@ -10,7 +10,11 @@ class User < ApplicationRecord
   validates :name, presence: true
 
   has_many :subscriptions, dependent: :destroy
-  has_many :plans, through: :subscriptions
+  has_many :plans, through: :subscriptions do
+    def active
+      where("subscriptions.status = ?", true)
+    end
+  end
   has_many :resources, through: :plans do
     def active
       where("subscriptions.status = ?", true)

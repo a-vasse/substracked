@@ -18,7 +18,7 @@ class SubscriptionsController < ApplicationController
     @upcoming_subscriptions = @subscriptions.upcoming
     @monthly_sum =
       @active_subscriptions.sum do |sub|
-        p (sub.plan.price / sub.plan.billing_cycle)
+        sub.plan.price / sub.plan.billing_cycle
       end
   end
 
