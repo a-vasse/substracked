@@ -21,15 +21,9 @@
           <ul id="nav-dropdown-menu" class="dropdown-menu dropdown-menu-end shadow mt-3">
             <li><%= link_to 'DETAILS', '', class: 'dropdown-item', data: { :bs_target => "#showSubscriptionModal#{subscription.id}", :bs_toggle => 'modal' } %></li>
             <% if subscription.status == true %>
-              <%= simple_form_for(subscription) do |f| %>
-                <%= f.input :status, as: :hidden, input_html: { value: :false} %>
-                <li><%= f.submit 'DEACTIVATE', class: 'dropdown-item text-warning', data: {turbo_confirm: "Deactivate this subscription?"} %></li>
-              <% end %>
+              <li><%= link_to 'CANCEL', '', class: 'dropdown-item text-danger', data: { :bs_target => "#subscribeSubscriptionModal#{subscription.id}", :bs_toggle => 'modal' } %></li>
             <% else %>
-              <%= simple_form_for(subscription) do |f| %>
-                <%= f.input :status, as: :hidden, input_html: { value: :true} %>
-                <li><%= f.submit 'ACTIVATE', class: 'dropdown-item text-success', data: {turbo_confirm: "Activate this subscription?"} %></li>
-              <% end %>
+              <li><%= link_to 'SUBSCRIBE', '', class: 'dropdown-item text-success', data: { :bs_target => "#subscribeSubscriptionModal#{subscription.id}", :bs_toggle => 'modal' } %></li>
             <% end %>
             <li><%= link_to "DELETE", subscription_path(subscription), class: 'dropdown-item text-danger', data: { turbo_method: :delete, turbo_confirm: "Delete this subscription?" } %></li>
           </ul>
@@ -47,3 +41,4 @@
   </div>
 </div>
 <%= render "shared/show", subscription: subscription %>
+<%= render "shared/activation", subscription: subscription %>
