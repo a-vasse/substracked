@@ -22,6 +22,7 @@
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
 
+    <%= form.input :profile_pic, as: :file, label: "Your profile picture" %>
     <h3>Notification Settings</h3>
     <input type="checkbox" id="option1" name="option1" value="Email">
     <label for="option1"> Email</label><br>
