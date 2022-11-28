@@ -1,9 +1,8 @@
 class Api::V1::SubscriptionsController < Api::V1::BaseController
   def create
     @subscription = Subscription.new(subscription_params)
-    @subscription.user_id = 9
+    @subscription.user = User.first
     authorize @subscription
-    p @subscription
     @subscription.save
   end
 
