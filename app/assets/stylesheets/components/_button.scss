@@ -11,10 +11,13 @@
   font-weight: 500;
 
   &:hover {
-    background: darken($light-gray, 5%);
+    // background: darken($light-gray, 5%);
+    background: $primary;
+    color: white !important;
 
     i {
-      color: darken($primary, 5%) !important;
+      color: white !important;
+      background: $primary !important;
     }
   }
 }
