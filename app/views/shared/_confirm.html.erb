@@ -1,26 +1,24 @@
 <div id="confirmSubscriptionModal<%= subscription.id %>" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
   <div class="modal-dialog modal-dialog-centered">
     <div class="modal-content">
-      <div class="modal-header mb-4 border-0 align-items-start">
+      <div class="modal-header mb-2 border-0 align-items-start">
         <h2 class="mb-0">Confirmation</h2>
         <button type="button" class="btn-close mt-1" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div>
-        <p>Please confirm the status of your subscription</p>
-      </div>
-      <div class="d-flex justify-content-center m-2">
+      <p class="text-center">Please confirm the status of your subscription</p>
+      <div class="d-flex m-2">
         <% if subscription.status == true %>
-          <%= simple_form_for(subscription) do |f| %>
+          <%= simple_form_for(subscription, html: {class:"w-50 me-3"}) do |f| %>
             <%= f.input :status, as: :hidden, input_html: { value: :false} %>
-            <%= f.submit 'Cancelled', class: 'btn btn-danger' %>
-            <%= link_to "Subscribed" , ' ', class: 'btn btn-success', data: { :bs_dismiss => 'modal' } %>
+            <%= f.submit 'Cancelled', class: 'w-100 card add-new-button shadow m-3' %>
           <% end %>
+          <%= link_to "Subscribed" , ' ', class: 'w-50 card add-new-button shadow m-3', data: { :bs_dismiss => 'modal' } %>
         <% else %>
-          <%= simple_form_for(subscription) do |f| %>
+          <%= simple_form_for(subscription, html: {class:"w-50 me-1"}) do |f| %>
             <%= f.input :status, as: :hidden, input_html: { value: :true} %>
-            <%= f.submit 'Subscribed', class: 'btn btn-success' %>
-            <%= link_to "Cancelled" , ' ', class: 'btn btn-danger', data: { :bs_dismiss => 'modal' } %>
+            <%= f.submit 'Subscribed', class: 'w-100 card add-new-button shadow m-3' %>
           <% end %>
+          <%= link_to "Cancelled" , ' ', class: 'w-50 card add-new-button shadow m-3 unsubbed', data: { :bs_dismiss => 'modal' } %>
         <% end %>
       </div>
     </div>
