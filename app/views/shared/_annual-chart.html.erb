@@ -1,3 +1,5 @@
 <div class="d-flex justify-content-center align-items-center h-100">
-  <%= image_tag("barchart_fixed.png", class: "img-fluid") %>
+  <%# <%= image_tag("barchart_fixed.png", class: "img-fluid") %>
+  <%# <%= column_chart({"2021-01-01" => 2, "2021-01-02" => 3}) %>
+  <%= column_chart @active_subscriptions.group_by_month(:renewal_date, format: "%B", last: 12).count, ytitle: "Amount in Yen" %>
 </div>

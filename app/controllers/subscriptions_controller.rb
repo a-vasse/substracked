@@ -2,14 +2,16 @@ class SubscriptionsController < ApplicationController
   def index
     @subscriptions = policy_scope(Subscription.all)
     @subscription = Subscription.new
-    @resources = Resource.where(user: nil).or(current_user.created_resources).order(name: :asc)
+    @resources =
+      Resource
+        .where(user: nil)
+        .or(current_user.created_resources)
+        .order(name: :asc)
     @pre_resources = Resource.where(user: nil).order(name: :asc)
     @plans = Plan.all
-    @active_subscriptions =
-      @subscriptions.where(status: true).where(
-        "renewal_date > ?",
-        1.week.from_now,
-      )
+    @active_subscriptions = @subscriptions.where(status: true)
+    @active_filtered_subscriptions =
+      @active_subscriptions.where("renewal_date > ?", 1.week.from_now)
     @inactive_subscriptions = @subscriptions.where(status: false)
     @upcoming_subscriptions = @subscriptions.upcoming
   end
@@ -77,6 +79,13 @@ class SubscriptionsController < ApplicationController
     authorize @subscription
     @subscription.destroy
     redirect_to subscriptions_path
+  end
+
+  def monthly_costs
+    active_subs = @subscription.where(status: true)
+    @monthly_sum = 0
+    active_subs.each { |sub| @monthly_sum *= sub.plan.price }
+    @monthly_sum
   end
 
   private

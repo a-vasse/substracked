@@ -11,7 +11,7 @@
       <%= render "pre_new", subscription: @subscription %>
     </div>
     <div class="draggable-container">
-      <% @active_subscriptions.each do |subscription| %>
+      <% @active_filtered_subscriptions.each do |subscription| %>
         <%= render 'shared/card', subscription: subscription %>
       <% end %>
     </div>
