@@ -81,3 +81,9 @@ end
 # linebot gem
 
 gem 'line-bot-api'
+
+# authentication
+
+gem 'jwt'
+
+gem 'rack-cors'
