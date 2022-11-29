@@ -4,7 +4,7 @@ Plan.create!(
   name: "Basic with ads",
   price: 790,
   billing_cycle: 1,
-  cancellation_notice: "> 1 hour ",
+  cancellation_notice: "",
   resource: Resource.find_by(name: "Netflix"),
 )
 
@@ -12,7 +12,7 @@ Plan.create!(
   name: "Basic",
   price: 990,
   billing_cycle: 1,
-  cancellation_notice: "> 1 hour ",
+  cancellation_notice: "",
   resource: Resource.find_by(name: "Netflix"),
 )
 
@@ -20,7 +20,7 @@ Plan.create!(
   name: "Standard",
   price: 1490,
   billing_cycle: 1,
-  cancellation_notice: "> 1 hour ",
+  cancellation_notice: "",
   resource: Resource.find_by(name: "Netflix"),
 )
 
@@ -28,7 +28,7 @@ Plan.create!(
   name: "Premium",
   price: 1980,
   billing_cycle: 1,
-  cancellation_notice: "> 1 hour ",
+  cancellation_notice: "",
   resource: Resource.find_by(name: "Netflix"),
 )
 
@@ -36,7 +36,7 @@ Plan.create!(
   name: "Monthly",
   price: 1980,
   billing_cycle: 1,
-  cancellation_notice: "> 1 hour ",
+  cancellation_notice: "",
   resource: Resource.find_by(name: "Amazon Prime"),
 )
 
@@ -44,7 +44,7 @@ Plan.create!(
   name: "Annual",
   price: 19_800,
   billing_cycle: 12,
-  cancellation_notice: "> 1 hour ",
+  cancellation_notice: "",
   resource: Resource.find_by(name: "Amazon Prime"),
 )
 

@@ -1,0 +1,62 @@
+<div id="showSubscriptionModal<%= subscription.id %>" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header mb-4 border-0 align-items-start">
+        <h2 class="mb-0"><span class="text-primary">Subs</span>cription Details</h2>
+        <button type="button" class="btn-close mt-1" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col-6 d-flex justify-content-center align-items-center">
+            <% if subscription.plan.resource.logo %>
+              <%= image_tag subscription.plan.resource.logo, class:"w-75" %>
+            <% else %>
+              <%= image_tag "custom", class:"w-75" %>
+            <% end %>
+          </div>
+          <div class="col-6">
+            <small class="text-primary">Resource</small>
+            <p><%= subscription.plan.resource.user ? subscription.plan.name : subscription.plan.resource.name %></p>
+            <small class="text-primary">Name</small>
+            <p><%= subscription.plan.name %></p>
+            <small class="text-primary">Price plan</small>
+            <p>¥<%= subscription.plan.price %></p>
+          </div>
+          <div class="col-12"><hr></div>
+          <div class="col-6 pt-3">
+            <small class="text-primary">Billing cycle</small>
+            <p><%= subscription.plan.billing_cycle >= 1 ? "#{subscription.plan.billing_cycle.to_i} Month#{subscription.plan.billing_cycle > 1 ? 's' : ''}" : "1 week" %></p>
+            <small class="text-primary">Start date</small>
+            <p><%= subscription.start_date.strftime("%d %B %Y") %></p>
+            <small class="text-primary">Renewal date</small>
+            <p><%= subscription.renewal_date.strftime("%d %B %Y") %></p>
+            <% unless subscription.plan.billing_cycle == 1 %>
+              <small class="text-primary">Average monthly cost</small>
+              <p>¥<%= (subscription.plan.price / subscription.plan.billing_cycle).to_i %></p>
+            <% end %>
+          </div>
+          <div class="col-6 pt-3">
+            <small class="text-primary">Status</small>
+            <p><%= subscription.status ? 'Active' : 'Inactive' %></p>
+            <% unless subscription.plan.cancellation_notice.blank? %>
+              <small class="text-primary">Cancellation Notice</small>
+              <p><%= subscription.plan.cancellation_notice %></p>
+            <% end %>
+            <small class="text-primary">Region</small>
+            <p><%= subscription.region %></p>
+          </div>
+          <% unless subscription.notes.blank? %>
+            <div class="col-12">
+              <small class="text-primary">Note</small>
+              <p><%= subscription.notes %></p>
+            </div>
+          <% end %>
+        </div>
+      </div>
+      <div>
+        <%= link_to 'EDIT', '', class: 'btn btn-primary d-grid gap-2 m-1', data: { :bs_target => "#editSubscriptionModal#{subscription.id}", :bs_toggle => 'modal' } %>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "update", subscription: subscription %>
