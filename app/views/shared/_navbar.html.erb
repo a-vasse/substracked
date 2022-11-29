@@ -15,13 +15,13 @@
           </li>
           <li class="nav-item dropdown">
             <div class="dropdown-toggle d-flex align-items-center" data-bs-toggle="dropdown" aria-haspop="true" aria-expanded="false">
-              <%= cl_image_tag current_user.photo.key, class: "avatar me-1" %>
+              <%= cl_image_tag (current_user.photo.key ? current_user.photo.key : "d62x92uxsjpgzp5orepiurrns7rb"), class: "avatar me-1" %>
               <i class="fa-solid fa-chevron-down fa-fw fa-sm"></i>
             </div>
             <div id="navbarDropdown" class="dropdown-menu dropdown-menu-end shadow-sm" aria-labelledby="navbarDropdown">
               <%= link_to "Subscriptions", subscriptions_path, class: "dropdown-item" %>
               <%= link_to "Settings", edit_user_registration_path, class: "dropdown-item" %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item text-danger" %>
+              <%= button_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item text-danger" %>
             </div>
           </li>
         </ul>
