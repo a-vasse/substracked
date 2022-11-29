@@ -22,8 +22,8 @@
               <li><%= link_to 'CANCEL', '', class: 'dropdown-item text-danger', data: { :bs_target => "#subscribeSubscriptionModal#{subscription.id}", :bs_toggle => 'modal' } %></li>
             <% else %>
               <li><%= link_to 'SUBSCRIBE', '', class: 'dropdown-item text-success', data: { :bs_target => "#subscribeSubscriptionModal#{subscription.id}", :bs_toggle => 'modal' } %></li>
+              <li><%= link_to "DELETE", subscription_path(subscription), class: 'dropdown-item text-danger', data: { turbo_method: :delete, turbo_confirm: "Delete this subscription?" } %></li>
             <% end %>
-            <li><%= link_to "DELETE", subscription_path(subscription), class: 'dropdown-item text-danger', data: { turbo_method: :delete, turbo_confirm: "Delete this subscription?" } %></li>
           </ul>
         </div>
         <p><small class="mb-0 text-secondary"><%= subscription.region %></small></p>
