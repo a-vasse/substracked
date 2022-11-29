@@ -1,3 +1,3 @@
 <div class="d-flex justify-content-center align-items-center h-100">
-  <%= pie_chart current_user.plans.joins(:resource).active.group(:category).sum('plans.price / plans.billing_cycle'), dataset: { borderWidth: 0, borderColor: 'rgba(255,255,255, 0.75)', offset: 16 }, donut: true %>
+  <%= pie_chart current_user.plans.joins(:resource).active.group(:category).sum('plans.price / plans.billing_cycle'), dataset: { borderWidth: 0, borderColor: 'rgba(255,255,255, 0.75)', offset: 16 },legend: "bottom" , donut: true %>
 </div>
