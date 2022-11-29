@@ -6,15 +6,15 @@
         <button type="button" class="btn-close mt-1" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
       <%= simple_form_for(subscription) do |f| %>
-        <div class="m-3">
+        <div class="modal-body">
           <%= f.input :region, label: 'Region' %>
           <%= f.input :renewal_date, label: 'Renewal Date' %>
           <%= f.association :plan, collection: Plan.where(resource: subscription.plan.resource) %>
-        </div>
-        <div class="m-3">
           <%= f.input :notes, label: 'Notes' %>
         </div>
-        <%= f.button :submit, label: 'Save Changes' %>
+        <div class="modal-footer d-flex justify-content-between border-0">
+          <%= f.submit 'Save Changes', class: 'btn btn-primary w-100' %>
+        </div>
       <% end %>
     </div>
   </div>

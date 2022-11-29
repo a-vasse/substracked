@@ -53,8 +53,8 @@
           <% end %>
         </div>
       </div>
-      <div>
-        <%= link_to 'EDIT', '', class: 'btn btn-primary d-grid gap-2 m-1', data: { :bs_target => "#editSubscriptionModal#{subscription.id}", :bs_toggle => 'modal' } %>
+      <div class="modal-footer d-flex justify-content-between border-0">
+        <%= link_to 'EDIT', '', class: 'btn btn-primary w-100', data: { :bs_target => "#editSubscriptionModal#{subscription.id}", :bs_toggle => 'modal' } %>
       </div>
     </div>
   </div>
