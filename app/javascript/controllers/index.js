@@ -4,14 +4,17 @@
 
 import { application } from "./application"
 
+import CustomAnimatedNumberController from "./custom_animated_number_controller"
+application.register("custom-animated-number", CustomAnimatedNumberController)
+
 import DisplayPlanController from "./display_plan_controller"
 application.register("display-plan", DisplayPlanController)
-
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
 
 import DraggableController from "./draggable_controller"
 application.register("draggable", DraggableController)
 
-import CustomAnimatedNumberController from "./custom_animated_number_controller"
-application.register("custom-animated-number", CustomAnimatedNumberController)
+import HelloController from "./hello_controller"
+application.register("hello", HelloController)
+
+import SubButtonController from "./sub_button_controller"
+application.register("sub-button", SubButtonController)

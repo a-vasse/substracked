@@ -1,0 +1,24 @@
+<div id="subscribeSubscriptionModal<%= subscription.id %>" class="modal fade" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1" aria-labelledby="staticBackdropLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content">
+      <div class="modal-header mb-2 border-0 align-items-start">
+        <h2 class="mb-0">Manage your <span class="text-primary">Subs</span>cription</h2>
+        <button type="button" class="btn-close mt-1" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div data-controller="sub-button" class="text-center m-3">
+        <% if subscription.status == true %>
+          <p>Access your subscription on <%= subscription.plan.resource.name %> to cancel</p>
+          <button data-action="click->sub-button#subActions" class="card add-new-button shadow m-3" ><%= subscription.plan.resource.name %></button>
+          <%= hidden_field_tag(:url, subscription.plan.resource.url, data: { sub_button_target: "url"}) %>
+          <%= link_to " " , ' ', data: { sub_button_target: "button", :bs_target => "#confirmSubscriptionModal#{subscription.id}", :bs_toggle => 'modal' } %>
+        <% else %>
+          <p>Access your subscription on <%= subscription.plan.resource.name %> to subscribe</p>
+          <button data-action="click->sub-button#subActions" class="card add-new-button shadow m-3" ><%= subscription.plan.resource.name %></button>
+          <%= hidden_field_tag(:url, subscription.plan.resource.url, data: { sub_button_target: "url"}) %>
+          <%= link_to " " , ' ', data: { sub_button_target: "button", :bs_target => "#confirmSubscriptionModal#{subscription.id}", :bs_toggle => 'modal' } %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+<%= render "shared/confirm", subscription: subscription %>
