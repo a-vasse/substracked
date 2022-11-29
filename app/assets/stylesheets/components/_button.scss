@@ -40,6 +40,15 @@
     }
   }
 
+  &-danger {
+    text-decoration: none;
+    color: white !important;
+
+    &:hover {
+      background: darken($danger, 10%) !important;
+    }
+  }
+
   &-clean {
     text-decoration: none;
   }
