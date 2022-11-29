@@ -1,3 +1,3 @@
 <div class="d-flex justify-content-center align-items-center h-100">
-  <%= image_tag("piechart_fixed.png", class: "img-fluid")  %>
+  <%= pie_chart current_user.plans.joins(:resource).active.group(:category).sum('plans.price / plans.billing_cycle'), dataset: {borderWidth: 2, borderColor: 'rgba(255,255,255, 0.75)'}, donut: true %>
 </div>

@@ -1,17 +1,25 @@
 class SubscriptionsController < ApplicationController
+  # after_action :monthly_costs, only: :index
+
   def index
     @subscriptions = policy_scope(Subscription.all)
     @subscription = Subscription.new
-    @resources = Resource.where(user: nil).or(current_user.created_resources).order(name: :asc)
+    @resources =
+      Resource
+        .where(user: nil)
+        .or(current_user.created_resources)
+        .order(name: :asc)
     @pre_resources = Resource.where(user: nil).order(name: :asc)
     @plans = Plan.all
-    @active_subscriptions =
-      @subscriptions.where(status: true).where(
-        "renewal_date > ?",
-        1.week.from_now,
-      )
+    @active_subscriptions = @subscriptions.where(status: true)
+    @active_filtered_subscriptions =
+      @active_subscriptions.where("renewal_date > ?", 1.week.from_now)
     @inactive_subscriptions = @subscriptions.where(status: false)
     @upcoming_subscriptions = @subscriptions.upcoming
+    @monthly_sum =
+      @active_subscriptions.sum do |sub|
+        sub.plan.price / sub.plan.billing_cycle
+      end
   end
 
   def show

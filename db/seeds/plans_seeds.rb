@@ -42,8 +42,8 @@ Plan.create!(
 
 Plan.create!(
   name: "Annual",
-  price: 19800,
-  billing_cycle: 1,
+  price: 19_800,
+  billing_cycle: 12,
   cancellation_notice: "> 1 hour ",
   resource: Resource.find_by(name: "Amazon Prime"),
 )

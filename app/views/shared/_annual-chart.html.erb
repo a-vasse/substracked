@@ -1,3 +1,21 @@
+<%
+  data = {
+    "January" => 4567,
+    "February" => 3540,
+    "March" => 2587,
+    "April" => 2587,
+    "Mai" => 1799,
+    "June" => 1099,
+    "July" => 1099,
+    "August" => 1099,
+    "September" => 3253,
+    "October" => 4501,
+    "November" => 5423 ,
+    "December" => @monthly_sum
+  }
+%>
 <div class="d-flex justify-content-center align-items-center h-100">
-  <%= image_tag("barchart_fixed.png", class: "img-fluid") %>
+  <%# <%= image_tag("barchart_fixed.png", class: "img-fluid") %>
+  <%# <%= column_chart({"2021-01-01" => 2, "2021-01-02" => 3}) %>
+  <%= column_chart data, ytitle: "Amount in Yen" %>
 </div>
