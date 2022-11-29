@@ -15,6 +15,8 @@ Rails.application.routes.draw do
     namespace :v1 do
       resources :resources, only: [ :index ]
       resources :plans, only: [ :index ]
+      resources :subscriptions, only: [ :create ]
     end
   end
+
 end
