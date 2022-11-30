@@ -29,10 +29,24 @@
 
   &s {
     transform: translateY(-1rem);
+    transition: ease-in-out transform .5s;
+
+    &:hover {
+      transform: translateY(-1rem) scale(1.005);
+
+      .demo-card-1 {
+        transform: rotate3d(1, 1, 1, 15deg) translate(-10px, 20px);
+      }
+
+      .demo-card-3 {
+        transform: rotate3d(1, 1, 1, 15deg) translate(10px, -20px);
+      }
+    }
   }
 
   &-1 {
     transform: rotate3d(1, 1, 1, 15deg) translate(-10px, 50px);
+    transition: ease-in-out transform 1s;
     z-index: 10;
   }
 
@@ -43,6 +57,7 @@
 
   &-3 {
     transform: rotate3d(1, 1, 1, 15deg) translate(10px, -50px);
+    transition: ease-in-out transform 1s;
     z-index: 30;
   }
 
