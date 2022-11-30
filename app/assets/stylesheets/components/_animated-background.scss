@@ -147,18 +147,6 @@
   background-color: darken($primary, 10%);
   overflow: hidden;
 
-  @media only screen and (min-width: 992px) and (max-width: 1199px) {
-    height: 750px;
-  }
-
-  @media only screen and (min-width: 768px) and (max-width: 991px) {
-    height: 650px;
-  }
-
-  @media only screen and (max-width: 767px) {
-    height: 100vh;
-  }
-
   .background-shape {
     .circle{
       border-radius: 50%;
@@ -286,23 +274,15 @@
   }
 }
 
-.welcome-area {
-  .welcome-content {
-    position: relative;
-    z-index: 1;
-
-    h3 {
-      font-size: 2rem;
-      margin-bottom: 1.5rem;
-      font-weight: 600;
-      color: #ffffff;
-    }
-
-    p {
-      font-size: 1.125rem;
-      color: #ffffff;
-    }
-  }
+#logged-out-bg {
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  left: 0;
+  width: 100%;
+  z-index: -10;
+  transition: ease-in-out width .5s;
+  transform-origin: left;
 }
 
 #logged-in-bg {
@@ -331,4 +311,9 @@
   .box-ani::after {
     border-color: rgba($primary, .25);
   }
+}
+
+#loginFormContainer {
+  transition: ease-in-out opacity .2s;
+  transition-delay: .25s;
 }

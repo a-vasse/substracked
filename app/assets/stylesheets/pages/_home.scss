@@ -1,1 +1,54 @@
 // Specific CSS for your home-page
+.welcome-content {
+  position: relative;
+  z-index: 1;
+  transition: ease-in-out opacity .25s;
+
+  h3 {
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    font-weight: 600;
+  }
+
+  p {
+    font-size: 1.125rem;
+  }
+
+  &.inverted {
+    h3, p {
+      color: white;
+    }
+  }
+
+  &.media {
+    transition-delay: .25s;
+  }
+}
+
+.demo-card {
+
+  &s {
+    transform: translateY(-1rem);
+  }
+
+  &-1 {
+    transform: rotate3d(1, 1, 1, 15deg) translate(-10px, 50px);
+    z-index: 10;
+  }
+
+  &-2 {
+    transform: rotate3d(1, 1, 1, 15deg);
+    z-index: 20;
+  }
+
+  &-3 {
+    transform: rotate3d(1, 1, 1, 15deg) translate(10px, -50px);
+    z-index: 30;
+  }
+
+  transition: ease-in-out z-index 1s;
+
+  .btn {
+    pointer-events: none;
+  }
+}

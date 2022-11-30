@@ -1,16 +1,49 @@
 <div class="container-fluid">
-  <div class="row">
-    <div class="col-md-6 col-12 px-0">
-      <%= render "/shared/home-animated-container" %>
+  <div data-lp-scroll-effect-target="introContentContainer">
+    <div id="introContent-1" class="row min-vh-100 align-items-center">
+      <div class="col-lg-5 col-md-6 col-12 offset-lg-1 order-md-1 order-2">
+        <%= render "demo_cards" %>
+        <%# <%= render "shared/card" subsct.stats = %>
+      </div>
+      <div class="col-lg-4 col-md-6 col-12 offset-lg-1 offset-0 order-md-2 order-1 welcome-content" data-lp-scroll-effect-target="introContent" data-action="scroll@window->lp-scroll-effect#updateContent">
+        <h1>Never lose track again</h1>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis similique expedita est, assumenda id accusamus aspernatur veritatis aperiam sequi beatae quae, quidem et rerum corporis quibusdam. Culpa dolor labore omnis!</p>
+        <a href="#loginFormContainer" class="btn text-primary ps-0" style="font-size: 1.125rem">Sign up</a>
+      </div>
+    </div>
+    <div id="introContent-2" class="row min-vh-100 justify-content-center align-items-center">
+      <div class="col-4 offset-1 welcome-content" data-lp-scroll-effect-target="introContent" data-action="scroll@window->lp-scroll-effect#updateContent">
+        <h1>Stay up-to-date with your expenses</h1>
+        <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Nobis similique expedita est, assumenda id accusamus aspernatur veritatis aperiam sequi beatae quae, quidem et rerum corporis quibusdam. Culpa dolor labore omnis!</p>
+      </div>
+      <div class="col-5">
+        <%= render 'shared/annual-chart' %>
+      </div>
+    </div>
+  </div>
+  <div class="row min-vh-100">
+    <div class="col-md-6 col-12">
+      <div class="container h-100">
+        <div class="row h-100 align-items-md-end align-items-center justify-content-between">
+          <!-- Welcome Content-->
+          <div class="col-12 col-md-8 col-lg-6 mb-5 ms-lg-5 ms-md-3 ms-0">
+            <div class="welcome-content text-md-start text-center inverted">
+              <h3 class="d-block d-md-none"><span class="text-black">SUBS</span>TRACKED</h3>
+              <h3 class="wow fadeInUp" data-wow-duration="1000ms" style="visibility: visible; animation-duration: 1000ms; animation-name: fadeInUp;">Keeping your subscriptions tracked.</h3>
+              <p class="mb-4 wow fadeInUp" data-wow-duration="1000ms" data-wow-delay="200ms" style="visibility: visible; animation-duration: 1000ms; animation-delay: 200ms; animation-name: fadeInUp;">It's crafted with the latest trend of design & coded with all modern approaches. It's a robust & multi-dimensional usable template.</p>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
     <div class="col-6 d-flex justify-content-center align-items-center">
-      <div>
+      <div id="loginFormContainer" data-lp-scroll-effect-target="loginFormContainer">
         <h1 class="d-none d-md-block no-effect"><span class="text-primary">SUBS</span>TRACKED</h1>
         <%= simple_form_for(resource, as: resource_name, url: session_path(resource_name), data: { turbo: :false }) do |f| %>
           <div class="form-inputs">
             <%= f.input :email,
                 required: false,
-                autofocus: true,
+                # autofocus: true,
                 input_html: { autocomplete: "email" } %>
             <%= f.input :password,
                 required: false,
@@ -33,3 +66,4 @@
     </div>
   </div>
 </div>
+<%= render "/shared/home-animated-background" %>
