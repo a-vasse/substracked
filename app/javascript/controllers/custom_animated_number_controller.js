@@ -25,7 +25,7 @@ export default class extends Controller {
         this.element.innerHTML = this.commatize(this.currentTime);
         this.animate();
       } else {
-        this.element.innerHTML = this.commatize(this.endValue);
+        this.element.innerHTML = this.commatize(Math.round(this.endValue));
       }
     }, 0);
   }
