@@ -1,0 +1,5 @@
+meta_product_name: "Substracked"
+meta_title: "Substracked - The online subscription manager"
+meta_description: "Substracked is an online subscription management system designed to prevent you from losing money on unwanted subscriptions."
+meta_image: "cover.png" # should exist in `app/assets/images/`
+twitter_account: "@product_twitter_account"   # required for Twitter Cards
