@@ -13,7 +13,7 @@ class LineMessageJob < ApplicationJob
     message = {
       type: 'text',
       text: "#{greeting.sample} Alex! Your subscription to
-'Netflix , baisc plan ¥790'
+'Netflix , basic plan ¥790'
 is about to renew!
 Go to http://www.substracked.com/ to manage your subs now."
     }
