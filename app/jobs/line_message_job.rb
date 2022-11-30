@@ -15,7 +15,7 @@ class LineMessageJob < ApplicationJob
       text: "#{greeting.sample} Alex! Your subscription to
 'Netflix , basic plan ¥790'
 is about to renew!
-Go to http://www.substracked.com/ to manage your subs now."
+Go to http://www.substracked.com/#upcomingSubscriptions to manage your subs now."
     }
     @client.push_message(subscription.user.line_id, message)
     puts "Line Message sent!"
