@@ -34,7 +34,7 @@ Plan.create!(
 
 Plan.create!(
   name: "Monthly",
-  price: 1980,
+  price: 500,
   billing_cycle: 1,
   cancellation_notice: "",
   resource: Resource.find_by(name: "Amazon Prime"),
@@ -42,7 +42,7 @@ Plan.create!(
 
 Plan.create!(
   name: "Annual",
-  price: 19_800,
+  price: 4900,
   billing_cycle: 12,
   cancellation_notice: "",
   resource: Resource.find_by(name: "Amazon Prime"),
