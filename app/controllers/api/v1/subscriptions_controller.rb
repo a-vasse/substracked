@@ -3,7 +3,11 @@ class Api::V1::SubscriptionsController < Api::V1::BaseController
     @subscription = Subscription.new(subscription_params)
     @subscription.user = User.first
     authorize @subscription
-    @subscription.save
+    if @subscription.save
+      render :index, status: :created
+    else
+      render_error
+    end
   end
 
   private
@@ -19,5 +23,10 @@ class Api::V1::SubscriptionsController < Api::V1::BaseController
       :plan_id,
       :notes,
     )
+  end
+
+  def render_error
+    render json: { errors: @subscription.errors.full_messages },
+      status: :unprocessable_entity
   end
 end
