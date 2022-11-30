@@ -34,6 +34,8 @@
         </ul>
       </div>
     <% end %>
-    <a href="#loginFormContainer" class="btn btn-clean text-primary p-0">Login</a>
+    <% unless user_signed_in? %>
+      <a href="#loginFormContainer" class="btn btn-clean text-primary p-0">Login</a>
+    <% end %>
   </div>
 </div>
