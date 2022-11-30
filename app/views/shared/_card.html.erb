@@ -5,6 +5,8 @@
     <% else %>
       <%= image_tag "custom", class:"img-fluid" %>
     <% end %>
+    <%# Visual status helper %>
+    <div class="card-status-helper <%= subscription.status ? 'bg-success' : 'bg-dark opacity-50' %> <%= @subscriptions.upcoming.include?(subscription) ? 'bg-danger' : '' %>"></div>
   </div>
   <div class="card-content-container">
     <div class="card-content h-100 d-flex flex-column justify-content-between p-3">
@@ -17,12 +19,12 @@
             <i class="fa-solid fa-ellipsis-vertical fa-fw fa-lg text-secondary"></i>
           </button>
           <ul id="nav-dropdown-menu" class="dropdown-menu dropdown-menu-end shadow mt-3">
-            <li><%= link_to 'DETAILS', '', class: 'dropdown-item', data: { :bs_target => "#showSubscriptionModal#{subscription.id}", :bs_toggle => 'modal' } %></li>
+            <li><%= link_to 'Details', '', class: 'dropdown-item', data: { :bs_target => "#showSubscriptionModal#{subscription.id}", :bs_toggle => 'modal' } %></li>
             <% if subscription.status == true %>
-              <li><%= link_to 'CANCEL', '', class: 'dropdown-item text-danger', data: { :bs_target => "#subscribeSubscriptionModal#{subscription.id}", :bs_toggle => 'modal' } %></li>
+              <li><%= link_to 'Unsubscribe', '', class: 'dropdown-item text-danger', data: { :bs_target => "#subscribeSubscriptionModal#{subscription.id}", :bs_toggle => 'modal' } %></li>
             <% else %>
-              <li><%= link_to 'SUBSCRIBE', '', class: 'dropdown-item text-success', data: { :bs_target => "#subscribeSubscriptionModal#{subscription.id}", :bs_toggle => 'modal' } %></li>
-              <li><%= link_to "DELETE", subscription_path(subscription), class: 'dropdown-item text-danger', data: { turbo_method: :delete, turbo_confirm: "Delete this subscription?" } %></li>
+              <li><%= link_to 'Subscribe', '', class: 'dropdown-item text-success', data: { :bs_target => "#subscribeSubscriptionModal#{subscription.id}", :bs_toggle => 'modal' } %></li>
+              <li><%= link_to "Delete", subscription_path(subscription), class: 'dropdown-item text-danger', data: { turbo_method: :delete, turbo_confirm: "Delete this subscription?" } %></li>
             <% end %>
           </ul>
         </div>
