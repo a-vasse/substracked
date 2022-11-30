@@ -1,9 +1,10 @@
-<% if user_signed_in? %>
-  <div class="navbar navbar-expand-sm navbar-light shadow-sm">
-    <div class="container">
-      <%= link_to subscriptions_path, class: "navbar-brand" do %>
-        <span class="text-primary">subs</span>tracked
-      <% end %>
+<div class="navbar navbar-expand-sm navbar-light shadow-sm <%= user_signed_in? ? '' : 'sticky-top' %>" data-action="scroll@window->lp-scroll-effect#updateNavbar"
+  data-lp-scroll-effect-target="navbar">
+  <div class="<%= user_signed_in? ? 'container' : 'px-3' %>">
+    <%= link_to subscriptions_path, class: "navbar-brand" do %>
+      <span class="text-primary">subs</span>tracked
+    <% end %>
+    <% if user_signed_in? %>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
@@ -26,6 +27,6 @@
           </li>
         </ul>
       </div>
-    </div>
+    <% end %>
   </div>
-<% end %>
+</div>

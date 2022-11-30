@@ -16,5 +16,8 @@ application.register("draggable", DraggableController)
 import HelloController from "./hello_controller"
 application.register("hello", HelloController)
 
+import LpScrollEffectController from "./lp_scroll_effect_controller"
+application.register("lp-scroll-effect", LpScrollEffectController)
+
 import SubButtonController from "./sub_button_controller"
 application.register("sub-button", SubButtonController)
