@@ -16,6 +16,7 @@ Rails.application.routes.draw do
       resources :resources, only: [ :index ]
       resources :plans, only: [ :index ]
       resources :subscriptions, only: [ :create ]
+      resources :notifications, only: [:new, :create, :destroy]
     end
   end
 
