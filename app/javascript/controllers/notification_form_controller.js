@@ -29,7 +29,9 @@ export default class extends Controller {
               let targetPlans = dataPlans.filter(
                 (dataPlan) => dataPlan.resource_id === targetResourceID
               );
-              let selectOptions = `<div class="mb-3 select required subscription_plan"><label class="form-label select required" for="subscription_plan_id">Plan <abbr title="required">*</abbr></label><select class="form-select select required" name="subscription[plan_id]" id="subscription_plan_id">`;
+              let selectOptions = `<div class="mb-3 select required subscription_plan">
+                <label class="form-label select required" for="subscription_plan_id">Plan <abbr title="required">*</abbr></label>
+                <select class="form-select select required" name="subscription[plan_id]" id="subscription_plan_id">`;
               if (targetPlans[0].name === "") {
                 selectOptions += `<option value="${targetPlans[0].id}">N/A</option>`;
               } else {
