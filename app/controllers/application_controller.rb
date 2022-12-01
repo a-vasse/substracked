@@ -25,7 +25,7 @@ class ApplicationController < ActionController::Base
 
   def after_sign_in_path_for(user)
     # your path goes here
-    subscriptions_path(user)
+    subscriptions_path
   end
 
   private
