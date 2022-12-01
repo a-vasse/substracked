@@ -9,17 +9,17 @@
         <p class="w-100 mb-3">Please confirm the status of your subscription</p>
         <div class="w-100 d-flex gap-3">
           <% if subscription.status == true %>
+            <%= link_to "Return to homepage" , ' ', class: 'w-50 btn', data: { :bs_dismiss => 'modal' } %>
             <%= simple_form_for(subscription, html: { class: "w-50" }) do |f| %>
               <%= f.input :status, as: :hidden, input_html: { value: :false} %>
-              <%= f.submit 'Cancelled', class: 'w-100 btn btn-danger' %>
+              <%= f.submit "Cancel subscription", class: 'w-100 btn btn-danger' %>
             <% end %>
-            <%= link_to "Subscribed" , ' ', class: 'w-50 btn btn-primary', data: { :bs_dismiss => 'modal' } %>
           <% else %>
             <%= simple_form_for(subscription, html: { class: "w-100" }) do |f| %>
               <%= f.input :status, as: :hidden, input_html: { value: :true} %>
               <%= f.input :renewal_date, html5: true, label: 'Update your renewal date:' %>
               <div class="d-flex gap-1">
-              <%= f.submit 'Subscribed', class: 'w-50 btn btn-primary' %><%= link_to "Cancelled" , ' ', class: 'w-50 btn btn-danger', data: { :bs_dismiss => 'modal' } %>
+                <%= f.submit 'Subscribed', class: 'w-50 btn btn-primary' %><%= link_to "Cancelled" , ' ', class: 'w-50 btn btn-danger', data: { :bs_dismiss => 'modal' } %>
               </div>
             <% end %>
           <% end %>
