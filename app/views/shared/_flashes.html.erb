@@ -20,14 +20,14 @@
     <%# end %>
     <% if @notifications %>
       <% @notifications.each do |notification| %>
-        <div class="toast show" data-controller="notifications" data-notifications-id-value="<%= notification.id %>">
+        <div class="toast show" data-notification-id="<%= notification.id %>" data-notifications-target="toast">
           <div class="toast-body">
             <div class="d-flex justify-content-end mb-2">
               <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
             <p>New subscription email detected from <span class="text-primary"><%= notification.content %></span>. Add it?</p>
             <%= link_to '', class: 'btn btn-primary d-block', data: {
-              :action => "click->notification-form#fetchForm",
+              :action => "click->notifications#fetchForm",
               :bs_target => '#addSubscriptionModal',
               :bs_toggle => 'modal' } do %>
               Add subscription
