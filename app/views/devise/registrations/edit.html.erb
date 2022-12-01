@@ -6,17 +6,17 @@
       <h1>Settings</h1>
     </div>
     <div class="col-7">
-      <h2>Pesonal settings</h2>
-      <p>Please make sure that all your personal information are up-to-date.</p>
+      <h2>Personal settings</h2>
+      <p>Please make sure that all your personal information is up-to-date.</p>
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
         <%= f.error_notification %>
         <div class="form-inputs">
           <%= f.input :email, required: true, autofocus: true %>
           <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-            <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+            <p>Currently waiting on confirmation for: <%= resource.unconfirmed_email %></p>
           <% end %>
           <%= f.input :password,
-                hint: "leave it blank if you don't want to change it",
+                hint: "Leave it blank if you don't wish to change it",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
           <%= f.input :password_confirmation,
@@ -25,7 +25,7 @@
           <%= f.input :name %>
           <%= f.input :photo, as: :file, label: "Your profile picture" %>
           <%= f.input :current_password,
-                hint: "we need your current password to confirm your changes",
+                hint: "We need your current password to confirm any changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
         </div>
@@ -38,7 +38,7 @@
     <div class="col-5">
       <div class="mb-5">
         <h2>Notification Settings</h2>
-        <p>Please choose the methods on how you want to be communicated. We only send notifications regarding your subscriptions.</p>
+        <p>Please choose the methods on how you wish to be communicated. We will only send notifications regarding your subscriptions.</p>
         <div class="form-check form-switch">
           <input class="form-check-input" type="checkbox" role="switch" id="notificationSwitch-1" checked>
           <label class="form-check-label" for="notificationSwitch-1">Email</label>
@@ -58,7 +58,7 @@
       </div>
       <div>
         <h2>Cancel my account</h2>
-        <p>Sorry to hear you are unhappy. We will delete your account instantly and without traces.</p>
+        <p>Sorry to hear you are unhappy. We will delete your account completely, erasing your personal information from our system.</p>
         <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %>
       </div>
     </div>
