@@ -8,7 +8,7 @@
       <%= simple_form_for(subscription) do |f| %>
         <div class="modal-body">
           <%= f.input :region, label: 'Region' %>
-          <%= f.input :renewal_date, label: 'Renewal Date' %>
+          <%= f.input :renewal_date, html5: true, label: 'Renewal Date' %>
           <%= f.association :plan, collection: Plan.where(resource: subscription.plan.resource) %>
           <%= f.input :notes, label: 'Notes' %>
         </div>
