@@ -1,6 +1,7 @@
 class Api::V1::SubscriptionsController < Api::V1::BaseController
   def create
     @subscription = Subscription.new(subscription_params)
+    @subscription.start_date = @subscription.calcuate_start_date
     @subscription.user = User.first
     authorize @subscription
     if @subscription.save
