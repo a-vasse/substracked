@@ -15,7 +15,7 @@ class SubscriptionsController < ApplicationController
     @active_filtered_subscriptions =
       @active_subscriptions.where("renewal_date > ?", 1.week.from_now)
     @inactive_subscriptions = @subscriptions.where(status: false)
-    @upcoming_subscriptions = @subscriptions.upcoming
+    @upcoming_subscriptions = @subscriptions.upcoming.order(renewal_date: :asc)
     @monthly_sum =
       @active_subscriptions.sum do |sub|
         sub.plan.price / sub.plan.billing_cycle
