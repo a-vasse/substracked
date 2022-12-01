@@ -16,10 +16,15 @@ puts "Creating a user..."
 
 user = User.find_by(email: "user@me.com")
 if user
-  user.line_id="U19c759253e256998ae12db0918b3d055"# uses my personal line ID for testing purposes for now --Kaho
+  user.line_id = "U19c759253e256998ae12db0918b3d055" # uses my personal line ID for testing purposes for now --Kaho
   user.save
 else
-  User.create(name: "Alex", email: "user@me.com", password: "test123", line_id: "U19c759253e256998ae12db0918b3d055")
+  User.create(
+    name: "Alex",
+    email: "user@me.com",
+    password: "test123",
+    line_id: "U19c759253e256998ae12db0918b3d055",
+  )
   # uses my personal line ID for testing purposes for now --Kaho
 end
 require_relative "seeds/resources_seeds"
@@ -27,7 +32,4 @@ require_relative "seeds/plans_seeds"
 require_relative "seeds/subscriptions_seeds"
 
 # fake notification for the demo
-Notification.create(
-  content: "Subscription email detected from 'Amazon Prime' Add it?",
-  user: User.first
-)
+Notification.create(content: "Amazon Prime", user: User.first)
