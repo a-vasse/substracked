@@ -36,11 +36,11 @@
           <small class="text-end me-2">
             <% case subscription.plan.billing_cycle %>
             <% when 12 %>
-            <%= "annual" %>
+            <%= "per year" %>
             <% when 1 %>
-            <%= "monthly" %>
+            <%= "per month" %>
             <% when 0.25 %>
-            <%= "weekly" %>
+            <%= "per week" %>
           <% end %>
         </small>
       </div>
