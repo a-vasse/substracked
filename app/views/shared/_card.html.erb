@@ -3,7 +3,7 @@
     <% if subscription.plan.resource.logo %>
       <%= image_tag subscription.plan.resource.logo, class:"img-fluid" %>
     <% else %>
-      <%= image_tag "custom", class:"img-fluid" %>
+      <%= image_tag "custom.png", class:"img-fluid" %>
     <% end %>
     <%# Visual status helper %>
     <div class="card-status-helper <%= subscription.status ? 'bg-success' : 'bg-dark opacity-50' %> <%= @subscriptions.upcoming.include?(subscription) ? 'bg-danger' : '' %>"></div>
