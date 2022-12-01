@@ -53,6 +53,13 @@
     }
   }
 
+  &-close {
+    &:focus {
+      outline: none;
+      box-shadow: none;
+    }
+  }
+
   &-clean {
     text-decoration: none;
   }
