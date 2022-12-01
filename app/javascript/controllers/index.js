@@ -19,5 +19,8 @@ application.register("hello", HelloController)
 import LpScrollEffectController from "./lp_scroll_effect_controller"
 application.register("lp-scroll-effect", LpScrollEffectController)
 
+import NotificationFormController from "./notification_form_controller"
+application.register("notification-form", NotificationFormController)
+
 import SubButtonController from "./sub_button_controller"
 application.register("sub-button", SubButtonController)
