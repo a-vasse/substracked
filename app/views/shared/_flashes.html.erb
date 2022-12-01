@@ -1,34 +1,42 @@
-<% if notice %>
-  <div class="alert alert-info alert-dismissible fade show m-1" role="alert">
-    <%= notice %>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-    </button>
-  </div>
-<% end %>
-<%# Login alert disabled for demo %>
-<%# if alert %>
-  <%# <div class="alert alert-warning alert-dismissible fade show m-1" role="alert"> %>
+<div aria-live="polite" aria-atomic="true" class="position-relative">
+  <div class="toast-container position-fixed bottom-0 end-0 p-3" id="toastPlacement">
+    <% if notice %>
+      <div class="toast show">
+        <div class="toast-body">
+          <div class="d-flex justify-content-end">
+            <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+          </div>
+          <%= notice %>
+        </div>
+      </div>
+    <% end %>
+    <%# Login alert disabled for demo %>
+    <%# if alert %>
+    <%# <div class="alert alert-warning alert-dismissible fade show m-1" role="alert"> %>
     <%#= alert %>
     <%# <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"> %>
     <%# </button> %>
-  <%# </div> %>
-<%# end %>
-
-<% if @notifications %>
-  <% @notifications.each do |notification| %>
-    <div class="alert alert-warning alert-dismissible fade show m-1" role="alert">
-    <%= notification.content %>
-     <%= link_to '', class: 'btn btn-primary d-block', data: {
-       :action => "click->notification-form#fetchForm",
-       :bs_target => '#addSubscriptionModal',
-       :bs_toggle => 'modal'
-       } do %>
-        Add subscription
-        <%# TODO , open a prefilled subscription form%>
+    <%# </div> %>
+    <%# end %>
+    <% if @notifications %>
+      <% @notifications.each do |notification| %>
+        <div class="toast show" data-notification-id="<%= notification.id %>" data-notifications-target="toast">
+          <div class="toast-body">
+            <div class="d-flex justify-content-end mb-2">
+              <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
+            </div>
+            <p>New subscription email detected from <span class="text-primary"><%= notification.content %></span>. Add it?</p>
+            <%= link_to '', class: 'btn btn-primary d-block', data: {
+              :action => "click->notifications#fetchForm",
+              :bs_target => '#addSubscriptionModal',
+              :bs_toggle => 'modal' } do %>
+              Add subscription
+              <%# TODO , open a prefilled subscription form%>
+            <% end %>
+          </div>
+        </div>
+        <%# TODO , close button to destroy the notification object %>
       <% end %>
-    <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
-    </button>
+    <% end %>
   </div>
-  <%# TODO , close button to destroy the notification object %>
-  <% end %>
-<% end %>
+</div>

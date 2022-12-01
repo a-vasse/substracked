@@ -10,3 +10,16 @@
   font-weight: 500;
   box-shadow: 0 .5rem 1rem rgba($black, .15);
 }
+
+.toast {
+  border: $primary solid 4px;
+  background: rgba( $white, .95 );
+  color: $black;
+  font-weight: 500;
+  box-shadow: 0 .5rem 1rem rgba($black, .15);
+  width: 300px;
+
+  .btn {
+    margin-top: 1rem;
+  }
+}

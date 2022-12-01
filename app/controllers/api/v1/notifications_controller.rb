@@ -6,12 +6,16 @@ class Api::V1::NotificationsController < Api::V1::BaseController
     @notification.save
   end
 
+  def update
+    @notification = Notification.find(params[:id])
+    authorize @notification
+    @notification.update!(notification_params)
+    head :ok
+  end
+
   private
 
   def notification_params
-    params.require(:notification).permit(
-      :content,
-      :user_id
-    )
+    params.require(:notification).permit(:content, :user_id, :read)
   end
 end

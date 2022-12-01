@@ -20,7 +20,7 @@ class SubscriptionsController < ApplicationController
       @active_subscriptions.sum do |sub|
         sub.plan.price / sub.plan.billing_cycle
       end
-    @notifications = Notification.where(user: current_user)
+    @notifications = Notification.where(user: current_user).unread
   end
 
   def show
