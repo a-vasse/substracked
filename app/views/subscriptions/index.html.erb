@@ -45,7 +45,7 @@
 <%# Subscription Section %>
 <section class="container" data-controller="draggable">
   <div class="row row-cols-md-2 row-cols-1">
-    <div class="col">
+    <div class="col transformedCol">
       <%# Soon to be renewed subscriptions %>
       <div id="upcoming" class="position-absolute"></div>
       <%= render 'upcoming-subscriptions' %>
@@ -64,4 +64,12 @@
       </div>
     </div>
   </div>
+</section>
+<%# Modal Section %>
+<section class="card-modals">
+  <%= @subscriptions.each do |subscription| %>
+    <%= render "show", subscription: subscription %>
+    <%= render "shared/activation", subscription: subscription %>
+    <%= render "shared/confirm", subscription: subscription %>
+  <% end %>
 </section>
