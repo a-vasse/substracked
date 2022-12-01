@@ -21,12 +21,14 @@
   <body class="d-flex flex-column justify-content-between min-vh-100">
     <div data-controller="<%= user_signed_in? ? '' : 'lp-scroll-effect' %>">
       <%= render "shared/navbar" %>
-      <%= render "shared/flashes" %>
-      <div class="<%= user_signed_in? ? 'py-5' : '' %>">
-        <%= yield %>
-        <% if user_signed_in? %>
-          <%= render "shared/logged-in-background" %>
-        <% end %>
+      <div data-controller="notification-form">
+        <%= render "shared/flashes" %>
+        <div class="<%= user_signed_in? ? 'py-5' : '' %>">
+          <%= yield %>
+          <% if user_signed_in? %>
+            <%= render "shared/logged-in-background" %>
+          <% end %>
+        </div>
       </div>
     </div>
     <%= render "shared/footer" %>

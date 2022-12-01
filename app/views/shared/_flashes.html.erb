@@ -26,7 +26,10 @@
               <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
             </div>
             <p>New subscription email detected from <span class="text-primary"><%= notification.content %></span>. Add it?</p>
-            <%= link_to '', class: 'btn btn-primary d-block', data: { :bs_target => '#addSubscriptionModal', :bs_toggle => 'modal' } do %>
+            <%= link_to '', class: 'btn btn-primary d-block', data: {
+              :action => "click->notification-form#fetchForm",
+              :bs_target => '#addSubscriptionModal',
+              :bs_toggle => 'modal' } do %>
               Add subscription
               <%# TODO , open a prefilled subscription form%>
             <% end %>

@@ -8,7 +8,7 @@
       <%# Form Content %>
       <div class="service-select mx-auto">
         <label for="resources" class="mb-2">Service</label>
-        <select name="resources" id="resources" data-display-plan-target="resource" data-action="change->display-plan#display" class="form-select">
+        <select name="resources" id="resources" data-display-plan-target="resource" data-action="change->display-plan#display" class="form-select" data-notification-form-target=resource>
           <option value="" label=" "></option>
           <% @pre_resources.each do |resource| %>
             <option value="<%= resource.name %>"><%= resource.name %></option>
@@ -16,17 +16,16 @@
         </select>
       </div>
       <%= simple_form_for(subscription)  do |f| %>
-        <div class="modal-body pb-0 border-0 d-none", data-display-plan-target="form">
-          <div class="plans", data-display-plan-target="plans">
+        <div class="modal-body pb-0 border-0 d-none", data-display-plan-target="form" data-notification-form-target="form">
+          <div class="plans", data-display-plan-target="plans" data-notification-form-target="plans">
             <%# <%= f.association :plan, collection: @plans %>
           </div>
-          <%= f.input :start_date, html5: true %>
           <%= f.input :renewal_date, html5: true %>
           <%= f.input :region, collection: ["Worldwide", "Australia", "Brazil", "France", "Germany", "Hong Kong", "Italy", "Japan", "Singapore", "United States of America", "United Kingdom"], selected: "Japan" %>
           <%= f.input :notes %>
         </div>
         <div class="modal-footer d-flex justify-content-between border-0">
-          <div data-display-plan-target="custom" class="text-center mx-auto mt-3">
+          <div data-display-plan-target="custom" data-notification-form-target="custom" class="text-center mx-auto mt-3">
             <p class="m-0"><small>Can't find your subscription above?</small></p>
             <%= link_to new_subscription_path, class: 'btn text-primary', data_bs_dismiss: 'modal' do %>
               <%= "Add custom subscription" %>

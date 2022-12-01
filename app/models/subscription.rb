@@ -3,7 +3,6 @@ class Subscription < ApplicationRecord
   belongs_to :plan
 
   validates :renewal_date, presence: true
-  validates :start_date, presence: true
 
   scope :upcoming_yearly,
         -> {
@@ -23,5 +22,9 @@ class Subscription < ApplicationRecord
 
   def display_name
     "#{plan.resource.name} - #{region}"
+  end
+
+  def calcuate_start_date
+    renewal_date - (plan.billing_cycle * 30)
   end
 end
