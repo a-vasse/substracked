@@ -8,17 +8,14 @@
     <div class="col-md-6 col-12 d-flex align-items-center order-md-1 order-2">
       <div>
         <h1 class="d-none d-md-block"><%= Time.new.strftime("%B") %></h1>
-        <p>This is your total amount spent in <%= Time.new.strftime("%B") %> <%= Time.new.strftime("%Y") %>, based on the monthly average of all active subscriptions.
-          <br>
-          <br>
-          From this page you can manage your active subscriptions, as well as add new subscriptions and renew inactive subscriptions.
+        <p class="w-75">This is your total amount spent in <%= Time.new.strftime("%B") %> <%= Time.new.strftime("%Y") %>, based on the monthly average of all active subscriptions.
         </p>
       </div>
     </div>
     <%# Graph Display %>
     <div class="col-md-6 col-12 order-md-2 order-1 mb-md-0 mb-5">
       <%# Graph Content %>
-      <div id="graphTabContent" class="tab-content mb-2">
+      <div id="graphTabContent" class="tab-content py-2 mb-2">
         <div id="currency-tab-pane" class="tab-pane fade show active" role="tabpanel" aria-labelledby="currency-tab" tabindex="0">
           <%= render 'shared/currency-sum' %>
         </div>
@@ -47,7 +44,7 @@
 <%# Subscription Section %>
 <section class="container" data-controller="draggable">
   <div class="row row-cols-md-2 row-cols-1">
-    <div class="col">
+    <div class="col transformedCol">
       <%# Soon to be renewed subscriptions %>
       <%= render 'upcoming-subscriptions' %>
       <%# inactive subscriptions %>
