@@ -2,7 +2,7 @@
 @import "home";
 
 .transformedCol {
-  transform: translateY(-3rem);
+  transform: translateY(-5rem);
 
   @include media-breakpoint-down(md) {
     transform: none;
