@@ -35,7 +35,7 @@ export default class extends Controller {
   }
 
   updateContent() {
-    console.log(this.introContentTargets)
+    // console.log(this.introContentTargets)
     this.introContentTargets.forEach((element, index) => {
       // Change the last digit to make it disapear later/earlier
       if (window.scrollY >= (element.offsetTop - (window.innerHeight * index) - 50) && window.scrollY >= ((window.innerHeight * index) + element.offsetHeight)) {
