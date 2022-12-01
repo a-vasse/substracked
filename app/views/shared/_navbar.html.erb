@@ -35,7 +35,7 @@
       </div>
     <% end %>
     <% unless user_signed_in? %>
-      <a href="#loginFormContainer" class="btn btn-clean text-primary p-0">Login</a>
+      <%= link_to "Log in", "#{new_session_path(resource_name)}#loginFormContainer", class: "btn" %>
     <% end %>
   </div>
 </div>

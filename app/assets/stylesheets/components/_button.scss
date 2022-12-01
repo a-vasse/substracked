@@ -23,12 +23,13 @@
 }
 
 .btn {
-  text-decoration: underline;
+  text-decoration: none;
   padding: .75rem 1rem;
   border-radius: 0;
 
   &:hover {
     color: $primary;
+    text-decoration: underline;
   }
 
   &:focus {
