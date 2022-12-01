@@ -2,7 +2,7 @@
 <html>
   <head>
     <title>Substracked - Online Subscription Management</title>
-     <meta name="description" content="Substracked is an online subscription managemen system designed to prevent you from losing money on unwanted subscriptions.">
+    <meta name="description" content="Substracked is an online subscription managemen system designed to prevent you from losing money on unwanted subscriptions.">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -14,7 +14,7 @@
     <div data-controller="lp-scroll-effect">
       <%= render "shared/navbar" %>
       <%= render "shared/flashes" %>
-      <div class="<%= user_signed_in? ? 'py-5' : '' %>">
+      <div class="<%= user_signed_in? ? 'py-2' : '' %>">
         <%= yield %>
         <% if user_signed_in? %>
           <%= render "shared/logged-in-background" %>
