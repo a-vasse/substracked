@@ -15,11 +15,11 @@
             <% end %>
             <%= link_to "Subscribed" , ' ', class: 'w-50 btn btn-primary', data: { :bs_dismiss => 'modal' } %>
           <% else %>
-            <%= simple_form_for(subscription, html: {class:"w-50 me-1"}) do |f| %>
+            <%= simple_form_for(subscription, html: { class: "w-50" }) do |f| %>
               <%= f.input :status, as: :hidden, input_html: { value: :true} %>
               <%= f.submit 'Subscribed', class: 'w-100 btn btn-primary' %>
             <% end %>
-            <%= link_to "Cancelled" , ' ', class: 'w-50 card add-new-button shadow m-3 unsubbed', data: { :bs_dismiss => 'modal' } %>
+            <%= link_to "Cancelled" , ' ', class: 'w-50 btn btn-danger', data: { :bs_dismiss => 'modal' } %>
           <% end %>
         </div>
       </div>
