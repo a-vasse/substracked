@@ -84,7 +84,7 @@ class SubscriptionsController < ApplicationController
     if @subscription.update(subscription_params)
       redirect_to subscriptions_path
     else
-      render :new, status: :unprocessable_entity
+      render :index, status: :unprocessable_entity
     end
   end
 
