@@ -51,17 +51,23 @@ class SubscriptionsController < ApplicationController
       redirect_to subscriptions_path
     else
       @subscriptions = policy_scope(Subscription.all)
-      @resources = Resource.where(user: nil).or(current_user.created_resources)
-      @pre_resources = Resource.where(user: nil)
+      @subscription = Subscription.new
+      @resources =
+        Resource
+          .where(user: nil)
+          .or(current_user.created_resources)
+          .order(name: :asc)
+      @pre_resources = Resource.where(user: nil).order(name: :asc)
       @plans = Plan.all
       @active_subscriptions = @subscriptions.where(status: true)
+      @active_filtered_subscriptions =
+        @active_subscriptions.where("renewal_date > ?", 1.week.from_now)
       @inactive_subscriptions = @subscriptions.where(status: false)
-      @upcoming_subscriptions =
-        @subscriptions.where(
-          "renewal_date >= ? AND renewal_date <= ?",
-          Date.today,
-          1.week.from_now,
-        )
+      @upcoming_subscriptions = @subscriptions.upcoming
+      @monthly_sum =
+        @active_subscriptions.sum do |sub|
+          sub.plan.price / sub.plan.billing_cycle
+        end
       render :index, status: :unprocessable_entity
     end
   end
