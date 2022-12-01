@@ -18,8 +18,13 @@
   <% @notifications.each do |notification| %>
     <div class="alert alert-warning alert-dismissible fade show m-1" role="alert">
     <%= notification.content %>
+     <%= link_to '', class: 'btn btn-primary d-block', data: { :bs_target => '#addSubscriptionModal', :bs_toggle => 'modal' } do %>
+        Add subscription
+        <%# TODO , open a prefilled subscription form%>
+      <% end %>
     <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
     </button>
   </div>
+  <%# TODO , close button to destroy the notification object %>
   <% end %>
 <% end %>

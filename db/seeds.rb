@@ -28,6 +28,6 @@ require_relative "seeds/subscriptions_seeds"
 
 # fake notification for the demo
 Notification.create(
-  content: "Subscription confirmation email detected from 'Amazon Prime', Don`t forget to Substrack it!",
+  content: "Subscription email detected from 'Amazon Prime' Add it?",
   user: User.first
 )
