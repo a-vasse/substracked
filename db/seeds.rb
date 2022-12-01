@@ -10,6 +10,7 @@ Subscription.destroy_all
 Plan.destroy_all
 User.destroy_all
 Resource.destroy_all
+Notification.destroy_all
 
 puts "Creating a user..."
 
@@ -24,3 +25,9 @@ end
 require_relative "seeds/resources_seeds"
 require_relative "seeds/plans_seeds"
 require_relative "seeds/subscriptions_seeds"
+
+# fake notification for the demo
+Notification.create(
+  content: "Subscription confirmation email detected from 'Amazon Prime', Don`t forget to Substrack it!",
+  user: User.first
+)
