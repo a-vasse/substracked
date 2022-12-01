@@ -46,6 +46,7 @@ class SubscriptionsController < ApplicationController
       # prefill create
       @subscription = Subscription.new(subscription_params)
     end
+    @subscription.start_date = @subscription.calcuate_start_date
     @subscription.user = current_user
     authorize @subscription
     if @subscription.save

@@ -19,7 +19,6 @@
       <label class="form-label string required" for="plan_cancellation_notice">Cancellation Notice</label>
       <input class="form-control string required" type="text" name="plan[cancellation_notice]" id="plan_cancellation_notice">
     </div>
-    <%= f.input :start_date, html5: true %>
     <%= f.input :renewal_date, html5: true %>
     <%= f.input :region, collection: ["Australia", "Brazil", "France", "Germany", "Hong Kong", "Italy", "Japan", "Singapore", "United States of America", "United Kingdom"], selected: "Japan" %>
     <%= f.input :notes %>
