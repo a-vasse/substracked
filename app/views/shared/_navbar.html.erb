@@ -1,8 +1,14 @@
 <div class="navbar navbar-expand-sm navbar-light shadow-sm <%= user_signed_in? ? '' : 'sticky-top' %>" data-action="scroll@window->lp-scroll-effect#updateNavbar"
   data-lp-scroll-effect-target="navbar">
   <div class="<%= user_signed_in? ? 'container' : 'd-flex justify-content-between align-items-center w-100 px-4' %>">
-    <%= link_to subscriptions_path, class: "navbar-brand" do %>
-      <span class="text-primary">subs</span>tracked
+    <% if user_signed_in? %>
+      <%= link_to subscriptions_path, class: "navbar-brand" do %>
+        <span class="text-primary">subs</span>tracked
+      <% end %>
+    <% else %>
+      <%= link_to root_path, class: "navbar-brand" do %>
+        <span class="text-primary">subs</span>tracked
+      <% end %>
     <% end %>
     <% if user_signed_in? %>
       <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -28,6 +34,8 @@
         </ul>
       </div>
     <% end %>
-    <a href="#loginFormContainer" class="btn btn-clean text-primary p-0">Login</a>
+    <% unless user_signed_in? %>
+      <a href="#loginFormContainer" class="btn btn-clean text-primary p-0">Login</a>
+    <% end %>
   </div>
 </div>
