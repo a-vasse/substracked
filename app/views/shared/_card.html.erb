@@ -31,12 +31,24 @@
         <p><small class="mb-0 text-secondary"><%= subscription.region %></small></p>
       </div>
       <div>
-        <small><%= subscription.status ? 'Renewal on' : 'Cancelled on' %></small>
         <div class="d-flex justify-content-between align-items-end">
-          <p class="mb-0"><%= subscription.renewal_date.strftime("%d %B %Y") %></p>
-          <p class="mb-0 me-2"><%= format_price(subscription.plan.price) %></p>
-        </div>
+          <small><%= subscription.status ? 'Renewal on' : 'Cancelled on' %></small>
+          <small class="text-center">
+            <% case subscription.plan.billing_cycle %>
+            <% when 12 %>
+            <%= "annual" %>
+            <% when 1 %>
+            <%= "monthly" %>
+            <% when 0.25 %>
+            <%= "weekly" %>
+          <% end %>
+        </small>
+      </div>
+      <div class="d-flex justify-content-between align-items-end">
+        <p class="mb-0"><%= subscription.renewal_date.strftime("%d %B %Y") %></p>
+        <p class="mb-0 me-2"><%= format_price(subscription.plan.price) %></p>
       </div>
     </div>
   </div>
+</div>
 </div>
