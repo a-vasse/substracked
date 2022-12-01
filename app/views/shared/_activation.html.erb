@@ -9,15 +9,9 @@
         <p class="w-100 mb-3">
           Access your subscription on <%= subscription.plan.resource.name %> to <%= subscription.status == true ? 'cancel' : 'subscribe' %>
         </p>
-        <% if subscription.status == true %>
-          <button data-action="click->sub-button#subActions" class="btn btn-primary w-100" >Go to <%= subscription.plan.resource.name %></button>
-          <%= hidden_field_tag(:url, subscription.plan.resource.url, data: { sub_button_target: "url"}) %>
-          <%= link_to " " , ' ', data: { sub_button_target: "button", :bs_target => "#confirmSubscriptionModal#{subscription.id}", :bs_toggle => 'modal' } %>
-        <% else %>
-          <button data-action="click->sub-button#subActions" class="card add-new-button shadow m-3" ><%= subscription.plan.resource.name %></button>
-          <%= hidden_field_tag(:url, subscription.plan.resource.url, data: { sub_button_target: "url"}) %>
-          <%= link_to " " , ' ', data: { sub_button_target: "button", :bs_target => "#confirmSubscriptionModal#{subscription.id}", :bs_toggle => 'modal' } %>
-        <% end %>
+        <button data-action="click->sub-button#subActions" class="btn btn-primary w-100" >Go to <%= subscription.plan.resource.name %></button>
+        <%= hidden_field_tag(:url, subscription.plan.resource.url, data: { sub_button_target: "url"}) %>
+        <%= link_to " " , ' ', data: { sub_button_target: "button", :bs_target => "#confirmSubscriptionModal#{subscription.id}", :bs_toggle => 'modal' } %>
       </div>
     </div>
   </div>
