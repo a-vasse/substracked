@@ -8,15 +8,15 @@ class Subscription < ApplicationRecord
   scope :upcoming_yearly,
         -> {
           joins(:plan).where(
-            "EXTRACT(DOY FROM renewal_date)::int BETWEEN ? AND ? AND status = ? AND plans.billing_cycle = ?",
-            *[Date.today.yday, 1.week.from_now.yday, true, 12],
+            "renewal_date BETWEEN DATE(?) AND DATE(?) AND status = ? AND plans.billing_cycle = ?",
+            Date.today, 1.week.from_now.to_date, true, 12
           )
         }
   scope :upcoming_monthly,
         -> {
           joins(:plan).where(
-            "EXTRACT(DAY FROM renewal_date) IN (?) AND status = ? AND plans.billing_cycle = ?",
-            *[(Date.today..1.week.from_now).to_a.map(&:day), true, 1],
+            "renewal_date IN (?) AND status = ? AND plans.billing_cycle = ?",
+            Date.today..1.week.from_now.to_date, true, 1
           )
         }
   scope :upcoming, -> { upcoming_monthly.or(upcoming_yearly) }
