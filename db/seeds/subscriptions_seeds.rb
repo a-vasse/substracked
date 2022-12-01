@@ -41,7 +41,7 @@ Subscription.create!(
   plan: Plan.find_by(resource: Resource.find_by(name: "Hulu"), price: 1026),
   status: false,
   notes: "Is this note working?",
-  region: "Hongkong",
+  region: "Hong Kong",
   renewal_date: Date.iso8601("2022-12-17"),
   start_date: Date.iso8601("2021-08-17"),
 )
