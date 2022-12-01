@@ -18,3 +18,16 @@ abbr {
   text-decoration: none !important;
   color: $primary;
 }
+
+.form-switch {
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+
+  .form-check-input {
+    width: 3em;
+    height: 1.5em;
+    margin-right: 1rem;
+    margin-top: 0;
+  }
+}

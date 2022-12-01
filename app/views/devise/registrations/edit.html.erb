@@ -1,49 +1,64 @@
-<h2>Edit <%= resource_name.to_s.humanize %></h2>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email, required: true, autofocus: true %>
-
-    <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
-      <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
-    <% end %>
-
-    <%= f.input :password,
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <h1>Settings</h1>
+    </div>
+    <div class="col-7">
+      <h2>Pesonal settings</h2>
+      <p>Please make sure that all your personal information are up-to-date.</p>
+      <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+        <%= f.error_notification %>
+        <div class="form-inputs">
+          <%= f.input :email, required: true, autofocus: true %>
+          <% if devise_mapping.confirmable? && resource.pending_reconfirmation? %>
+            <p>Currently waiting confirmation for: <%= resource.unconfirmed_email %></p>
+          <% end %>
+          <%= f.input :password,
                 hint: "leave it blank if you don't want to change it",
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
+          <%= f.input :password_confirmation,
                 required: false,
                 input_html: { autocomplete: "new-password" } %>
-    <%= f.input :current_password,
+          <%= f.input :name %>
+          <%= f.input :photo, as: :file, label: "Your profile picture" %>
+          <%= f.input :current_password,
                 hint: "we need your current password to confirm your changes",
                 required: true,
                 input_html: { autocomplete: "current-password" } %>
-    <%= f.input :name %>
-    <%= f.input :photo, as: :file, label: "Your profile picture" %>
-    <h3>Notification Settings</h3>
-    <input type="checkbox" id="option1" name="option1" value="Email">
-    <label for="option1"> Email</label><br>
-    <input type="checkbox" id="option2" name="option2" value="Line">
-    <label for="option2"> Line</label><br>
-    <input type="checkbox" id="option3" name="option3" value="Telegram">
-    <label for="option3"> Telegram</label><br>
-    <input type="checkbox" id="option4" name="option3" value="SMS">
-    <label for="option4"> SMS</label><br>
+        </div>
+        <div class="form-actions d-flex justify-content-between align-items-center">
+          <%= link_to "Back", :back, class: 'btn ps-0' %>
+          <%= f.button :submit, "Update", class: 'btn btn-primary' %>
+        </div>
+      <% end %>
+    </div>
+    <div class="col-5">
+      <div class="mb-5">
+        <h2>Notification Settings</h2>
+        <p>Please choose the methods on how you want to be communicated. We only send notifications regarding your subscriptions.</p>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="notificationSwitch-1" checked>
+          <label class="form-check-label" for="notificationSwitch-1">Email</label>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="notificationSwitch-2">
+          <label class="form-check-label" for="notificationSwitch-2">SMS</label>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="notificationSwitch-3" checked>
+          <label class="form-check-label" for="notificationSwitch-3">Line</label>
+        </div>
+        <div class="form-check form-switch">
+          <input class="form-check-input" type="checkbox" role="switch" id="notificationSwitch-4">
+          <label class="form-check-label" for="notificationSwitch-4">Telegram</label>
+        </div>
+      </div>
+      <div>
+        <h2>Cancel my account</h2>
+        <p>Sorry to hear you are unhappy. We will delete your account instantly and without traces.</p>
+        <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-danger" %>
+      </div>
+    </div>
   </div>
-
-  <div class="form-actions">
-    <%= f.button :submit, "Update" %>
-  </div>
-<% end %>
-
-<h3>Cancel my account</h3>
-
-<div class="d-flex align-items-center">
-  <div>Unhappy?</div>
-  <%= button_to "Cancel my account", registration_path(resource_name), data: { confirm: "Are you sure?" }, method: :delete, class: "btn btn-link" %>
 </div>
-
-<%= link_to "Back", :back %>
