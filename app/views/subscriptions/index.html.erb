@@ -1,4 +1,3 @@
-
 <% content_for :meta_title, "Substracked - #{current_user.name}'s subscriptions" %>
 <section class="container mb-5">
   <%# Intro Section %>
@@ -65,4 +64,12 @@
       </div>
     </div>
   </div>
+</section>
+<%# Modal Section %>
+<section class="card-modals">
+  <% @subscriptions.each do |subscription| %>
+    <%= render "show", subscription: subscription %>
+    <%= render "shared/activation", subscription: subscription %>
+    <%= render "shared/confirm", subscription: subscription %>
+  <% end %>
 </section>
