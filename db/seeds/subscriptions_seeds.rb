@@ -49,10 +49,10 @@ Subscription.create!(
 Subscription.create!(
   user: User.first,
   plan: Plan.find_by(resource: Resource.find_by(name: "Disney +"), price: 990),
-  status: false,
+  status: true,
   notes: "Marvel, Marvel everywhere.",
   region: "Japan",
-  renewal_date: Date.iso8601("2022-08-17"),
+  renewal_date: Date.iso8601("2023-01-26"),
   start_date: Date.iso8601("2021-08-17"),
 )
 
@@ -62,7 +62,7 @@ Subscription.create!(
   status: true,
   notes: "",
   region: "Japan",
-  renewal_date: Date.iso8601("2023-01-17"),
+  renewal_date: Date.iso8601("2023-02-26"),
   start_date: Date.iso8601("2021-08-17"),
 )
 
@@ -72,7 +72,7 @@ Subscription.create!(
   status: false,
   notes: "Reading practice",
   region: "Japan",
-  renewal_date: Date.iso8601("2023-01-17"),
+  renewal_date: Date.iso8601("2022-06-07"),
   start_date: Date.iso8601("2021-08-17"),
 )
 
@@ -81,19 +81,19 @@ Subscription.create!(
   plan: Plan.find_by(resource: Resource.find_by(name: "Masterclass"), price: 20_400),
   status: false,
   notes: "",
-  region: "",
-  renewal_date: Date.iso8601("2023-01-17"),
+  region: "Worldwide",
+  renewal_date: Date.iso8601("2022-03-28"),
   start_date: Date.iso8601("2021-08-17"),
 )
 
 Subscription.create!(
   user: User.first,
-  plan: Plan.find_by(resource: Resource.find_by(name: "Apple TV"), price: 900),
-  status: true,
-  notes: "Something something Jason Momoa",
+  plan: Plan.find_by(resource: Resource.find_by(name: "Xbox Game Pass"), price: 850),
+  status: false,
+  notes: "Nobody plays Xbox",
   region: "Japan",
-  renewal_date: Date.iso8601("2023-01-17"),
-  start_date: Date.iso8601("2021-08-17"),
+  renewal_date: Date.iso8601("2022-08-02"),
+  start_date: Date.iso8601("2021-05-17"),
 )
 
 
