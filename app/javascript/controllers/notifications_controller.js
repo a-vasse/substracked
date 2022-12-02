@@ -1,4 +1,4 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus";
 
 // Connects to data-controller="notifications"
 export default class extends Controller {
@@ -7,31 +7,31 @@ export default class extends Controller {
   connect() {
     // console.log("Notifications connected")
     if (this.hasToastTarget) {
-      this.toastTarget.addEventListener('hide.bs.toast', () => {
+      this.toastTarget.addEventListener("hide.bs.toast", () => {
         this.markAsRead();
-      })
+      });
     }
   }
 
   markAsRead() {
-    const url = `/api/v1/notifications/${this.toastTarget.dataset.notificationId}`
+    const url = `/api/v1/notifications/${this.toastTarget.dataset.notificationId}`;
     const data = {
       notification: {
-        read: true
-      }
-    }
+        read: true,
+      },
+    };
 
     fetch(url, {
-      method: 'PATCH',
-      headers:  {
-        'Content-Type': 'application/json'
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
       },
-      body: JSON.stringify(data)
+      body: JSON.stringify(data),
     });
   }
   fetchForm() {
     console.log(this.resourceTarget.value);
-    this.resourceTarget.value = "Amazon Prime";
+    this.resourceTarget.value = "Apple TV";
     this.display();
   }
 
