@@ -9,12 +9,12 @@ export default class extends Controller {
     if (this.hasToastTarget) {
       this.toastTarget.addEventListener("hide.bs.toast", () => {
         this.markAsRead();
-      })
+      });
 
-    setTimeout(() => {
+      setTimeout(() => {
         this.toastTarget.classList.add("show");
         console.log('timeout worked')
-      }, 2000);
+      }, 3000);
     }
   }
 
