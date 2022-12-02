@@ -18,6 +18,7 @@
   font-weight: 500;
   box-shadow: 0 .5rem 1rem rgba($black, .15);
   width: 300px;
+  transition: ease-in-out opacity 1s;
 
   .btn {
     margin-top: 1rem;

@@ -20,7 +20,7 @@
     <%# end %>
     <% if @notifications %>
       <% @notifications.each do |notification| %>
-        <div class="toast show" data-notification-id="<%= notification.id %>" data-notifications-target="toast">
+        <div class="toast" data-notification-id="<%= notification.id %>" data-notifications-target="toast">
           <div class="toast-body">
             <div class="d-flex justify-content-end mb-2">
               <button type="button" class="btn-close" data-bs-dismiss="toast" aria-label="Close"></button>
