@@ -32,4 +32,4 @@ require_relative "seeds/plans_seeds"
 require_relative "seeds/subscriptions_seeds"
 
 # fake notification for the demo
-Notification.create(content: "Amazon Prime", user: User.first)
+Notification.create(content: "Apple TV", user: User.first)
