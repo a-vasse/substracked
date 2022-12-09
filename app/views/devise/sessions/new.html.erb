@@ -5,18 +5,18 @@
         <%= render "demo_cards" %>
         <%# <%= render "shared/card" subsct.stats = %>
       </div>
-      <div class="col-lg-4 col-md-6 col-12 offset-lg-1 offset-0 order-md-2 order-1 welcome-content" data-lp-scroll-effect-target="introContent" data-action="scroll@window->lp-scroll-effect#updateContent">
+      <div id="intro-welcome-container" class="welcome-content col-lg-4 col-md-6 col-12 offset-lg-1 offset-0 order-md-2 order-1 mb-md-0 mb-5" data-lp-scroll-effect-target="introContent" data-action="scroll@window->lp-scroll-effect#updateContent">
         <h1>Never lose track again</h1>
         <p>Substracked allows you to securely track and manage your online subscriptions, ensuring you are aware of those you are subscribed to and those soon to renew, saving you money on unwanted subscription renewals.</p>
         <%= link_to "Register", new_registration_path(resource_name), class: "btn btn-primary mt-3 btn-lg" %>
       </div>
     </div>
     <div id="introContent-2" class="row min-vh-100 justify-content-center align-items-center">
-      <div class="col-4 welcome-content" data-lp-scroll-effect-target="introContent" data-action="scroll@window->lp-scroll-effect#updateContent">
+      <div class="col-md-4 col-12 welcome-content" data-lp-scroll-effect-target="introContent" data-action="scroll@window->lp-scroll-effect#updateContent">
         <h1>Stay up-to-date with your expenses</h1>
         <p>Substracked keeps track of your monthly outgoings, ensuring you are in control of how much you are spending month to month.</p>
       </div>
-      <div class="col-5 offset-1">
+      <div class="col-md-5 col-12 offset-md-1 offset-0">
         <%= render 'shared/annual-chart' %>
       </div>
     </div>
