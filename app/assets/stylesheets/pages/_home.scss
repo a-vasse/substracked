@@ -36,10 +36,18 @@
 
       .demo-card-1 {
         transform: rotate3d(1, 1, 1, 15deg) translate(-10px, 20px);
+
+        @include media-breakpoint-down(md) {
+          transform: rotate3d(1, 1, 1, 15deg) translate(0, 20px) scale(.925);
+        }
       }
 
       .demo-card-3 {
         transform: rotate3d(1, 1, 1, 15deg) translate(10px, -20px);
+
+        @include media-breakpoint-down(md) {
+          transform: rotate3d(1, 1, 1, 15deg) translate(0, -20px) scale(.925);
+        }
       }
     }
   }
@@ -48,17 +56,29 @@
     transform: rotate3d(1, 1, 1, 15deg) translate(-10px, 50px);
     transition: ease-in-out transform 1s;
     z-index: 10;
+
+    @include media-breakpoint-down(md) {
+      transform: rotate3d(1, 1, 1, 15deg) translate(0, 50px) scale(.925);
+    }
   }
 
   &-2 {
     transform: rotate3d(1, 1, 1, 15deg);
     z-index: 20;
+
+    @include media-breakpoint-down(md) {
+      transform: rotate3d(1, 1, 1, 15deg) scale(.925);
+    }
   }
 
   &-3 {
     transform: rotate3d(1, 1, 1, 15deg) translate(10px, -50px);
     transition: ease-in-out transform 1s;
     z-index: 30;
+
+    @include media-breakpoint-down(md) {
+      transform: rotate3d(1, 1, 1, 15deg) translate(0, -50px) scale(.925);
+    }
   }
 
   transition: ease-in-out z-index 1s;
